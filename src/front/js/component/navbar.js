@@ -19,8 +19,12 @@ export const Navbar = () => {
 				</button>
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<div className="d-flex ms-auto">
-						<a href="#" class="btn btn-secondary my-5">Inicio Sesion</a>
-						<a href="#" class="btn btn-secondary my-5">Registrarme</a>
+						<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
+							Iniciar Sesion
+						</button>
+						<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
+							Registrarme
+						</button>
 						<div className="dropdown">
 							<button
 								className="btn btn-secondary dropdown-toggle"
