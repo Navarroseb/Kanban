@@ -101,7 +101,6 @@ Carousel.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     buttonLabel: PropTypes.string,
-    buttonLabel2: PropTypes.string,
     buttonURL: PropTypes.string,
 };
 
