@@ -60,7 +60,35 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
-			<Administradores />
+			<div className="container">
+				<div className="row">
+					<div className="col-md-3">
+						<Administradores
+							title="Nombre del Administrador"
+							description="Descripcion del Administrador"
+						/>
+					</div>
+					<div className="col-md-3">
+						<Administradores
+							title="Nombre del Administrador"
+							description="Descripcion del Administrador"
+						/>
+					</div>
+					<div className="col-md-3">
+						<Administradores
+							title="Nombre del Administrador"
+							description="Descripcion del Administrador"
+						/>
+					</div>
+					<div className="col-md-3">
+						<Administradores
+							title="Nombre del Administrador"
+							description="Descripcion del Administrador"
+						/>
+					</div>
+				</div>
+			</div>
+
 			<Visitas />
 
 		</>

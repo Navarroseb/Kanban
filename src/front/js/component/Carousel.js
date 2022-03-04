@@ -40,7 +40,7 @@ const Carousel = (props) => {
                     <div className="carousel-item active">
                         <img src={Edificio} className="d-block w-100 rounded-3" alt="..." />
                         <div className="carousel-caption d-none d-md-block text-light">
-                            <h5>{props.title}</h5>
+                            <h1>{props.title}</h1>
                             <p>{props.description}</p>
                             <a href={props.buttonURL} className="btn btn-outline-secondary">
                                 {props.buttonLabel}
@@ -50,7 +50,7 @@ const Carousel = (props) => {
                     <div className="carousel-item ">
                         <img src={Lenguaje} className="d-block w-100 rounded-3" alt="..." />
                         <div className="carousel-caption d-none d-md-block text-light">
-                            <h5>{props.title}</h5>
+                            <h1>{props.title}</h1>
                             <p>{props.description}</p>
                             <a href={props.buttonURL} className="btn btn-outline-secondary">
                                 {props.buttonLabel}
@@ -60,7 +60,7 @@ const Carousel = (props) => {
                     <div className="carousel-item">
                         <img src={Teclado} className="d-block w-100 rounded-3" alt="..." />
                         <div className="carousel-caption d-none d-md-block text-light">
-                            <h5>{props.title}</h5>
+                            <h1>{props.title}</h1>
                             <p>{props.description}</p>
                             <a href={props.buttonURL} className="btn btn-outline-secondary">
                                 {props.buttonLabel}
