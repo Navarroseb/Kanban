@@ -38,30 +38,30 @@ const Carousel = (props) => {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={Edificio} className="d-block w-100 rounded-3" alt="..." />
+                        <img src={Edificio} className="d-block w-100 rounded-3" width="500px" height="550px" />
                         <div className="carousel-caption d-none d-md-block text-light">
                             <h1>{props.title}</h1>
-                            <p>{props.description}</p>
+                            <h2>{props.description}</h2>
                             <a href={props.buttonURL} className="btn btn-outline-secondary">
                                 {props.buttonLabel}
                             </a>
                         </div>
                     </div>
                     <div className="carousel-item ">
-                        <img src={Lenguaje} className="d-block w-100 rounded-3" alt="..." />
+                        <img src={Lenguaje} className="d-block w-100 rounded-3" width="500px" height="550px" />
                         <div className="carousel-caption d-none d-md-block text-light">
                             <h1>{props.title}</h1>
-                            <p>{props.description}</p>
+                            <h2>{props.description}</h2>
                             <a href={props.buttonURL} className="btn btn-outline-secondary">
                                 {props.buttonLabel}
                             </a>
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={Teclado} className="d-block w-100 rounded-3" alt="..." />
+                        <img src={Teclado} className="d-block w-100 rounded-3" width="500px" height="550px" />
                         <div className="carousel-caption d-none d-md-block text-light">
                             <h1>{props.title}</h1>
-                            <p>{props.description}</p>
+                            <h2>{props.description}</h2>
                             <a href={props.buttonURL} className="btn btn-outline-secondary">
                                 {props.buttonLabel}
                             </a>

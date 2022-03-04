@@ -7,7 +7,7 @@ const Administradores = (props) => {
         <>
             <div className="container">
                 <div className="row d-flex m-auto gap-3">
-                    <img src={Rigo} className="img-fluid rounded-circle" />
+                    <img src={Rigo} className="img rounded-circle" />
                     <div className="card-body">
                         <h5 className="card-title text-light">{props.title}</h5>
                         <p className="card-text text-light">{props.description}</p>
