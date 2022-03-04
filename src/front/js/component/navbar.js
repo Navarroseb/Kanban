@@ -2,7 +2,7 @@ import React from "react";
 export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-black">
-			<div className="container-fluid">
+			<div className="container">
 				<a className="navbar-brand" href="#">
 					<img className="img-fluid" src="" height="" width="" />
 				</a>
@@ -36,7 +36,7 @@ export const Navbar = () => {
 								Favorites
 							</button>
 							<ul
-								className="dropdown-menu dropdown-menu-end"
+								className="dropdown-menu"
 								aria-labelledby="dropdownMenuButton1"
 							>
 								<li>

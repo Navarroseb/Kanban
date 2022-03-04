@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 const Card = (props) => {
     return (
         <>
-            <div className="card py-5">
-                <div className="card d-flex m-auto gap-3 animate__animated animate__zoomIn">
+            <div className="card-header">
+                <div className="card d-flex m-auto gap-3">
                     <img src={Desarrollador} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{props.title}</h5>

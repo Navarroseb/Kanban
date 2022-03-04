@@ -1,7 +1,25 @@
-/*
-    home.css: This website contains selectors only used in home.css
+.container {
+  width: 100%;
+  display: flex;
+  max-width: 1100px;
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+.card {
+  width: 100%;
+  margin: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0px 1px 10px black;
+  cursor: default;
+  transition: all 400ms ease;
+}
+
+.card:hover {
+  box-shadow: 10px 10px 30px black;
+  transform: translateY(-3%);
+}
+
+.container-card {
+  padding: 15px;
+  text-align: center;
+}
