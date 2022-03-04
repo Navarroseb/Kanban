@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Edificio from "../../img/edificiochip.jpg";
-import Lenguaje from "../../img/lenguaje.jpg";
-import Teclado from "../../img/teclado.jpg";
+import Imagen1 from "../../img/fondos-web.jpg";
+import Imagen2 from "../../img/foto2.jpg";
+import Imagen3 from "../../img/teclado1.jpg";
 
 
 const Carousel = (props) => {
@@ -11,7 +11,6 @@ const Carousel = (props) => {
             <div
                 id="carouselExampleCaptions"
                 className="carousel slide py-3"
-                className="carousel slide py-5"
                 data-bs-ride="carousel"
             >
                 <div className="carousel-indicators">
@@ -38,30 +37,30 @@ const Carousel = (props) => {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={Edificio} className="d-block w-100 rounded-3" width="500px" height="550px" />
-                        <div className="carousel-caption d-none d-md-block text-light">
-                            <h1>{props.title}</h1>
-                            <h2>{props.description}</h2>
+                        <img src={Imagen1} className="d-block w-100 rounded-3" width="450px" height="650px" />
+                        <div className="carousel-caption d-none d-md-block text-black">
+                            <h1 className="titulo text-end">{props.title}</h1>
+                            <h5 className="descripcion text-end">{props.description}</h5>
                             <a href={props.buttonURL} className="btn btn-outline-secondary">
                                 {props.buttonLabel}
                             </a>
                         </div>
                     </div>
                     <div className="carousel-item ">
-                        <img src={Lenguaje} className="d-block w-100 rounded-3" width="500px" height="550px" />
-                        <div className="carousel-caption d-none d-md-block text-light">
-                            <h1>{props.title}</h1>
-                            <h2>{props.description}</h2>
+                        <img src={Imagen2} className="d-block w-100 rounded-3" width="450px" height="650px" />
+                        <div className="carousel-caption d-none d-md-block text-black">
+                            <h1 className="titulo text-start">{props.title}</h1>
+                            <h5 className="descripcion text-start">{props.description}</h5>
                             <a href={props.buttonURL} className="btn btn-outline-secondary">
                                 {props.buttonLabel}
                             </a>
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={Teclado} className="d-block w-100 rounded-3" width="500px" height="550px" />
+                        <img src={Imagen3} className="d-block w-100 rounded-3" width="450px" height="650px" />
                         <div className="carousel-caption d-none d-md-block text-light">
-                            <h1>{props.title}</h1>
-                            <h2>{props.description}</h2>
+                            <h1 className="titulo">{props.title}</h1>
+                            <h5 className="descripcion">{props.description}</h5>
                             <a href={props.buttonURL} className="btn btn-outline-secondary">
                                 {props.buttonLabel}
                             </a>

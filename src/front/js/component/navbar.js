@@ -2,8 +2,8 @@ import React from "react";
 export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-black">
-			<div className="container">
-				<a className="navbar-brand" href="#">
+			<div className="container py-2">
+				<a className="navbar-brand " href="#">
 					<img className="" src="" height="" width="" />
 				</a>
 				<button
@@ -19,10 +19,10 @@ export const Navbar = () => {
 				</button>
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<div className="d-flex ms-auto">
-						<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
+						<button type="button" className="btn btn-secondary " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
 							Iniciar Sesion
 						</button>
-						<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
+						<button type="button" className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
 							Registrarme
 						</button>
 						<div className="dropdown">
