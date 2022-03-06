@@ -1,27 +1,13 @@
 import React from "react";
 
-export const Breadcrum = () => {
+const Breadcrum = () => {
     return (
         <>
             <div className="container">
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
-                        <li className="breadcrumb-item active" aria-current="page">Home</li>
-                    </ol>
-                </nav>
-
-                <nav aria-label="breadcrumb">
-                    <ol className="breadcrumb">
-                        <li className="breadcrumb-item"><a href="#">Home</a></li>
-                        <li className="breadcrumb-item active" aria-current="page">Library</li>
-                    </ol>
-                </nav>
-
-                <nav aria-label="breadcrumb">
-                    <ol className="breadcrumb">
-                        <li className="breadcrumb-item"><a href="#">Home</a></li>
-                        <li className="breadcrumb-item"><a href="#">Library</a></li>
-                        <li className="breadcrumb-item active" aria-current="page">Data</li>
+                        <li className="breadcrumb-item text-white"><a href="#">Home</a></li>
+                        <li className="breadcrumb-item active text-white" aria-current="page">Perfil Profesional</li>
                     </ol>
                 </nav>
             </div>
