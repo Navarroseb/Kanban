@@ -11,6 +11,7 @@
   box-shadow: 0px 1px 10px black;
   cursor: default;
   transition: all 400ms ease;
+  padding: inherit;
 }
 
 .card:hover {

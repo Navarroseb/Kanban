@@ -1,16 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Rigo from "../../img/rigo-baby.jpg"
+
 
 const Administradores = (props) => {
     return (
         <>
             <div className="container">
-                <div className="row d-flex m-auto gap-3">
-                    <img src={Rigo} className="img rounded-circle" />
-                    <div className="card-body">
-                        <h5 className="card-title text-light">{props.title}</h5>
-                        <p className="card-text text-light">{props.description}</p>
+                <div className="card mb-3 bg-black">
+                    <div className="row g-0">
+                        <div className="col-md-4">
+                            <img src="https://horizonterm.blob.core.windows.net.optimalcdn.com/images/2022/02/24/anonymus-rusia-focus-0-0-955-636.jpg" className="img-fluid rounded-circule" alt="..." />
+                        </div>
+                        <div className="col-md-8">
+                            <div className="card-body text-center">
+                                <h3 className="card-title">{props.title}</h3>
+                                <h5 className="card-title py-1">{props.title2}</h5>
+                                <p className="card-text">
+                                    {props.description}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -37,7 +37,7 @@ const Carousel = (props) => {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={Imagen1} className="d-block w-100 rounded-3" width="450px" height="650px" />
+                        <img src={Imagen1} className="d-block w-100 rounded-3" />
                         <div className="carousel-caption d-none d-md-block text-black">
                             <h1 className="titulo text-end">{props.title}</h1>
                             <h5 className="descripcion text-end">{props.description}</h5>
@@ -47,7 +47,7 @@ const Carousel = (props) => {
                         </div>
                     </div>
                     <div className="carousel-item ">
-                        <img src={Imagen2} className="d-block w-100 rounded-3" width="450px" height="650px" />
+                        <img src={Imagen2} className="d-block w-100 rounded-3" />
                         <div className="carousel-caption d-none d-md-block text-black">
                             <h1 className="titulo text-start">{props.title}</h1>
                             <h5 className="descripcion text-start">{props.description}</h5>
@@ -56,8 +56,8 @@ const Carousel = (props) => {
                             </a>
                         </div>
                     </div>
-                    <div className="carousel-item">
-                        <img src={Imagen3} className="d-block w-100 rounded-3" width="450px" height="650px" />
+                    <div className="carousel-item ">
+                        <img src="https://p4.wallpaperbetter.com/wallpaper/122/85/216/geek-programmer-black-background-wallpaper-preview.jpg" className="d-block w-100 rounded-3" />
                         <div className="carousel-caption d-none d-md-block text-light">
                             <h1 className="titulo">{props.title}</h1>
                             <h5 className="descripcion">{props.description}</h5>
