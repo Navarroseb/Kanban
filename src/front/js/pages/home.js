@@ -5,7 +5,7 @@ import "../../styles/home.css";
 import Breadcrum from "../component/Breadcrum";
 import Card from "../component/Cards";
 import Service from "../component/Service";
-/* import Work from "../component/Works"; */
+import Work from "../component/Works";
 
 
 
@@ -31,25 +31,31 @@ export const Home = () => {
 			<section id="body-1">
 				<div className="container">
 					<div className="row">
-						<div className="col-md-6 text-center" id="service-1">
+						<div className="col-md-6" id="service-1">
 							<Service
 								title="Servicios"
-								description="“Ser Full Stack Developer no implica dominar por completo cada aspecto del front-end o el back-end, pero sí poder trabajar en ambos lados, comunicarlos y entender lo que sucede cuando se crea una aplicación”"
+								description="Personalización del diseño"
+								description2="Carga de contenido"
+								description3="Diseño de respuesta"
+								description4="Incluir código fuente"
+								description5=""
 							/>
 						</div>
-						<div className="col-md-6 text-center" id="service-2">
+						<div className="col-md-6" id="service-2">
 							<Service
-								title="Años de experiencia"
+								title="Experiencia"
 								description="“Ser Full Stack Developer no implica dominar por completo cada aspecto del front-end o el back-end, pero sí poder trabajar en ambos lados, comunicarlos y entender lo que sucede cuando se crea una aplicación”"
+
+
 							/>
 						</div>
-						<div className="col-md-6 text-center py-5" id="service-3">
+						<div className="col-md-6" id="service-3">
 							<Service
 								title="Mis Habilidad"
 								description="“Ser Full Stack Developer no implica dominar por completo cada aspecto del front-end o el back-end, pero sí poder trabajar en ambos lados, comunicarlos y entender lo que sucede cuando se crea una aplicación”"
 							/>
 						</div>
-						<div className="col-md-6 text-center py-5" id="service-4">
+						<div className="col-md-6" id="service-4">
 							<Service
 								title="Mis Portafolios"
 								description="“Ser Full Stack Developer no implica dominar por completo cada aspecto del front-end o el back-end, pero sí poder trabajar en ambos lados, comunicarlos y entender lo que sucede cuando se crea una aplicación”"
@@ -58,13 +64,13 @@ export const Home = () => {
 					</div>
 				</div>
 			</section>
-			{/* <section id="body-2">
+			<section id="body-2">
 				<div className="container">
 					<Work
 						title="Mis Trabajos"
 					/>
 				</div>
-			</section> */}
+			</section>
 		</>
 	);
 };

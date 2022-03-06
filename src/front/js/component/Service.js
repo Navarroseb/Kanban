@@ -8,9 +8,13 @@ const Service = (props) => {
         <>
             <div className="card-header">
                 <div className="card d-flex m-auto gap-3">
-                    <div className="card-body">
-                        <h5 className="card-title">{props.title}</h5>
+                    <div className="card-body text-center">
+                        <h3 className="card-title">{props.title}</h3>
                         <p className="card-text">{props.description}</p>
+                        <p className="card-text">{props.description2}</p>
+                        <p className="card-text">{props.description3}</p>
+                        <p className="card-text">{props.description4}</p>
+                        <p className="card-text">{props.description5}</p>
                     </div>
                 </div>
             </div>
@@ -21,6 +25,10 @@ const Service = (props) => {
 Service.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
+    description2: PropTypes.string,
+    description3: PropTypes.string,
+    description4: PropTypes.string,
+    description5: PropTypes.string,
 };
 
 export default Service;
