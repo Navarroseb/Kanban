@@ -194,8 +194,9 @@ export const RegistroProfesionales = (props) => {
                 </div>
                 <div>
                     <label htmlFor="herramientas">Herramientas que domina:</label>
-                    <input
-                        type="text-area"
+                    <textarea
+                        rows="5"
+                        type="text"
                         name="herramientas"
                         placeholder="Señale las herramientas que domina..."
                         id="herramientas"

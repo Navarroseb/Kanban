@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #070707;
+  background: black;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -45,18 +45,32 @@ body {
 }
 
 .formulario {
+  background-image: radial-gradient(
+    circle at 68.3% -18.3%,
+    #eee7ff 0,
+    #d3cefb 25%,
+    #b5b5f2 50%,
+    #939ee9 75%,
+    #6a89e1 100%
+  );
   width: 600px;
   margin-top: 50px;
-  background: #fff;
   border-radius: 5px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .formulario2 {
+  background-image: radial-gradient(
+    circle at 68.3% -18.3%,
+    #eee7ff 0,
+    #d3cefb 25%,
+    #b5b5f2 50%,
+    #939ee9 75%,
+    #6a89e1 100%
+  );
   width: 600px;
   margin-top: 50px;
   margin-left: 50px;
-  background: #fff;
   border-radius: 5px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
