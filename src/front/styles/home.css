@@ -5,3 +5,9 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+#info_cliente {
+  padding-top: 20px;
+}
+#vista_cliente {
+  margin-top: 50px;
+}
