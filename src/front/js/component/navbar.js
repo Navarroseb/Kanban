@@ -1,11 +1,18 @@
 import React from "react";
+import Imagen1 from "../../img/3w.png"
 export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-black">
 			<div className="container py-2">
 				<a className="navbar-brand " href="#">
-					<img className="" src="" height="" width="" />
+					<img className="imagen imagen d-flex align-items-center" src={Imagen1} height="85" width="90" />
 				</a>
+				<button type="button" className="btn btn-secondary " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
+					Iniciar Sesion
+				</button>
+				<button type="button" className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
+					Registrarme
+				</button>
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -19,12 +26,6 @@ export const Navbar = () => {
 				</button>
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<div className="d-flex ms-auto">
-						<button type="button" className="btn btn-secondary " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
-							Iniciar Sesion
-						</button>
-						<button type="button" className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
-							Registrarme
-						</button>
 						<div className="dropdown">
 							<button
 								className="btn btn-secondary dropdown-toggle"
