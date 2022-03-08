@@ -60,12 +60,12 @@ export const RegistroClientes = (props) => {
                 </div>
 
                 <div>
-                    <label htmlFor="rut">Rut</label>
+                    <label htmlFor="rut2">Rut</label>
                     <input
                         type="number"
-                        name="rut"
+                        name="rut2"
                         placeholder="Rut"
-                        id="Rut"
+                        id="Rut2"
                         value={inputRut}
                         onChange={handleInputRut}
                     />
@@ -75,9 +75,8 @@ export const RegistroClientes = (props) => {
                     <label htmlFor="foto del rut">Foto del Rut</label>
                     <input
                         type="file"
-                        name="rut"
-                        placeholder="Rut"
-                        id="Rut"
+                        name="rut3"
+                        id="Rut3"
                         value={inputFotodelRut}
                         onChange={handleInputFotodelRut}
                     />

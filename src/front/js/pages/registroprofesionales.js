@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import PropTypes from "prop-types";
-import { Context } from "../store/appContext";
+//import PropTypes from "prop-types";
+//import { Context } from "../store/appContext";
 import img1 from "../../img/img1.jpg";
 import img2 from "../../img/img2.jpg";
+import { number } from "prop-types";
 
 
-export const RegistroProfesionales = (props) => {
-    const [inputNombre, cambiarInputNombre] = useState('');
+export const RegistroProfesionales = () => {
+    const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
+    /* //const [inputNombre, cambiarInputNombre] = useState('');
     const [inputRut, cambiarInputRut] = useState('');
     const [inputFotodelRut, cambiarInputFotodelRut] = useState('');
     const [inputCorreo, cambiarInputCorreo] = useState('');
@@ -18,7 +20,7 @@ export const RegistroProfesionales = (props) => {
     const [inputnombre_institución, cambiarInputnombre_institución] = useState('');
     const [inputcertificado, cambiarInputcertificado] = useState('');
     const [inputgithubuser, cambiarInputgithubuser] = useState('');
-    const [inputHerramientas, cambiarInputHerramientas] = useState('');
+    const [inputHerramientas, cambiarInputHerramientas] = useState(''); */
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,8 +28,8 @@ export const RegistroProfesionales = (props) => {
     }
 
     // Funcion que se encarga de cambiar el estado del inputNombre
-    const handleInputNombre = (e) => { cambiarInputNombre(e.target.value); }
-    const handleInputRut = (e) => { cambiarInputRut(e.target.value); }
+    //const handleInputNombre = (e) => { cambiarInputNombre(e.target.value); }
+    /* const handleInputRut = (e) => { cambiarInputRut(e.target.value); }
     const handleInputFotodelRut = (e) => { cambiarInputFotodelRut(e.target.value); }
     const handleInputCorreo = (e) => { cambiarInputCorreo(e.target.value); }
     const handleInputContraseña = (e) => { cambiarInputContraseña(e.target.value); }
@@ -36,91 +38,119 @@ export const RegistroProfesionales = (props) => {
     const handleInputnombre_institución = (e) => { cambiarInputnombre_institución(e.target.value); }
     const handleInputcertificado = (e) => { cambiarInputcertificado(e.target.value); }
     const handleInputgithubuser = (e) => { cambiarInputgithubuser(e.target.value); }
-    const handleInputHerramientas = (e) => { cambiarInputHerramientas(e.target.value); }
+    const handleInputHerramientas = (e) => { cambiarInputHerramientas(e.target.value); } */
 
     return (
         <div className="RegistroProfesionales">
             <Formik
-                onSubmit={() => {
+                initialValues={{
+                    nombre: '',
+                    rut: '',
+                    correo: '',
+                    contraseña: '',
+                    dirección: '',
+                    región: '',
+                    ciudad: '',
+                }}
+                validate={(valores) => {
+                    let errores = {};
 
+                    if (!valores.nombre) {
+                        errores.nombre = 'Ingresa un nombre'
+                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)) {
+                        errores.nombre = 'Ingresa un nombre'
+                    }
+
+                    if (!valores.rut) {
+                        errores.rut = 'Ingresa tu Rut'
+                    } else if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test(valores.rut)) {
+                        errores.rut = 'Ingresa un formato valido'
+                    }
+
+                    if (!valores.correo) {
+                        errores.correo = 'Ingresa tu Correo'
+                    } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.correo)) {
+                        errores.correo = 'Ingresa un correo valido'
+                    }
+
+                    if (!valores.contraseña) {
+                        errores.contraseña = 'Ingresa contraseña'
+                    } else if (!/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]).{8,32}$/.test(valores.contraseña)) {
+                        errores.contraseña = 'Al menos un número entre [0-9], al menos una letra minuscula, al menos una letra mayuscula, al menos un simbolo [*.!@#$%^&(){}[], que tenga entre 8 y 32 caracteres'
+                    }
+                    ///^(?=.*d)(?=.*[[email protected]#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+                    return errores;
 
                 }}
 
-
             >
-                {() => (
-                    <form action="" onSubmit={handleSubmit} className="formulario">
+                {({ errors, touched }) => (
+                    <Form className="formulario" >
+                        {console.log(touched)}
                         <h1>Registro para profesionales</h1>
                         <h2>Datos personales</h2>
                         <div>
                             <label htmlFor="nombre">Nombre y Apellido</label>
-                            <input
+                            <Field
                                 type="text"
                                 name="nombre"
                                 placeholder="Nombre y Apellido"
                                 id="nombre"
-                                value={inputNombre}
-                                onChange={handleInputNombre}
                             />
+                            <ErrorMessage name="nombre" component={() => (<div className="error">{errors.nombre}</div>)} />
+
                         </div>
                         <div>
                             <label htmlFor="rut">Rut</label>
-                            <input
-                                type="number"
+                            <Field
+                                type="text"
                                 name="rut"
-                                placeholder="Rut"
+                                placeholder="Rut formato: 11111111-1"
                                 id="Rut"
-                                value={inputRut}
-                                onChange={handleInputRut}
                             />
+                            <ErrorMessage name="rut" component={() => (<div className="error">{errors.rut}</div>)} />
                         </div>
                         <div>
                             <label htmlFor="foto del rut">Foto del Rut</label>
-                            <input
+                            <Field
                                 type="file"
-                                name="rut"
-                                placeholder="Rut"
-                                id="Rut"
-                                value={inputFotodelRut}
-                                onChange={handleInputFotodelRut}
+                                name="fotorut"
+                                id="fotoRut"
                             />
+                            <ErrorMessage name="rut" component={() => (<div className="error">{errors.rut}</div>)} />
                         </div>
                         <div>
                             <label htmlFor="correo">Correo</label>
-                            <input
+                            <Field
                                 type="text"
                                 name="correo"
-                                placeholder="Correo"
+                                placeholder="Correo@correo.com"
                                 id="correo"
-                                value={inputCorreo}
-                                onChange={handleInputCorreo}
                             />
+                            <ErrorMessage name="correo" component={() => (<div className="error">{errors.correo}</div>)} />
                         </div>
                         <div>
                             <label htmlFor="constraseña">Contraseña</label>
-                            <input
+                            <Field
                                 type="password"
                                 name="contraseña"
                                 placeholder="Contraseña"
                                 id="contraseña"
-                                value={inputContraseña}
-                                onChange={handleInputContraseña}
                             />
+                            <ErrorMessage name="contraseña" component={() => (<div className="error">{errors.contraseña}</div>)} />
                         </div>
                         <div>
-                            <label htmlFor="dirección">Dirección</label>
-                            <input
+                            <label htmlFor="dirección">Dirección (Opcional)</label>
+                            <Field
                                 type="text"
                                 name="dirección"
                                 placeholder="Calle, Villa, Número, Depto. Block"
                                 id="dirección"
-                                value={inputDirección}
-                                onChange={handleInputDirección}
                             />
                         </div>
                         <div>
                             <label htmlFor="región">Región:</label>
-                            <select>
+                            <Field name="región" as="select">
                                 <option value="0">Seleccionar una opción</option>
                                 <option value="1">Arica y Parinacota</option>
                                 <option value="2">Tarapacá</option>
@@ -138,74 +168,95 @@ export const RegistroProfesionales = (props) => {
                                 <option value="14">Los Lagos</option>
                                 <option value="15">Aysén del General Carlos Ibañez del Campo</option>
                                 <option value="16">Magallanes y de la Antártica Chilena</option>
-                            </select>
+                            </Field>
+                            <ErrorMessage name="región" component={() => (<div className="error">{errors.región}</div>)} />
                         </div>
                         <div>
                             <label htmlFor="ciudad">Ciudad</label>
-                            <input
+                            <Field
                                 type="text"
                                 name="ciudad"
                                 placeholder="Ciudad"
                                 id="Ciudad"
-                                value={inputCiudad}
-                                onChange={handleInputCiudad}
                             />
+                            <ErrorMessage name="ciudad" component={() => (<div className="error">{errors.ciudad}</div>)} />
                         </div>
-                    </form>
+                    </Form>
                 )}
             </Formik>
             <img className="image1" src={img1} />
             <img className="image2" src={img2} />
 
-            <form action="" onSubmit={handleSubmit} className="formulario2">
-                <h2>Datos profesionales</h2>
-                <div>
-                    <label htmlFor="nombre_institución">Nombre de Instituto, Universidad o Plataforma</label>
-                    <input
-                        type="text"
-                        name="nombre_institución"
-                        placeholder="Nombre de Instituto, Universidad o Plataforma"
-                        id="nombre_institución"
-                        value={inputnombre_institución}
-                        onChange={handleInputnombre_institución}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="certificado">Título o certificado</label>
-                    <input
-                        type="file"
-                        name="certificado"
-                        placeholder=""
-                        id="certificado"
-                        value={inputcertificado}
-                        onChange={handleInputcertificado}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="githubuser">Username de Github</label>
-                    <input
-                        type="text"
-                        name="githubuser"
-                        placeholder="Usuario de Github"
-                        id="githubuser"
-                        value={inputgithubuser}
-                        onChange={handleInputgithubuser}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="herramientas">Herramientas que domina:</label>
-                    <textarea
-                        rows="5"
-                        type="text"
-                        name="herramientas"
-                        placeholder="Señale las herramientas que domina..."
-                        id="herramientas"
-                        value={inputHerramientas}
-                        onChange={handleInputHerramientas}
-                    />
-                </div>
-                <button type="submit">Enviar</button>
-            </form>
+            <Formik
+                initialValues={{
+                    nombre_institución: '',
+                    githubuser: '',
+                    herramientas: '',
+
+                }}
+                validate={(valores) => {
+                    let errores = {};
+
+                    if (!valores.nombre) {
+                        errores.nombre = 'Ingresa un nombre'
+                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)) {
+                        errores.nombre = 'Ingresa un nombre'
+                    }
+                    return errores;
+                }}
+                onSubmit={(valores, { resetForm }) => {
+                    resetForm();
+                    console.log(valores)//Llamar a una API para enviar valores
+                    cambiarFormularioEnviado(true);
+                    setTimeout(() => cambiarFormularioEnviado(false), 5000);
+                }}
+
+
+            >
+
+                <Form action="" onSubmit={handleSubmit} className="formulario2">
+                    <h2>Datos profesionales</h2>
+                    <div>
+                        <label htmlFor="nombre_institución">Nombre de Instituto, Universidad o Plataforma</label>
+                        <Field
+                            type="text"
+                            name="nombre_institución"
+                            placeholder="Nombre de Instituto, Universidad o Plataforma"
+                            id="nombre_institución"
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="certificado">Título o certificado</label>
+                        <Field
+                            type="file"
+                            name="certificado"
+                            placeholder=""
+                            id="certificado"
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="githubuser">Username de Github</label>
+                        <Field
+                            type="text"
+                            name="githubuser"
+                            placeholder="Usuario de Github"
+                            id="githubuser"
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="herramientas">Herramientas que domina:</label>
+                        <Field as="textarea"
+                            rows="5"
+                            type="text"
+                            name="herramientas"
+                            placeholder="Señale las herramientas que domina..."
+                            id="herramientas"
+                        />
+                    </div>
+                    <button type="submit">Enviar</button>
+                    {formularioEnviado && <p className="exito">Formulario enviado exitosamente!</p>}
+                </Form>
+            </Formik>
         </div>
 
 
