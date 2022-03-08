@@ -6,6 +6,7 @@ import Breadcrum from "../component/Breadcrum";
 import Card from "../component/Cards";
 import Service from "../component/Service";
 import Work from "../component/Works";
+import Comment from "../component/Comment";
 
 
 
@@ -22,13 +23,16 @@ export const Home = () => {
 							<Card
 								title="Ricardo Hurtado Lastra"
 								title2="Biografia"
+								title3="Deja tu clasificación"
+								buttonLabel="Clasificar"
+								buttonLabel2="Cerrar"
 								description="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
 							/>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section id="body-1">
+			<section id="servicios">
 				<div className="container">
 					<div className="row">
 						<div className="col-md-6" id="service-1">
@@ -64,10 +68,20 @@ export const Home = () => {
 					</div>
 				</div>
 			</section>
-			<section id="body-2">
+			<section id="mis-trabajos">
 				<div className="container">
 					<Work
 						title="Mis Trabajos"
+					/>
+				</div>
+			</section>
+			<section id="comentarios">
+				<div className="container">
+					<Comment
+						title=""
+						description="Gracias por dejarnos tu comentario."
+						buttonlabel="Enviar comentario"
+						buttonlabel2="Cerrar"
 					/>
 				</div>
 			</section>
