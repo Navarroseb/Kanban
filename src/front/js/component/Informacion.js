@@ -6,20 +6,13 @@ const Informacion = (props) => {
     return (
         <>
             <div className="container">
-                <div className="card mb-3">
-                    <div className="row g-0">
-                        <div className="col-md-4">
-                            <img src="https://i.imgur.com/zl9o3Yx.jpeg" className="img-fluid py-5" alt="..." />
-                        </div>
-                        <div className="col-md-8">
-                            <div className="card-body">
-                                <h3 className="card-title text-center">{props.title}</h3>
-                                <p className="card-text py-5">
-                                    {props.description}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <div className="jumbotron">
+                    <img src="https://i.imgur.com/zl9o3Yx.jpeg" className="img py-5 img Rounded" alt="..." />
+                    <h1 className="display-4 text-white text-center">{props.title}</h1>
+                    <p className="lead text-white">
+                        {props.description}
+                    </p>
+                    <hr className="my-4 bg-white" />
                 </div>
             </div>
         </>
@@ -32,3 +25,22 @@ Informacion.propTypes = {
 };
 
 export default Informacion;
+
+
+{/* <div className="container">
+    <div className="card mb-3">
+        <div className="row g-0">
+            <div className="col-md-4">
+                <img src="https://i.imgur.com/zl9o3Yx.jpeg" className="img-fluid py-5" alt="..." />
+            </div>
+            <div className="col-md-8">
+                <div className="card-body">
+                    <h3 className="card-title text-center"></h3>
+                    <p className="card-text py-5">
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> */}

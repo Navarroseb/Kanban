@@ -3,16 +3,12 @@ import Imagen1 from "../../img/3w.png"
 export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-black">
+			<img className="imagen " src={Imagen1} height="85" width="90" />
+			<a className="nav-link text-white" aria-current="page" href="#">Iniciar Sesion</a>
+			<a className="nav-link text-white" aria-current="page" href="#">Registrarme</a>
 			<div className="container py-2">
 				<a className="navbar-brand " href="#">
-					<img className="imagen imagen d-flex align-items-center" src={Imagen1} height="85" width="90" />
 				</a>
-				<button type="button" className="btn btn-secondary " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
-					Iniciar Sesion
-				</button>
-				<button type="button" className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
-					Registrarme
-				</button>
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -34,7 +30,7 @@ export const Navbar = () => {
 								data-bs-toggle="dropdown"
 								aria-expanded="false"
 							>
-								Favorites
+								Menu
 							</button>
 							<ul
 								className="dropdown-menu"
@@ -47,12 +43,12 @@ export const Navbar = () => {
 								</li>
 								<li>
 									<a className="dropdown-item" href="#">
-										Desarrolladores
+										Profesionales
 									</a>
 								</li>
 								<li>
 									<a className="dropdown-item" href="#">
-										Sobre Nosotros
+										Administradores
 									</a>
 								</li>
 								<li>
