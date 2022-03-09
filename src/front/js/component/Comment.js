@@ -29,14 +29,13 @@ const Comment = (props) => {
                             >
                                 {props.buttonlabel}
                             </button>
-
                         </div>
                     </div>
                 </div>
             </div>
             <div
-                className="modal fade"
-                id="exampleModal"
+                className="modal fade2"
+                id="exampleModal2"
                 tabIndex={-1}
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
@@ -44,25 +43,9 @@ const Comment = (props) => {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">
-                            </h5>
-                            <button
-                                type="button"
-                                className="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                            />
+
                         </div>
-                        <div className="modal-body">{props.description}</div>
-                        <div className="modal-footer">
-                            <button
-                                type="button"
-                                className="btn btn-secondary"
-                                data-bs-dismiss="modal"
-                            >
-                                {props.buttonlabel2}
-                            </button>
-                        </div>
+                        <div className="modal-body px-5 bg-secondary text-white">{props.description}</div>
                     </div>
                 </div>
             </div>

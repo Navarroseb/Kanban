@@ -10,7 +10,7 @@ import Comment from "../component/Comment";
 
 
 
-export const Home = () => {
+export const Home1 = () => {
 	return (
 		<>
 			<section id="header">
@@ -25,7 +25,6 @@ export const Home = () => {
 								title2="Biografia"
 								title3="Deja tu clasificación"
 								buttonLabel="Calificar"
-								buttonLabel2="Cerrar"
 								description="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
 								description2="Muchas gracias por calificar a nuestro Profesional"
 							/>
@@ -82,7 +81,6 @@ export const Home = () => {
 						title="Dejame tu comentario"
 						description="Gracias por dejarnos tu comentario."
 						buttonlabel="Enviar comentario"
-						buttonlabel2="Cerrar"
 					/>
 				</div>
 			</section>

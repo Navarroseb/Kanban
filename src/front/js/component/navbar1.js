@@ -2,7 +2,7 @@ import React from "react";
 import Imagen1 from "../../img/3w.png"
 
 
-export const Navbar = () => {
+export const Navbar1 = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-black">
 			<img className="imagen d-flex justify-content-center " src={Imagen1} height="85" width="90" />
