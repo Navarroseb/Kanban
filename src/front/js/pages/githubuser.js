@@ -5,19 +5,20 @@ async function checkUserGithub(githubuser) {
         const data = await resp.json()
         if (data.message) {
             console.log("the username not found!");
+            return false
         } else {
             console.log("Username is corrected!");
+            return true
         }
+
     } catch (error) {
         console.log("Error:", error);
+        return false
+
     }
+
 }
-let form = document.querySelector('form');
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-})
-let username = document.querySelector('#username');
-username.addEventListener('blur', (event) => {
-    const { value } = event.target;
-    checkUserGithub(value);
-})
+
+
+
+export default checkUserGithub;

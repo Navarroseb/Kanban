@@ -6,6 +6,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import img1 from "../../img/img1.jpg";
 import img2 from "../../img/img2.jpg";
 import { number } from "prop-types";
+import checkUserGithub from "./githubuser"
 
 
 export const RegistroProfesionales = () => {
@@ -211,7 +212,7 @@ export const RegistroProfesionales = () => {
                     herramientas: '',
 
                 }}
-                validate={(valores) => {
+                validate={async (valores) => {
                     let errores = {};
 
                     if (!valores.nombre_institución) {
@@ -230,8 +231,13 @@ export const RegistroProfesionales = () => {
                         errores.githubuser = 'Campo no puede estar vacio'
                     } else if (!/^[a-zA-Z0-9_.+-]{1,40}$/.test(valores.githubuser)) {
                         errores.githubuser = 'Ingresa tu usuario'
+                    } else if (!await checkUserGithub(valores.githubuser)) {
+                        errores.githubuser = 'Usuario incorrecto'
+                        console.log(valores.githubuser)
+                    } else if (await checkUserGithub(valores.githubuser)) {
+                        errores.githubuser = 'Usuario correcto'
+                        console.log(valores.githubuser)
                     }
-
                     if (!valores.herramientas) {
                         errores.herramientas = 'Campo no puede estar vacio'
                     }
@@ -272,12 +278,14 @@ export const RegistroProfesionales = () => {
                         <div>
                             <label htmlFor="githubuser">Username de Github</label>
                             <Field
+                                //onBlur={(e) => checkUserGithub(e.target.value)}
                                 type="text"
                                 name="githubuser"
                                 placeholder="Usuario de Github"
                                 id="githubuser"
                             />
                             <ErrorMessage name="githubuser" component={() => (<div className="error">{errors.githubuser}</div>)} />
+
                         </div>
                         <div>
                             <label htmlFor="herramientas">Herramientas que domina:</label>
