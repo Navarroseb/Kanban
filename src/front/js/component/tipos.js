@@ -7,7 +7,7 @@ const Tipos = (props) => {
     return (
         <>
             <div className="card-header">
-                <div className="card d-flex m-auto gap-3">
+                <div className="card d-flex m-auto gap-3" id="tipos-card">
                     <img src={Desarrollador} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{props.title}</h5>
