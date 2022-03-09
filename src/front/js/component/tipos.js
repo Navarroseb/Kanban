@@ -10,8 +10,8 @@ const Tipos = (props) => {
                 <div className="card d-flex m-auto gap-3" id="tipos-card">
                     <img src={Desarrollador} className="card-img-top" alt="..." />
                     <div className="card-body">
-                        <h5 className="card-title">{props.title}</h5>
-                        <p className="card-text">{props.description}</p>
+                        <h5 className="card-title text-center">{props.title}</h5>
+                        <p className="card-text py-3">{props.description}</p>
                     </div>
                 </div>
             </div>
