@@ -225,6 +225,16 @@ export const RegistroProfesionales = () => {
                     } else if (!/^.*\.(jpg|JPG|pdf|PDF)$/.test(valores.certificado)) {
                         errores.certificado = 'Por favor verifica que tu archivo sea .jpg o .pdf'
                     }
+
+                    if (!valores.githubuser) {
+                        errores.githubuser = 'Campo no puede estar vacio'
+                    } else if (!/^[a-zA-Z0-9_.+-]{1,40}$/.test(valores.githubuser)) {
+                        errores.githubuser = 'Ingresa tu usuario'
+                    }
+
+                    if (!valores.herramientas) {
+                        errores.herramientas = 'Campo no puede estar vacio'
+                    }
                     return errores;
                 }}
                 onSubmit={(valores, { resetForm }) => {
@@ -257,6 +267,7 @@ export const RegistroProfesionales = () => {
                                 placeholder=""
                                 id="certificado"
                             />
+                            <ErrorMessage name="certificado" component={() => (<div className="error">{errors.certificado}</div>)} />
                         </div>
                         <div>
                             <label htmlFor="githubuser">Username de Github</label>
@@ -266,6 +277,7 @@ export const RegistroProfesionales = () => {
                                 placeholder="Usuario de Github"
                                 id="githubuser"
                             />
+                            <ErrorMessage name="githubuser" component={() => (<div className="error">{errors.githubuser}</div>)} />
                         </div>
                         <div>
                             <label htmlFor="herramientas">Herramientas que domina:</label>
@@ -276,6 +288,7 @@ export const RegistroProfesionales = () => {
                                 placeholder="Señale las herramientas que domina..."
                                 id="herramientas"
                             />
+                            <ErrorMessage name="herramientas" component={() => (<div className="error">{errors.herramientas}</div>)} />
                         </div>
                         <button type="submit">Enviar</button>
                         {formularioEnviado && <p className="exito">Formulario enviado exitosamente!</p>}
