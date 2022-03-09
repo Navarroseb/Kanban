@@ -7,39 +7,15 @@ import img1 from "../../img/img1.jpg";
 import img2 from "../../img/img2.jpg";
 import { number } from "prop-types";
 import checkUserGithub from "./githubuser"
+import { AiOutlineGithub } from 'react-icons/ai';
 
 
 export const RegistroProfesionales = () => {
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
-    /* //const [inputNombre, cambiarInputNombre] = useState('');
-    const [inputRut, cambiarInputRut] = useState('');
-    const [inputFotodelRut, cambiarInputFotodelRut] = useState('');
-    const [inputCorreo, cambiarInputCorreo] = useState('');
-    const [inputContraseña, cambiarInputContraseña] = useState('');
-    const [inputDirección, cambiarInputDirección] = useState('');
-    const [inputCiudad, cambiarInputCiudad] = useState('');
-    const [inputnombre_institución, cambiarInputnombre_institución] = useState('');
-    const [inputcertificado, cambiarInputcertificado] = useState('');
-    const [inputgithubuser, cambiarInputgithubuser] = useState('');
-    const [inputHerramientas, cambiarInputHerramientas] = useState(''); */
-
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Formulario Enviado!');
     }
-
-    // Funcion que se encarga de cambiar el estado del inputNombre
-    //const handleInputNombre = (e) => { cambiarInputNombre(e.target.value); }
-    /* const handleInputRut = (e) => { cambiarInputRut(e.target.value); }
-    const handleInputFotodelRut = (e) => { cambiarInputFotodelRut(e.target.value); }
-    const handleInputCorreo = (e) => { cambiarInputCorreo(e.target.value); }
-    const handleInputContraseña = (e) => { cambiarInputContraseña(e.target.value); }
-    const handleInputDirección = (e) => { cambiarInputDirección(e.target.value); }
-    const handleInputCiudad = (e) => { cambiarInputCiudad(e.target.value); }
-    const handleInputnombre_institución = (e) => { cambiarInputnombre_institución(e.target.value); }
-    const handleInputcertificado = (e) => { cambiarInputcertificado(e.target.value); }
-    const handleInputgithubuser = (e) => { cambiarInputgithubuser(e.target.value); }
-    const handleInputHerramientas = (e) => { cambiarInputHerramientas(e.target.value); } */
 
     return (
         <div className="RegistroProfesionales">
@@ -235,7 +211,7 @@ export const RegistroProfesionales = () => {
                         errores.githubuser = 'Usuario incorrecto'
                         console.log(valores.githubuser)
                     } else if (await checkUserGithub(valores.githubuser)) {
-                        errores.githubuser = 'Usuario correcto'
+                        errores.githubuser = <AiOutlineGithub color="black" size="4em" />
                         console.log(valores.githubuser)
                     }
                     if (!valores.herramientas) {
@@ -249,8 +225,6 @@ export const RegistroProfesionales = () => {
                     cambiarFormularioEnviado(true);
                     setTimeout(() => cambiarFormularioEnviado(false), 5000);
                 }}
-
-
             >
                 {({ errors }) => (
                     <Form className="formulario2">
@@ -278,14 +252,13 @@ export const RegistroProfesionales = () => {
                         <div>
                             <label htmlFor="githubuser">Username de Github</label>
                             <Field
-                                //onBlur={(e) => checkUserGithub(e.target.value)}
                                 type="text"
                                 name="githubuser"
                                 placeholder="Usuario de Github"
                                 id="githubuser"
                             />
                             <ErrorMessage name="githubuser" component={() => (<div className="error">{errors.githubuser}</div>)} />
-
+                            {/* {errors.githubuser === "icono" ? <AiOutlineGithub /> : ""} */}
                         </div>
                         <div>
                             <label htmlFor="herramientas">Herramientas que domina:</label>
