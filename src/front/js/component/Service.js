@@ -9,7 +9,7 @@ const Service = (props) => {
             <div className="card-header">
                 <div className="card d-flex m-auto gap-3">
                     <div className="card-body text-center">
-                        <h3 className="card-title">{props.title}</h3>
+                        <h3 className="card-title bg-secondary text-white">{props.title}</h3>
                         <p className="card-text">{props.description}</p>
                         <p className="card-text">{props.description2}</p>
                         <p className="card-text">{props.description3}</p>

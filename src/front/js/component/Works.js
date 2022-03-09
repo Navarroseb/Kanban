@@ -15,7 +15,7 @@ const Work = (props) => {
                         </div>
                         <div className="col-md-6">
                             <div className="card-body">
-                                <h1 className="card-title text-white">{props.title}</h1>
+                                <h1 className="card-title text-white text-center">{props.title}</h1>
                                 <p className="card-text">
                                     <ul className="list-group">
                                         <li className="list-group-item list-group-item-action animate__animated animate__pulse animate__delay-1s">

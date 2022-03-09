@@ -24,9 +24,10 @@ export const Home = () => {
 								title="Ricardo Hurtado Lastra"
 								title2="Biografia"
 								title3="Deja tu clasificación"
-								buttonLabel="Clasificar"
+								buttonLabel="Calificar"
 								buttonLabel2="Cerrar"
 								description="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+								description2="Muchas gracias por calificar a nuestro Profesional"
 							/>
 						</div>
 					</div>
@@ -76,9 +77,9 @@ export const Home = () => {
 				</div>
 			</section>
 			<section id="comentarios">
-				<div className="container">
+				<div className="container-comment">
 					<Comment
-						title=""
+						title="Dejame tu comentario"
 						description="Gracias por dejarnos tu comentario."
 						buttonlabel="Enviar comentario"
 						buttonlabel2="Cerrar"
