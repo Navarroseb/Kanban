@@ -198,8 +198,8 @@ export const RegistroClientes = () => {
                         </div>
                     </Form>
                 )}
-                <img className="image3" src={img3} />
             </Formik>
+            <img className="image3" src={img3} />
         </div>
     );
 };
