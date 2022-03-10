@@ -16,6 +16,7 @@ export const RegistroClientes = () => {
             <Formik
                 initialValues={{
                     nombre: '',
+                    apellido: '',
                     rut: '',
                     fotorut: '',
                     correo: '',

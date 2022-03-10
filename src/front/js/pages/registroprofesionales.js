@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-//import { Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-//import PropTypes from "prop-types";
-//import { Context } from "../store/appContext";
 import img1 from "../../img/img1.jpg";
 import img2 from "../../img/img2.jpg";
 import { number } from "prop-types";
@@ -22,8 +19,10 @@ export const RegistroProfesionales = () => {
             <Formik
                 initialValues={{
                     nombre: '',
+                    apellido: '',
                     rut: '',
                     fotorut: '',
+                    teléfono: '',
                     correo: '',
                     contraseña: '',
                     dirección: '',
@@ -55,6 +54,12 @@ export const RegistroProfesionales = () => {
                         errores.fotorut = 'Debes seleccionar un archivo'
                     } else if (!/^.*\.(jpg|JPG|pdf|PDF)$/.test(valores.fotorut)) {
                         errores.fotorut = 'Por favor verifica que tu archivo sea .jpg o .pdf'
+                    }
+
+                    if (!valores.teléfono) {
+                        errores.teléfono = 'Ingresa tu teléfono'
+                    } else if (!/^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$/.test(valores.teléfono)) {
+                        errores.teléfono = 'Ingresa un teléfono valido'
                     }
 
                     if (!valores.correo) {
@@ -126,6 +131,16 @@ export const RegistroProfesionales = () => {
                                 id="fotoRut"
                             />
                             <ErrorMessage name="fotorut" component={() => (<div className="error">{errors.fotorut}</div>)} />
+                        </div>
+                        <div>
+                            <label htmlFor="teléfono">Teléfono</label>
+                            <Field
+                                type="tel"
+                                name="teléfono"
+                                placeholder="Teléfono"
+                                id="teléfono"
+                            />
+                            <ErrorMessage name="teléfono" component={() => (<div className="error">{errors.teléfono}</div>)} />
                         </div>
                         <div>
                             <label htmlFor="correo">Correo</label>
