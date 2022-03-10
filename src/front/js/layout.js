@@ -11,6 +11,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { RegistroProfesionales } from "./pages/registroprofesionales";
 import { RegistroClientes } from "./pages/registroclientes";
+import { Home } from "./pages/home";
 
 
 
@@ -26,6 +27,9 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
+						<Route exact path="/vistadesarrolladores">
+							<Home />
+						</Route>
 						<Route exact path="/">
 							<Home2 />
 						</Route>
