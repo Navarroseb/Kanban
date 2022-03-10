@@ -257,6 +257,7 @@ export const RegistroProfesionales = () => {
                                 placeholder="Usuario de Github"
                                 id="githubuser"
                             />
+                            <AiOutlineGithub color="black" size="4em" />
                             <ErrorMessage name="githubuser" component={() => (<div className="error">{errors.githubuser}</div>)} />
                             {/* {errors.githubuser === "icono" ? <AiOutlineGithub /> : ""} */}
                         </div>
