@@ -24,3 +24,16 @@
   padding: 15px;
   text-align: center;
 }
+
+#buscador_categoria {
+  width: 25%;
+}
+#buscador_ciudad {
+  width: 55%;
+}
+#card-desarrollador {
+  margin-top: 20px;
+}
+#numeros-pagina {
+  margin-top: 30px;
+}

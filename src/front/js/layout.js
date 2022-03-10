@@ -9,6 +9,10 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { RegistroProfesionales } from "./pages/registroprofesionales";
+import { RegistroClientes } from "./pages/registroclientes";
+
+
 
 //create your first component
 const Layout = () => {
@@ -30,6 +34,12 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
+						</Route>
+						<Route exact path="/formularioprofesionales">
+							<RegistroProfesionales />
+						</Route>
+						<Route exact path="/formularioclientes">
+							<RegistroClientes />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
