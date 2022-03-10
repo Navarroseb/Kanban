@@ -12,6 +12,7 @@ import { Footer } from "./component/footer";
 import { RegistroProfesionales } from "./pages/registroprofesionales";
 import { RegistroClientes } from "./pages/registroclientes";
 import { Home } from "./pages/home";
+import { Vistacliente } from "./pages/vistacliente";
 
 
 
@@ -35,6 +36,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
+						</Route>
+						<Route exact path="/vistacliente">
+							<Vistacliente />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
