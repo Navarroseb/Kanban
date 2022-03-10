@@ -34,9 +34,15 @@ export const RegistroProfesionales = () => {
                     let errores = {};
 
                     if (!valores.nombre) {
-                        errores.nombre = 'Ingresa un nombre'
+                        errores.nombre = 'Campo no puede estar vacio'
                     } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)) {
-                        errores.nombre = 'Ingresa un nombre'
+                        errores.nombre = 'Ingresa nombre'
+                    }
+
+                    if (!valores.apellido) {
+                        errores.apellido = 'Campo no puede estar vacio'
+                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.apellido)) {
+                        errores.apellido = 'Ingresa apellido'
                     }
 
                     if (!valores.rut) {
@@ -83,15 +89,24 @@ export const RegistroProfesionales = () => {
                         <h1>Registro para profesionales</h1>
                         <h2>Datos personales</h2>
                         <div>
-                            <label htmlFor="nombre">Nombre y Apellido</label>
+                            <label htmlFor="nombre">Nombre</label>
                             <Field
                                 type="text"
                                 name="nombre"
-                                placeholder="Nombre y Apellido"
+                                placeholder="Nombre"
                                 id="nombre"
                             />
                             <ErrorMessage name="nombre" component={() => (<div className="error">{errors.nombre}</div>)} />
-
+                        </div>
+                        <div>
+                            <label htmlFor="apellido">Apellido</label>
+                            <Field
+                                type="text"
+                                name="apellido"
+                                placeholder="Apellido"
+                                id="apellido"
+                            />
+                            <ErrorMessage name="apellido" component={() => (<div className="error">{errors.apellido}</div>)} />
                         </div>
                         <div>
                             <label htmlFor="rut">Rut</label>
@@ -209,10 +224,10 @@ export const RegistroProfesionales = () => {
                         errores.githubuser = 'Ingresa tu usuario'
                     } else if (!await checkUserGithub(valores.githubuser)) {
                         errores.githubuser = 'Usuario incorrecto'
-                        console.log(valores.githubuser)
+
                     } else if (await checkUserGithub(valores.githubuser)) {
                         errores.githubuser = <AiOutlineGithub color="black" size="4em" />
-                        console.log(valores.githubuser)
+
                     }
                     if (!valores.herramientas) {
                         errores.herramientas = 'Campo no puede estar vacio'
