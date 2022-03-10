@@ -7,7 +7,7 @@ import Informacion from "../component/Informacion";
 import "../../styles/Admin.css";
 import Visitas from "../component/Visitas";
 
-export const Home = () => {
+export const Home2 = () => {
 	return (
 		<>
 			<section id="header">
@@ -119,4 +119,4 @@ export const Home = () => {
 	);
 };
 
-export default Home;
+export default Home2;
