@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-//import { Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-//import PropTypes from "prop-types";
-//import { Context } from "../store/appContext";
 import img1 from "../../img/img1.jpg";
 import img2 from "../../img/img2.jpg";
 import { number } from "prop-types";
@@ -22,8 +19,10 @@ export const RegistroProfesionales = () => {
             <Formik
                 initialValues={{
                     nombre: '',
+                    apellido: '',
                     rut: '',
                     fotorut: '',
+                    teléfono: '',
                     correo: '',
                     contraseña: '',
                     dirección: '',
@@ -34,9 +33,15 @@ export const RegistroProfesionales = () => {
                     let errores = {};
 
                     if (!valores.nombre) {
-                        errores.nombre = 'Ingresa un nombre'
+                        errores.nombre = 'Campo no puede estar vacio'
                     } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)) {
-                        errores.nombre = 'Ingresa un nombre'
+                        errores.nombre = 'Ingresa nombre'
+                    }
+
+                    if (!valores.apellido) {
+                        errores.apellido = 'Campo no puede estar vacio'
+                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.apellido)) {
+                        errores.apellido = 'Ingresa apellido'
                     }
 
                     if (!valores.rut) {
@@ -49,6 +54,12 @@ export const RegistroProfesionales = () => {
                         errores.fotorut = 'Debes seleccionar un archivo'
                     } else if (!/^.*\.(jpg|JPG|pdf|PDF)$/.test(valores.fotorut)) {
                         errores.fotorut = 'Por favor verifica que tu archivo sea .jpg o .pdf'
+                    }
+
+                    if (!valores.teléfono) {
+                        errores.teléfono = 'Ingresa tu teléfono'
+                    } else if (!/^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$/.test(valores.teléfono)) {
+                        errores.teléfono = 'Ingresa un teléfono valido'
                     }
 
                     if (!valores.correo) {
@@ -83,15 +94,24 @@ export const RegistroProfesionales = () => {
                         <h1>Registro para profesionales</h1>
                         <h2>Datos personales</h2>
                         <div>
-                            <label htmlFor="nombre">Nombre y Apellido</label>
+                            <label htmlFor="nombre">Nombre</label>
                             <Field
                                 type="text"
                                 name="nombre"
-                                placeholder="Nombre y Apellido"
+                                placeholder="Nombre"
                                 id="nombre"
                             />
                             <ErrorMessage name="nombre" component={() => (<div className="error">{errors.nombre}</div>)} />
-
+                        </div>
+                        <div>
+                            <label htmlFor="apellido">Apellido</label>
+                            <Field
+                                type="text"
+                                name="apellido"
+                                placeholder="Apellido"
+                                id="apellido"
+                            />
+                            <ErrorMessage name="apellido" component={() => (<div className="error">{errors.apellido}</div>)} />
                         </div>
                         <div>
                             <label htmlFor="rut">Rut</label>
@@ -111,6 +131,16 @@ export const RegistroProfesionales = () => {
                                 id="fotoRut"
                             />
                             <ErrorMessage name="fotorut" component={() => (<div className="error">{errors.fotorut}</div>)} />
+                        </div>
+                        <div>
+                            <label htmlFor="teléfono">Teléfono</label>
+                            <Field
+                                type="tel"
+                                name="teléfono"
+                                placeholder="Teléfono"
+                                id="teléfono"
+                            />
+                            <ErrorMessage name="teléfono" component={() => (<div className="error">{errors.teléfono}</div>)} />
                         </div>
                         <div>
                             <label htmlFor="correo">Correo</label>
@@ -209,10 +239,10 @@ export const RegistroProfesionales = () => {
                         errores.githubuser = 'Ingresa tu usuario'
                     } else if (!await checkUserGithub(valores.githubuser)) {
                         errores.githubuser = 'Usuario incorrecto'
-                        console.log(valores.githubuser)
+
                     } else if (await checkUserGithub(valores.githubuser)) {
                         errores.githubuser = <AiOutlineGithub color="black" size="4em" />
-                        console.log(valores.githubuser)
+
                     }
                     if (!valores.herramientas) {
                         errores.herramientas = 'Campo no puede estar vacio'

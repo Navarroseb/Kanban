@@ -1,49 +1,22 @@
 import React, { useState, useEffect, useContext } from "react";
-//import { Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-//import PropTypes from "prop-types";
-//import { Context } from "../store/appContext";
 import img3 from "../../img/img3.png";
 
 
 
 export const RegistroClientes = () => {
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
-    /* //const [inputNombre, cambiarInputNombre] = useState('');
-    const [inputRut, cambiarInputRut] = useState('');
-    const [inputFotodelRut, cambiarInputFotodelRut] = useState('');
-    const [inputCorreo, cambiarInputCorreo] = useState('');
-    const [inputContraseña, cambiarInputContraseña] = useState('');
-    const [inputDirección, cambiarInputDirección] = useState('');
-    const [inputCiudad, cambiarInputCiudad] = useState('');
-    const [inputnombre_institución, cambiarInputnombre_institución] = useState('');
-    const [inputcertificado, cambiarInputcertificado] = useState('');
-    const [inputgithubuser, cambiarInputgithubuser] = useState('');
-    const [inputHerramientas, cambiarInputHerramientas] = useState(''); */
-
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Formulario Enviado!');
     }
-
-    // Funcion que se encarga de cambiar el estado del inputNombre
-    //const handleInputNombre = (e) => { cambiarInputNombre(e.target.value); }
-    /* const handleInputRut = (e) => { cambiarInputRut(e.target.value); }
-    const handleInputFotodelRut = (e) => { cambiarInputFotodelRut(e.target.value); }
-    const handleInputCorreo = (e) => { cambiarInputCorreo(e.target.value); }
-    const handleInputContraseña = (e) => { cambiarInputContraseña(e.target.value); }
-    const handleInputDirección = (e) => { cambiarInputDirección(e.target.value); }
-    const handleInputCiudad = (e) => { cambiarInputCiudad(e.target.value); }
-    const handleInputnombre_institución = (e) => { cambiarInputnombre_institución(e.target.value); }
-    const handleInputcertificado = (e) => { cambiarInputcertificado(e.target.value); }
-    const handleInputgithubuser = (e) => { cambiarInputgithubuser(e.target.value); }
-    const handleInputHerramientas = (e) => { cambiarInputHerramientas(e.target.value); } */
 
     return (
         <div className="RegistroProfesionales">
             <Formik
                 initialValues={{
                     nombre: '',
+                    apellido: '',
                     rut: '',
                     fotorut: '',
                     correo: '',
@@ -59,6 +32,12 @@ export const RegistroClientes = () => {
                         errores.nombre = 'Ingresa un nombre'
                     } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)) {
                         errores.nombre = 'Ingresa un nombre'
+                    }
+
+                    if (!valores.apellido) {
+                        errores.apellido = 'Campo no puede estar vacio'
+                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.apellido)) {
+                        errores.apellido = 'Ingresa apellido'
                     }
 
                     if (!valores.rut) {
@@ -105,15 +84,24 @@ export const RegistroClientes = () => {
                         <h1>Registro para profesionales</h1>
                         <h2>Datos personales</h2>
                         <div>
-                            <label htmlFor="nombre">Nombre y Apellido</label>
+                            <label htmlFor="nombre">Nombre</label>
                             <Field
                                 type="text"
                                 name="nombre"
-                                placeholder="Nombre y Apellido"
+                                placeholder="Nombre"
                                 id="nombre"
                             />
                             <ErrorMessage name="nombre" component={() => (<div className="error">{errors.nombre}</div>)} />
-
+                        </div>
+                        <div>
+                            <label htmlFor="apellido">Apellido</label>
+                            <Field
+                                type="text"
+                                name="apellido"
+                                placeholder="Apellido"
+                                id="apellido"
+                            />
+                            <ErrorMessage name="apellido" component={() => (<div className="error">{errors.apellido}</div>)} />
                         </div>
                         <div>
                             <label htmlFor="rut">Rut</label>
@@ -196,6 +184,8 @@ export const RegistroClientes = () => {
                             />
                             <ErrorMessage name="ciudad" component={() => (<div className="error">{errors.ciudad}</div>)} />
                         </div>
+                        <button type="submit">Enviar</button>
+                        {formularioEnviado && <p className="exito">Formulario enviado exitosamente!</p>}
                     </Form>
                 )}
             </Formik>
