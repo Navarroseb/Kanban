@@ -102,7 +102,7 @@ export const RegistroClientes = () => {
             >
                 {({ errors }) => (
                     <Form className="formulario" >
-                        <h1>Registro para profesionales</h1>
+                        <h1>Registro para clientes</h1>
                         <h2>Datos personales</h2>
                         <div>
                             <label htmlFor="nombre">Nombre y Apellido</label>

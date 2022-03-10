@@ -1,15 +1,8 @@
-body {
-  background-color: black;
-  background-image: url(https://2.bp.blogspot.com/-PysU0_frhw8/UI28zuFhf7I/AAAAAAAABkI/wgHjLJRYpEg/s1600/fondos%2Bde%2Bpantalla%2B%2Bleopard.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-}
 * {
   padding: 3px;
   margin: 0;
   box-sizing: border-box;
 }
-
 
 .image1 {
   width: 600px;

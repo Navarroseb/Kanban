@@ -9,8 +9,8 @@ const Informacion = (props) => {
                 <div className="jumbotron">
                     <img src="https://i.imgur.com/zl9o3Yx.jpeg" className="img py-5 img Rounded" alt="..." />
                     <hr className="my-4 bg-white" />
-                    <h1 className="display-4 text-white text-center">{props.title}</h1>
-                    <p className="lead text-white">
+                    <h1 className="display-4 text-center">{props.title}</h1>
+                    <p className="lead">
                         {props.description}
                     </p>
                     <hr className="my-4 bg-white" />

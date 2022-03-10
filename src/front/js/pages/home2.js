@@ -87,25 +87,25 @@ export const Home2 = () => {
 					<div className="row">
 						<div className="col-md-6 text-white" id="cuadro-1">
 							<Administradores
-								title="Nombre del Administrador"
+								title="Katherine Kraushaar"
 								description="Descripcion del Administrador"
 							/>
 						</div>
 						<div className="col-md-6 text-white" id="cuadro-2">
 							<Administradores
-								title="Nombre del Administrador"
+								title="Miguel Rojas"
 								description="Descripcion del Administrador"
 							/>
 						</div>
 						<div className="col-md-6 text-white" id="cuadro-3">
 							<Administradores
-								title="Nombre del Administrador"
+								title="Ricardo Hurtado"
 								description="Descripcion del Administrador"
 							/>
 						</div>
 						<div className="col-md-6 text-white" id="cuadro-4">
 							<Administradores
-								title="Nombre del Administrador"
+								title="Sebastian Navarro"
 								description="Descripcion del Administrador"
 							/>
 						</div>
