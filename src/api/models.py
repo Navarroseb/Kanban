@@ -2,16 +2,15 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class Users(db.Model):
+class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(250), nullable=False)
     apellido = db.Column(db.String(250), nullable=False)
     correo = db.Column(db.String(250), unique=True, nullable=False)
-    contraseña = db.Column(db.Integer, unique=True, nullable=False)
-    teléfono = db.Column(db.Integer, nullable=False )
-    a = db.relationship('favorites_planets', backref='users.id', uselist=False) #Rol_id
-    a = db.relationship('favorites_starships', backref='users.id', uselist=False) #Categoria_id
+    contraseña = db.Column(db.Integer, nullable=False)
+    telefono = db.Column(db.Integer, nullable=False )
+    evaluacion = db.relationship('evaluaciones', backref='user', uselist=False)
     
     def serialize(self):
         return {
@@ -19,16 +18,49 @@ class Users(db.Model):
             "nombre": self.nombre,
             "apellido": self.apellido,
             "correo": self.correo,
-            "teléfono": self.teléfono,
-            
+            "telefono": self.teléfono, 
         }
 
     def save(self):
         db.session.add(self)
-        db.session.commit()
+        db.session.commit() 
+
+    def update(self):
+        db.sesion.commit()
+
+    def delete(self):    
+        db.session.delete(self)
+        db.sesion.commit()
+
+class Evaluacion(db.Model):
+    __tablename__ = 'evaluaciones'
+    id = db.Column(db.Integer, primary_key=True)
+    fecha_evaluacion = db.Column(db.String(150), nullable=False)
+    comentario = db.Column(db.String(400), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    clientes_id = db.relationship('clientes_id', backref='evaluacion', uselist=False)
+    profesionales_id = db.relationship('profesionales_id', backref='evaluacion', uselist=False)
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "fecha_evaluacion": self.fecha_evaluacion,
+            "comentario": self.comentario,
+        }
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()  
+
+    def update(self):
+        db.sesion.commit()
+
+    def delete(self):    
+        db.session.delete(self)
+        db.sesion.commit()
 
 
-class Roles(db.Model):
+class Rol(db.Model):
     __tablename__ = 'roles'
     id = db.Column(db.Integer, primary_key=True)
     nombre_roles = db.Column(db.String(150), nullable=False)
@@ -44,11 +76,18 @@ class Roles(db.Model):
         db.session.add(self)
         db.session.commit()
 
-class Categorías(db.Model):
-    __tablename__ = 'categorías'
+    def update(self):
+        db.sesion.commit()
+
+    def delete(self):    
+        db.session.delete(self)
+        db.sesion.commit()
+
+class Categoria(db.Model):
+    __tablename__ = 'categorias'
     id = db.Column(db.Integer, primary_key=True)
-    categorías = db.Column(db.String(150), nullable=False)
-    #relationship tipo de rol
+    nombre = db.Column(db.String(150), nullable=False)
+    tipo_rol_id = db.Column(db.String(150), nullable=False)
 
     def serialize(self):
         return {
@@ -61,24 +100,13 @@ class Categorías(db.Model):
         db.session.add(self)
         db.session.commit()    
 
-class Evaluación(db.Model):
-    __tablename__ = 'evaluación'
-    id = db.Column(db.Integer, primary_key=True)
-    fecha_evaluación = db.Column(db.String(150), nullable=False)
-    comentario = db.Column(db.String(400), nullable=False)
-    #id_usuariocliente
-    #id_usuarioprofesional
+    def update(self):
+        db.sesion.commit()
 
-    def serialize(self):
-        return {
-            "id": self.id,
-            "fecha_evaluación": self.fecha_evaluación,
-            "comentario": self.comentario,
-        }
+    def delete(self):    
+        db.session.delete(self)
+        db.sesion.commit()
 
-    def save(self):
-        db.session.add(self)
-        db.session.commit()        
 
 
 class Portafolio(db.Model):
@@ -102,6 +130,13 @@ class Portafolio(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    def update(self):
+        db.sesion.commit()
+
+    def delete(self):    
+        db.session.delete(self)
+        db.sesion.commit()
+
 class Datos_profesionales(db.Model):
     __tablename__ = 'datos_profesionales'
     id = db.Column(db.Integer, primary_key=True)
@@ -117,7 +152,39 @@ class Datos_profesionales(db.Model):
 
     def save(self):
         db.session.add(self)
-        db.session.commit()        
+        db.session.commit()  
 
+    def update(self):
+        db.sesion.commit()
+
+    def delete(self):    
+        db.session.delete(self)
+        db.sesion.commit()      
+
+class Habilidades_tecnicas(db.Model):
+    __tablename__ = 'habilidades_tecnicas'
+    id = db.Column(db.Integer, primary_key=True)
+    tecnologia = db.Column(db.String(150), nullable=False)
+    nivel = db.Column(db.String(150), nullable=False)
+    
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "tecnologia": self.tecnologia,
+            "nivel": self.nivel,
+                        
+        }
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit() 
+
+    def update(self):
+        db.sesion.commit()
+
+    def delete(self):    
+        db.session.delete(self)
+        db.sesion.commit()       
 
 
