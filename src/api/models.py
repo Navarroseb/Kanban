@@ -11,6 +11,7 @@ class User(db.Model):
     contraseña = db.Column(db.Integer, nullable=False)
     telefono = db.Column(db.Integer, nullable=False )
     evaluacion = db.relationship('evaluaciones', backref='user', uselist=False)
+    categorias = db.Column(db.Integer, db.ForeignKey('categorias.id'), nullable=False)
     
     def serialize(self):
         return {
@@ -38,8 +39,8 @@ class Evaluacion(db.Model):
     fecha_evaluacion = db.Column(db.String(150), nullable=False)
     comentario = db.Column(db.String(400), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    clientes_id = db.relationship('clientes_id', backref='evaluacion', uselist=False)
-    profesionales_id = db.relationship('profesionales_id', backref='evaluacion', uselist=False)
+    clientes_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    profesionales_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     def serialize(self):
         return {
@@ -87,7 +88,7 @@ class Categoria(db.Model):
     __tablename__ = 'categorias'
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(150), nullable=False)
-    tipo_rol_id = db.Column(db.String(150), nullable=False)
+    tipo_rol_id = db.Column(db.Integer, db.ForeignKey('roles.id'), nullable=False)
 
     def serialize(self):
         return {
@@ -110,12 +111,12 @@ class Categoria(db.Model):
 
 
 class Portafolio(db.Model):
-    __tablename__ = 'portafolio'
+    __tablename__ = 'portafolios'
     id = db.Column(db.Integer, primary_key=True)
     enlace = db.Column(db.String(200), nullable=False)
     nombre_proyecto = db.Column(db.String(150), nullable=False)
     fecha_proyecto = db.Column(db.String(150), nullable=False)
-    #id usuario profesional
+    usuario_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     def serialize(self):
         return {
@@ -137,11 +138,11 @@ class Portafolio(db.Model):
         db.session.delete(self)
         db.sesion.commit()
 
-class Datos_profesionales(db.Model):
+class Datos_profesional(db.Model):
     __tablename__ = 'datos_profesionales'
     id = db.Column(db.Integer, primary_key=True)
     githubuser = db.Column(db.String(150), nullable=False)
-    #usuario id
+    profesional_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     def serialize(self):
         return {
@@ -161,12 +162,12 @@ class Datos_profesionales(db.Model):
         db.session.delete(self)
         db.sesion.commit()      
 
-class Habilidades_tecnicas(db.Model):
+class Habilidad_tecnica(db.Model):
     __tablename__ = 'habilidades_tecnicas'
     id = db.Column(db.Integer, primary_key=True)
     tecnologia = db.Column(db.String(150), nullable=False)
     nivel = db.Column(db.String(150), nullable=False)
-    
+    profesional_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     def serialize(self):
         return {

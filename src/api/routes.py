@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Evaluacion, 
+from api.models import db, User, Evaluacion, Rol, Categoria, Portafolio, Datos_profesional, Habilidad_tecnica 
 from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
@@ -186,24 +186,157 @@ def categorias(id = None):
        
         nombre_roles = request.json.get('nombre_roles')
 
-        rol = Rol()
-        rol.nombre = nombre
-        rol.tipo_rol_id = tipo_rol_id
+        categoria = Categoria()
+        categoria.nombre = nombre
+        categoria.tipo_rol_id = tipo_rol_id
         
-        if not nombre: return jsonify({ "msg": "El nombre sera requerida!"}), 400
+        if not nombre: return jsonify({ "msg": "El nombre sera requerido!"}), 400
         if not tipo_rol_id: return jsonify({ "msg": "El tipo_rol_id sera requerido!"}), 400
 
     return jsonify(response_body), 200
 
     if request.method == 'PUT':
      
-        rol = Rol()
-        rol.nombre = nombre
-        rol.tipo_rol_id = tipo_rol_id
-
-        if not nombre: return jsonify({ "msg": "El nombre sera requerida!"}), 400
-        if not tipo_rol_id: return jsonify({ "msg": "El tipo_rol_id sera requerida!"}), 400
+        categoria = Categoria()
+        categoria.nombre = nombre
+        categoria.tipo_rol_id = tipo_rol_id
+        
+        if not nombre: return jsonify({ "msg": "El nombre sera requerido!"}), 400
+        if not tipo_rol_id: return jsonify({ "msg": "El tipo_rol_id sera requerido!"}), 400
 
         categoria = Categoria.query.get(id) 
 
         if not categoria: return jsonify({ "msg": "La categoria no ha sido encontrada!"}), 404
+
+    
+    """ tabla de Portafolio """
+
+@app.route('/portafolios', methods=['GET', 'POST'])
+@app.route('/portafolios/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+def portafolios(id = None):
+    if request.method == 'GET':
+        if id is not None:
+            portafolio = Portafolio.query.get(id)
+            if not Portafolio: return jsonify({ "msg": "Tu categoria no se ha encontrada!"}), 404
+            return jsonify(portafolio.serilize()), 200
+        else:
+            portafolios = Portafolio.query.all()
+            portafolios = list(map(lambda portafolios: portafolio.serialize(), portafolios))
+            return jsonify(portafolios), 200
+
+
+    if request.method == 'POST':
+       
+        enlace = request.json.get('enlace')
+        nombre_proyecto = request.json.get('nombre_proyecto')
+        fecha_proyecto = request.json.get('fecha_proyecto')
+
+        portafolio = Portafolio()
+        portafolio.enlace = enlace
+        portafolio.nombre_proyecto = nombre_proyecto
+        portafolio.fecha_proyecto = fecha_proyecto
+
+        if not enlace: return jsonify({ "msg": "El enlace sera requerido!"}), 400
+        if not nombre_proyecto: return jsonify({ "msg": "El nombre_proyecto sera requerido!"}), 400
+        if not fecha_proyecto: return jsonify({ "msg": "La fecha_proyecto sera requerido!"}), 400
+
+    return jsonify(response_body), 200
+
+    if request.method == 'PUT':
+     
+        portafolio = Portafolio()
+        portafolio.enlace = enlace
+        portafolio.nombre_proyecto = nombre_proyecto
+        portafolio.fecha_proyecto = fecha_proyecto
+        
+        if not enlace: return jsonify({ "msg": "El enlace sera requerido!"}), 400
+        if not nombre_proyecto: return jsonify({ "msg": "El nombre_proyecto sera requerido!"}), 400
+        if not fecha_proyecto: return jsonify({ "msg": "La fecha_proyecto sera requerido!"}), 400
+
+        portafolio = Portafolio.query.get(id) 
+
+        if not portafolio: return jsonify({ "msg": "El portafolio no ha sido encontrado!"}), 404
+
+    """ tabla de Datos_profesional """
+
+@app.route('/datos_profesionales', methods=['GET', 'POST'])
+@app.route('/datos_profesionales/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+def datos_profesionales(id = None):
+    if request.method == 'GET':
+        if id is not None:
+            datos_profesional = Datos_profesionales.query.get(id)
+            if not datos_profesional: return jsonify({ "msg": "Los datos_profesional no se ha encontrado!"}), 404
+            return jsonify(datos_profesional.serilize()), 200
+        else:
+            datos_profesionales = Datos_profesional.query.all()
+            datos_profesionales = list(map(lambda datos_profesionales: datos_profesional.serialize(), datos_profesional))
+            return jsonify(datos_profesionales), 200
+
+
+    if request.method == 'POST':
+       
+        githubuser = request.json.get('githubuser')
+
+        datos_profesional = Datos_profesional()
+        datos_profesional.githubuser = enlace
+      
+
+        if not githubuser: return jsonify({ "msg": "El githubuser sera requerido!"}), 400
+       
+    return jsonify(response_body), 200
+
+    if request.method == 'PUT':
+     
+        datos_profesional = Datos_profesional()
+        datos_profesional.githubuser = enlace
+        
+        if not githubuser: return jsonify({ "msg": "El githubuser sera requerido!"}), 400
+
+        datos_profesional = Datos_profesional.query.get(id) 
+
+        if not datos_profesional: return jsonify({ "msg": "Los datos_profesional no ha sido encontrado!"}), 404
+
+
+
+    """ tabla de Habilidades_tecnicas """
+
+@app.route('/habilidades_tecnicas', methods=['GET', 'POST'])
+@app.route('/habilidades_tecnicas/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+def habilidades_tecnicas(id = None):
+    if request.method == 'GET':
+        if id is not None:
+            habilidad_tecnica = Habilidades_tecnicas.query.get(id)
+            if not habilidad_tecnica: return jsonify({ "msg": "La habilidad_tecnica no se ha encontrado!"}), 404
+            return jsonify(habilidad_tecnica.serilize()), 200
+        else:
+            habilidades_tecnicas = Habilidades_tecnicas.query.all()
+            habilidades_tecnicas = list(map(lambda habilidades_tecnicas: habilidad_tecnica.serialize(), habilidad_tecnica))
+            return jsonify(habilidades_tecnicas), 200
+
+
+    if request.method == 'POST':
+       
+        githubuser = request.json.get('githubuser')
+
+        habilidad_tecnica = Habilidad_tecnica()
+        habilidad_tecnica.tecnologia = tecnologia
+        habilidad_tecnica.nivel = nivel
+      
+
+        if not tecnologia: return jsonify({ "msg": "La tecnologia sera requerida!"}), 400
+        if not nivel: return jsonify({ "msg": "El nivel sera requerido!"}), 400
+       
+    return jsonify(response_body), 200
+
+    if request.method == 'PUT':
+     
+        habilidad_tecnica = Habilidad_tecnica()
+        habilidad_tecnica.tecnologia = tecnologia
+        habilidad_tecnica.nivel = nivel
+        
+        if not tecnologia: return jsonify({ "msg": "La tecnologia sera requerida!"}), 400
+        if not nivel: return jsonify({ "msg": "El nivel sera requerido!"}), 400
+
+        habilidad_tecnica = Habilidad_tecnica.query.get(id) 
+
+        if not habilidad_tecnica: return jsonify({ "msg": "La habilidad_tecnica no ha sido encontrada!"}), 404
