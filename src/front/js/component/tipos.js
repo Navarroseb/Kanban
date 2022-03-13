@@ -6,24 +6,28 @@ import { Link } from "react-router-dom";
 const Tipos = (props) => {
     return (
         <>
-            <div className="card-header">
-                <div className="card d-flex m-auto gap-3" id="tipos-card">
-                    <img src={Desarrollador} className="card-img-top" alt="..." />
+            <div className="container">
+                <div className="box" id="tipos-card">
                     <div className="card-body">
-                        <h5 className="card-title text-center">{props.title}</h5>
+                        <img src={props.img} className="card-img-top img-card" alt="..." />
+                        <h5 className="card-title text-center pt-3">{props.title}</h5>
                         <p className="card-text py-3">{props.description}</p>
+
                     </div>
                 </div>
             </div>
+
         </>
     );
 };
+
 
 Tipos.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     buttonLabel: PropTypes.string,
     buttonURL: PropTypes.string,
+    img: PropTypes.string,
 };
 
 export default Tipos;

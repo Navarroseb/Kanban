@@ -13,7 +13,8 @@ const Card = (props) => {
                 <p className="calificacion"><i class="fas fa-star"></i>{props.cardCalificacion} </p>
                 <p className="ciudad desarrollador">{props.cardCiudad}</p>
                 <div className="footer-card">
-                    <button class="btn btn-primary" type="button">{props.cardBoton}</button>
+                    <a class="btn btn-primary" href={"/vistacliente"} role="button">{props.cardBoton}</a>
+
                 </div>
             </div>
         </div>

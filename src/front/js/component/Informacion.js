@@ -1,11 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Imagen4 from "../../img/lenguaje.jpg";
 
-const Informacion = (props) => {
+const Informacion = () => {
+    let styles = {
+        background: "url(../../img/fondodj.png)",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        height: "750px",
+        width: "100%",
+    }
     return (
         <>
-            <div className="container">
+            <div id="banner" className="container-fluid" >
+                <div className="row">
+
+
+                    <div className="col-md-12 d-flex flex-column justify-content-center px-5" style={styles}>
+                        <h1 className="textojunior">Que es un desarrollador junior?</h1>
+                    </div>
+
+                </div>
+            </div>
+            {/* <div className="container">
                 <div className="jumbotron">
                     <img src="https://i.imgur.com/zl9o3Yx.jpeg" className="img py-5 img Rounded" alt="..." />
                     <hr className="my-4 bg-white" />
@@ -15,7 +31,7 @@ const Informacion = (props) => {
                     </p>
                     <hr className="my-4 bg-white" />
                 </div>
-            </div>
+            </div> */}
         </>
     );
 };

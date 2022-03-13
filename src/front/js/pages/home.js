@@ -4,10 +4,12 @@ import Card from "../component/card.js";
 import Buscador from "../component/buscador.js";
 import Paginas from "../component/paginas.js"
 import "../../styles/home.css";
+import Navbar2 from "../component/navbar2"
 
 export const Home = () => {
 	return (
 		<>
+			<Navbar2 />
 			<div className="container ">
 				<Buscador
 					buscadorEspecialidad="Especialidad"

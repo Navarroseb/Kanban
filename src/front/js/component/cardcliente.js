@@ -7,7 +7,7 @@ const Cardcliente = (props) => {
             <div className="row">
                 <div className="col-md-3"></div>
                 <div className="col-md-6">
-                    <div id="vista_cliente" className="card">
+                    <div id="vista_cliente" className="box">
                         <div className="card-body" >
                             <div className="row">
                                 <div className="col-md-5" id="foto_cliente">
@@ -18,7 +18,7 @@ const Cardcliente = (props) => {
                                     <h5 className="card-title">{props.cardNombrecliente}</h5>
                                     <h6 className="card-subtitle mb-2 text-muted"> {props.cardEmailcliente}</h6>
                                     <p className="card-text">{props.cardEmpresacliente}</p>
-                                    <a href="#" className="card-link">{props.cardPaginawebcliente}</a>
+                                    <a href="http://www.google.com" className="card-link">{props.cardPaginawebcliente}</a>
                                 </div></div>
                         </div>
                     </div></div>

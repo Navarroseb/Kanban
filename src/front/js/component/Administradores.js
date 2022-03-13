@@ -1,15 +1,49 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-
 const Administradores = (props) => {
     return (
         <>
-            <div className="container">
-                <div className="card mb-3 bg-black py-3">
+            <div className="nosotros-item mx-auto mv-5">
+                <img className="img-fluid rounded-circle mb-3 fotous" width="180" height="180" src={props.img}></img>
+                <h5>{props.nombre}</h5>
+                <p className="font-weight-light mb-0"> {props.descripcion}</p>
+            </div>
+            {/*  <section className="Nosotros text-center">
+                <div className="container">
+                    <h2 className="mb-5">Sobre nosotros...</h2>
+                    <div className="row">
+                        <div className="col-3">
+                            <div className="nosotros-item mx-auto mv-5">
+                                <img className="img-fluid rounded-circle mb-3 fotous" src={foto}></img>
+                                <h5>Katherine Kraushaar</h5>
+                                <p className="font-weight-light mb-0"> Desarrolladora Junior Fullstack</p>
+                            </div></div>
+                        <div className="col-3"> <div className="nosotros-item mx-auto mv-5">
+                            <img className="img-fluid rounded-circle mb-3 fotous" src={foto}></img>
+                            <h5>Katherine Kraushaar</h5>
+                            <p className="font-weight-light mb-0"> Desarrolladora Junior Fullstack</p>
+                        </div></div>
+                        <div className="col-3"> <div className="nosotros-item mx-auto mv-5">
+                            <img className="img-fluid rounded-circle mb-3 fotous" src={foto}></img>
+                            <h5>Katherine Kraushaar</h5>
+                            <p className="font-weight-light mb-0"> Desarrolladora Junior Fullstack</p>
+                        </div></div>
+                        <div className="col-3"> <div className="nosotros-item mx-auto mv-5">
+                            <img className="img-fluid rounded-circle mb-3 fotous" src={foto}></img>
+                            <h5>Katherine Kraushaar</h5>
+                            <p className="font-weight-light mb-0"> Desarrolladora Junior Fullstack</p>
+                        </div></div>
+
+                    </div></div>
+
+            </section> */}
+
+            {/* <div className="container">
+                <div id="cartaadm" className="box mb-3 py-3">
                     <div className="row g-0">
                         <div className="col-md-4">
-                            <img src="https://horizonterm.blob.core.windows.net.optimalcdn.com/images/2022/02/24/anonymus-rusia-focus-0-0-955-636.jpg" className="img-fluid px-5" alt="..." />
+                            <img src={props.imgadm} className="rounded-circle m-4" width="200" height="200" alt="..." />
                         </div>
                         <div className="col-md-8">
                             <div className="card-body">
@@ -22,16 +56,16 @@ const Administradores = (props) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 };
 
 Administradores.propTypes = {
-    title: PropTypes.string,
-    description: PropTypes.string,
-    buttonLabel: PropTypes.string,
-    buttonURL: PropTypes.string,
+    nombre: PropTypes.string,
+    descripcion: PropTypes.string,
+    img: PropTypes.string,
+
 };
 
 export default Administradores;

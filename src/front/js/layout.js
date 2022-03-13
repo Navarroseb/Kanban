@@ -7,7 +7,7 @@ import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+
 import { Footer } from "./component/footer";
 import { RegistroProfesionales } from "./pages/registroprofesionales";
 import { RegistroClientes } from "./pages/registroclientes";
@@ -26,14 +26,15 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					{/* <Navbar /> */}
 					<Switch>
+						<Route exact path="/home">
+							<Home2 /></Route>
 						<Route exact path="/vistadesarrolladores">
 							<Home />
 						</Route>
-						<Route exact path="/home">
-							<Home2 />
-						</Route>
+
+
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
