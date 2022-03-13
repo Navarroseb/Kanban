@@ -1,7 +1,101 @@
-/*
-    home.css: This website contains selectors only used in home.css
+#container-tipos {
+  width: 100%;
+  display: flex;
+  max-width: 1100px;
+}
+#tipos-card {
+  width: 110%;
+  height: 700px;
+  margin: 20px;
+  overflow: hidden;
+  cursor: default;
+  transition: all 400ms ease;
+  padding: inherit;
+  border: 3px solid gray;
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+#tipos-card:hover {
+  box-shadow: 10px 10px 30px black;
+  transform: translateY(-3%);
+}
+
+#container-card {
+  padding: 15px;
+  text-align: center;
+}
+
+#buscador_categoria {
+  width: 25%;
+}
+#buscador_ciudad {
+  width: 55%;
+}
+#card-desarrollador {
+  margin-top: 20px;
+}
+#numeros-pagina {
+  margin-top: 30px;
+}
+#info_cliente {
+  padding-top: 20px;
+}
+#vista_cliente {
+  margin-top: 100px;
+  border: 4px solid transparent;
+  border-image: linear-gradient(to bottom, #4d3880 0%, #992e64 100%) 1;
+  margin-bottom: 100px;
+}
+
+.img-card {
+  width: 100%;
+  height: 215px;
+  object-fit: cover;
+}
+.cc1 {
+  position: absolute;
+  left: 5px;
+  top: 125px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.bc1 {
+  position: absolute;
+  left: 240px;
+  margin-top: 20px;
+}
+.cc2 {
+  position: absolute;
+  right: 5px;
+  top: 230px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 400px;
+}
+.bc2 {
+  margin-right: 5px;
+  margin-top: 20px;
+}
+.navbar-brand {
+  object-fit: cover;
+  width: 100%;
+}
+.iniciar-sesion {
+  margin-right: 3px;
+}
+.fotous {
+  max-width: 12rem;
+  box-shadow: 0px 5px 5px 0px #adb5bd;
+}
+#footerpag {
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+  margin-top: 30px;
+}
+.Nosotros-section {
+  padding-bottom: 50px;
+}

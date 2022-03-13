@@ -1,3 +1,149 @@
-/* 
-    General Styles used on every website (Don't Repeat Yourself)
-*/
+* {
+  padding: 3px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.image1 {
+  width: 600px;
+  height: 500px;
+  margin-top: 300px;
+  margin-left: 80px;
+  object-fit: contain;
+}
+.image2 {
+  width: 600px;
+  height: 400px;
+  margin-top: 150px;
+  margin-left: 30px;
+  object-fit: contain;
+}
+
+.image3 {
+  width: 600px;
+  height: 500px;
+  margin-top: 300px;
+  margin-left: 100px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.RegistroProfesionales {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.RegistroClientes {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.formulario {
+  background-image: radial-gradient(
+    circle at 68.3% -18.3%,
+    #eee7ff 0,
+    #d3cefb 25%,
+    #b5b5f2 50%,
+    #939ee9 75%,
+    #6a89e1 100%
+  );
+  width: 600px;
+  margin-top: 50px;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.formulario2 {
+  background-image: radial-gradient(
+    circle at 68.3% -18.3%,
+    #eee7ff 0,
+    #d3cefb 25%,
+    #b5b5f2 50%,
+    #939ee9 75%,
+    #6a89e1 100%
+  );
+  width: 600px;
+  margin-top: 50px;
+  margin-left: 50px;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.formulario > div,
+.formulario2 > div {
+  margin-bottom: 20px;
+}
+
+.formulario label,
+.formulario2 label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #1f1f1f;
+}
+
+.formulario input,
+.formulario2 input,
+.formulario textarea,
+.formulario2 textarea {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid #e2e2e2;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 5px;
+  color: #1f1f1f;
+}
+
+.formulario input:focus {
+  outline: none;
+  border: 2px solid #0085ff;
+}
+
+.formulario .error {
+  color: #e92b2d;
+  font-weight: 600;
+  font-size: 12px;
+}
+.formulario2 .error {
+  color: #e92b2d;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+button[type="submit"] {
+  display: block;
+  background: #0085ff;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s ease all;
+}
+
+button[type="submit"]:hover {
+  background: #0051ff;
+}
+
+.formulario .exito {
+  text-align: center;
+  font-size: 14px;
+  padding-top: 20px;
+  color: #02a802;
+}
+.fomulario-profesional {
+  margin-left: 200px;
+}
+.formulario-cliente {
+  margin-left: 200px;
+}
