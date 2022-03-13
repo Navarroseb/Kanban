@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../img/w4u1.png"
-const Navbar2 = () => {
+const Navbarclient = () => {
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -22,7 +22,7 @@ const Navbar2 = () => {
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item " href={"/formularioprofesionales"} >Soy desarrollador</a></li>
-                                <li><a class="dropdown-item" href={"/formularioclientes"}>Quiero contratar a un desarrollador</a></li>
+                                <li><a class="dropdown-item disabled" href={"/formularioclientes"}>Quiero contratar a un desarrollador</a></li>
 
                             </ul>
                         </li>
@@ -31,7 +31,7 @@ const Navbar2 = () => {
                                 <i class="fas fa-bars"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href={"/vistacliente"}  >Mi cuenta</a></li>
+                                <li><a class="dropdown-item" href={"/vistadesarrolladores"}  >Ver desarrolladores</a></li>
                                 <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
                             </ul>
                         </li>
@@ -42,4 +42,4 @@ const Navbar2 = () => {
 
     );
 };
-export default Navbar2; 
+export default Navbarclient; 

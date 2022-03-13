@@ -4,7 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 //import PropTypes from "prop-types";
 //import { Context } from "../store/appContext";
 import img3 from "../../img/formcliente.png";
-import Navbar2 from "../component/navbar2.js"
+import Navbarclient from "../component/navbarclient.js"
 
 
 export const RegistroClientes = () => {
@@ -41,7 +41,7 @@ export const RegistroClientes = () => {
 
     return (
         <>
-            <Navbar2 />
+            <Navbarclient />
             <div className="contain">
                 <div className="row">
                     <div className="col-md-12 formulario-cliente">
