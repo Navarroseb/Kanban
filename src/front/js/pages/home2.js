@@ -30,7 +30,7 @@ export const Home2 = () => {
 						<Carousel
 							title1="Encuentra aquí a los mejores desarrolladores junior"
 							/* description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book" */
-							buttonLabel1="Ver desarrolladores"
+							buttonLabel1="Ver  desarrolladores"
 							imgbanner1={Bannerhome}
 							imgbanner2={Banner2}
 							title2="¿Que es un desarrollador junior?"
