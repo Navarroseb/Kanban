@@ -26,28 +26,28 @@ def users():
        
         nombre = request.form['nombre']
         apellido = request.form['apellido']
+        avatar = request.files['avatar']
         correo = request.form['correo']
         contraseña = request.form['contraseña']
         telefono = request.form['telefono']
-        avatar = request.files['avatar']
 
         user = User()
         user.nombre = nombre
         user.apellido = apellido
+        user.avatar = avatar
         user.correo = correo
         user.contraseña = contraseña
         user.telefono = telefono
-        user.avatar = avatar
         user.save()  
 
         user = User.query.filter_by(nombre = nombre).all()
 
         if not nombre: return jsonify({ "msg": "El nombre sera requerido!"}), 400
         if not apellido: return jsonify({ "msg": "El apellido sera requerido!"}), 400
+        if not avatar: return jsonify({ "msg": "El avatar no esta disponible!"}), 400
         if not correo: return jsonify({ "msg": "El correo sera requerido!"}), 400
         if not contraseña: return jsonify({ "msg": "La contraseña sera requerida!"}), 400
         if not telefono: return jsonify({ "msg": "El telefono sera requerido!"}), 400
-        if not avatar: return jsonify({ "msg": "El avatar no esta disponible!"}), 400
 
         upload_avatar = cloudinary.uploader.upload(avatar,
             folder="avatars",

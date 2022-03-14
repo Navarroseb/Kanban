@@ -14,9 +14,9 @@ class User(db.Model):
     categorias = db.Column(db.Integer, db.ForeignKey('categorias.id'), nullable=False)
     roles_id = db.Column(db.Integer, db.ForeignKey('roles.id'), nullable=False)
     categoria_id = db.Column(db.Integer, db.ForeignKey('categorias.id'), nullable=False)
-    evaluacion = db.relationship('evaluaciones', backref='user', uselist=False)
-    portafolio = db.relationship('portafolios', backref='user', uselist=False)
-    datos_profesional = db.relationship('datos_profesionales', backref='user', uselist=False)
+    evaluacion = db.relationship('Evaluacion', backref='user', uselist=True)
+    portafolio = db.relationship('Portafolio', backref='user', uselist=True)
+    datos_profesional = db.relationship('Datos_profesional', backref='user', uselist=False)
 
     def __repr__(self):
         return '<User %r>' % self.correo
@@ -77,7 +77,7 @@ class Rol(db.Model):
     __tablename__ = 'roles'
     id = db.Column(db.Integer, primary_key=True)
     nombre_roles = db.Column(db.String(150), nullable=False)
-    categoria = db.relationship('categorias', backref='rol', uselist=False)
+    categoria = db.relationship('Categoria', backref='rol', uselist=True)
 
     def __repr__(self):
         return '<Rol %r>' % self.nombre_roles
@@ -105,7 +105,7 @@ class Categoria(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(150), nullable=False)
     tipo_rol_id = db.Column(db.Integer, db.ForeignKey('roles.id'), nullable=False)
-    categoria_id = db.relationship('user', backref='categoria', uselist=False)
+    categoria_id = db.relationship('user', backref='categoria', uselist=True)
 
     def __repr__(self):
         return '<Categoria %r>' % self.nombre
@@ -166,7 +166,7 @@ class Datos_profesional(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     githubuser = db.Column(db.String(150), nullable=False)
     profesional_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    profesional_id = db.relationship('habilidades_tecnicas', backref='datos_profesional', uselist=False)
+    profesional_id = db.relationship('habilidades_tecnicas', backref='datos_profesional', uselist=True)
 
     def __repr__(self):
         return '<Datos_profesional %r>' % self.githubuser
