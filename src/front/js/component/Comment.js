@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 const Comment = (props) => {
     return (
         <>
-            <div className="container">
+            <div id="cont-profesionales" className="container">
                 <div className="row">
                     <h1 className="titulo text-white text-center">{props.title}</h1>
                     <div className="col-md-12 py-1">

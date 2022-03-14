@@ -1,9 +1,9 @@
-.container {
+#cont-profesionales {
   width: 100%;
   display: flex;
   max-width: 1100px;
 }
-.card {
+#cprof {
   width: 100%;
   margin: 20px;
   border-radius: 6px;
@@ -13,7 +13,7 @@
   transition: all 400ms ease;
 }
 
-.card:hover {
+#cprof:hover {
   box-shadow: 10px 10px 30px black;
   transform: translateY(-3%);
 }

@@ -7,7 +7,7 @@ import { FaBriefcase } from "react-icons/fa";
 const Work = (props) => {
     return (
         <>
-            <div className="container">
+            <div id="cont-profesionales" className="container">
                 <div className="work py-5">
                     <div className="row g-0">
                         <div className="col-md-6">

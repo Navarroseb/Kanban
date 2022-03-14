@@ -14,10 +14,10 @@ export const Home1 = () => {
 	return (
 		<>
 			<section id="header">
-				<div className="container py-3">
+				<div id="cont-profesionales" className="container py-3">
 					<Breadcrum />
 				</div>
-				<div className="container">
+				<div id="cont-profesionales" className="container">
 					<div className="row">
 						<div className="col-md-12 py-5">
 							<Card
@@ -33,7 +33,7 @@ export const Home1 = () => {
 				</div>
 			</section>
 			<section id="servicios">
-				<div className="container">
+				<div id="cont-profesionales" className="container">
 					<div className="row">
 						<div className="col-md-6" id="service-1">
 							<Service
@@ -69,7 +69,7 @@ export const Home1 = () => {
 				</div>
 			</section>
 			<section id="mis-trabajos">
-				<div className="container">
+				<div id="cont-profesionales" className="container">
 					<Work
 						title="Mis Trabajos"
 					/>
