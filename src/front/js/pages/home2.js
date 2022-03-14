@@ -69,14 +69,14 @@ export const Home2 = () => {
 				</div>
 			</div>
 
-
-			<Informacion
-				title="QUE ES UN DESARROLLADOR FREELANCE?"
-				description="Un programador freelance es aquella persona que se dedica en su totalidad de tiempo a desarrollar programas o software para autónomos, empresas o particulares.
+			<div id="desarrollador-junior">
+				<Informacion
+					title="QUE ES UN DESARROLLADOR FREELANCE?"
+					description="Un programador freelance es aquella persona que se dedica en su totalidad de tiempo a desarrollar programas o software para autónomos, empresas o particulares.
 			Estos perfiles, suelen estar dados de alta como autónomos para así poder tener su propia facturación y correr a cargo de sus gastos e ingresos.
 			Por ello, un freelance programador es una persona totalmente independiente y trabaja para sí mismo.
 			Dentro de los diferentes tipos de perfiles que existen en la actualidad, el de programador informático freelance es uno que despunta. Puede aportar conocimientos informáticos y a la vez poder programar un software."
-			/>
+				/></div>
 
 
 			<section className="Nosotros-section text-center" >
