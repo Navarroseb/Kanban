@@ -24,7 +24,7 @@ const Carousel = (props) => {
                         <img src={props.imgbanner2} class="d-block w-100" alt="..." />
                         <div className="carousel-caption cc2 d-none d-md-block text-white d-flex flex-column justify-content-center align-items-end px-5">
                             <h2 className="titulo mx-5">{props.title2}</h2>
-                            <a class="btn btn-outline-light bc1" href="#desarrollador-junior" role="button">{props.buttonLabel2}</a>
+                            <a class="btn btn-outline-light bc2" href="#desarrollador-junior" role="button">{props.buttonLabel2}</a>
                         </div>
                     </div>
                     <div class="carousel-item">
