@@ -7,7 +7,6 @@ import "../styles/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css/animate.min.css";
 import "@popperjs/core";
-import "bootstrap/dist/js/bootstrap.bundle";
 
 //import your own components
 import Layout from "./layout";

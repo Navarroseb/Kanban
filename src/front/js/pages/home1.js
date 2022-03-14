@@ -7,12 +7,14 @@ import Card from "../component/Cards";
 import Service from "../component/Service";
 import Work from "../component/Works";
 import Comment from "../component/Comment";
+import Navbar2 from "../component/navbar2"
 
 
 
 export const Home1 = () => {
 	return (
 		<>
+			<Navbar2 />
 			<section id="header">
 				<div id="cont-profesionales" className="container py-3">
 					<Breadcrum />
