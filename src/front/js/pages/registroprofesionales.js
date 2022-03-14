@@ -8,7 +8,7 @@ import img2 from "../../img/formprof2.png";
 import { number } from "prop-types";
 import checkUserGithub from "./githubuser"
 import { AiOutlineGithub } from 'react-icons/ai';
-import Navbar2 from "../component/navbar2"
+import Navbarprof from "../component/navbarprof"
 
 
 export const RegistroProfesionales = () => {
@@ -19,7 +19,7 @@ export const RegistroProfesionales = () => {
     }
 
     return (
-        <><Navbar2 />
+        <><Navbarprof />
             <div className="contanier fomulario-profesional">
                 <div className="row">
                     <div className="col-md-12">

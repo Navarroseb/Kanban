@@ -11,9 +11,9 @@ import ImgFull from "../../img/full.png";
 import Bannerhome from "../../img/bannerlisto.png"
 import Banner2 from "../../img/bannerhome2.png"
 import Banner3 from "../../img/bannerhome3.png"
-import fotokt from "../../img/kt.png"
+import fotokt from "../../img/kt1.png"
 import fotomiguel from "../../img/miguel.jpeg"
-import fotokao from "../../img/kao.jpeg"
+import fotokao from "../../img/kao.png"
 import fotoseba from "../../img/seba.png"
 import Navbar from "../component/navbar"
 import { Footer } from "../component/footer.js"
@@ -33,7 +33,7 @@ export const Home2 = () => {
 							buttonLabel1="Ver  desarrolladores"
 							imgbanner1={Bannerhome}
 							imgbanner2={Banner2}
-							title2="¿Que es un desarrollador junior?"
+							title2="¿Que es un freelancer?"
 							buttonLabel2="Descubrelo!"
 							imgbanner3={Banner3}
 						/>
@@ -68,17 +68,17 @@ export const Home2 = () => {
 					</div>
 				</div>
 			</div>
-			<section id="body-2">
-				<div id="desarrollador-junior" className="container">
-					<div className="row">
-						<div className="col-md-12">
-							<Informacion
-							/>
-						</div>
-					</div>
-				</div>
 
-			</section>
+
+			<Informacion
+				title="QUE ES UN DESARROLLADOR FREELANCER?"
+				description="Un programador freelance es aquella persona que se dedica en su totalidad de tiempo a desarrollar programas o software para autónomos, empresas o particulares.
+			Estos perfiles, suelen estar dados de alta como autónomos para así poder tener su propia facturación y correr a cargo de sus gastos e ingresos.
+			Por ello, un freelance programador es una persona totalmente independiente y trabaja para sí mismo.
+			Dentro de los diferentes tipos de perfiles que existen en la actualidad, el de programador informático freelance es uno que despunta. Puede aportar conocimientos informáticos y a la vez poder programar un software."
+			/>
+
+
 			<section className="Nosotros-section text-center" >
 				<div id="aboutus" className="container">
 					<h2 className="mb-5">Sobre nosotros...</h2>
