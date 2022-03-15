@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
+import { Home1 } from "./pages/home1";
 import { Home2 } from "./pages/home2";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
@@ -16,6 +17,7 @@ import { Vistacliente } from "./pages/vistacliente";
 
 
 
+
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -26,6 +28,7 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
+
 					{/* <Navbar /> */}
 					<Switch>
 						<Route exact path="/home">
@@ -33,7 +36,8 @@ const Layout = () => {
 						<Route exact path="/vistadesarrolladores">
 							<Home />
 						</Route>
-
+						<Route exact path="/perfildesarrolladores">
+							<Home1 /> </Route>
 
 						<Route exact path="/demo">
 							<Demo />
