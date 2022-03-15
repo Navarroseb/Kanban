@@ -13,7 +13,7 @@ import { RegistroProfesionales } from "./pages/registroprofesionales";
 import { RegistroClientes } from "./pages/registroclientes";
 import { Home } from "./pages/home";
 import { Vistacliente } from "./pages/vistacliente";
-import { Login } from "./component/login";
+import { Login } from "./pages/login";
 
 //create your first component
 const Layout = () => {
