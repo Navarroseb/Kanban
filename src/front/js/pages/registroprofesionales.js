@@ -2,17 +2,14 @@ import React, { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import img1 from "../../img/formprof.png";
 import img2 from "../../img/formprof2.png";
-import checkUserGithub from "./githubuser"
+import checkUserGithub from "./githubuser";
 import { AiOutlineGithub } from 'react-icons/ai';
-import Navbarprof from "../component/navbarprof"
+import Navbarprof from "../component/navbarprof";
+import { useFormik } from "formik";
 
 
 
 export const RegistroProfesionales = () => {
-    const enviarDatos = (event) => {
-        event.preventDefault();
-        console.log("Formulario enviado")
-    };
 
     return (
         <>
@@ -28,7 +25,7 @@ export const RegistroProfesionales = () => {
                                     nombre: '',
                                     apellido: '',
                                     rut: '',
-                                    fotorut: '',
+                                    fotocarnet: '',
                                     teléfono: '',
                                     correo: '',
                                     contraseña: '',
@@ -60,10 +57,10 @@ export const RegistroProfesionales = () => {
                                         errores.rut = 'Ingresa un formato valido'
                                     }
 
-                                    if (!valores.fotorut) {
-                                        errores.fotorut = 'Debes seleccionar un archivo'
-                                    } else if (!/^.*\.(jpg|JPG|pdf|PDF)$/.test(valores.fotorut)) {
-                                        errores.fotorut = 'Por favor verifica que tu archivo sea .jpg o .pdf'
+                                    if (!valores.fotocarnet) {
+                                        errores.fotocarnet = 'Debes seleccionar un archivo'
+                                    } else if (!/^.*\.(jpg|JPG|pdf|PDF)$/.test(valores.fotocarnet)) {
+                                        errores.fotocarnet = 'Por favor verifica que tu archivo sea .jpg o .pdf'
                                     }
 
                                     if (!valores.teléfono) {
@@ -110,7 +107,8 @@ export const RegistroProfesionales = () => {
                                         errores.githubuser = 'Campo no puede estar vacio'
                                     } else if (!/^[a-zA-Z0-9_.+-]{1,40}$/.test(valores.githubuser)) {
                                         errores.githubuser = 'Ingresa tu usuario'
-                                    } else if (!await checkUserGithub(valores.githubuser)) {
+                                    }
+                                    else if (!await checkUserGithub(valores.githubuser)) {
                                         errores.githubuser = 'Usuario incorrecto'
                                     } else if (await checkUserGithub(valores.githubuser)) {
                                         errores.githubuser = <AiOutlineGithub color="black" size="4em" />
@@ -121,16 +119,13 @@ export const RegistroProfesionales = () => {
 
                                 }}
 
-                            /*  onSubmit={({ resetForm }) => {
-                                 resetForm();
-                                 console.log("Formulario enviado")
-                                 cambiarFormularioEnviado(true);
-                                 setTimeout(() => cambiarFormularioEnviado(false), 3000);
-                             }}
-*/
+                                onSubmit={values => {
+                                    console.log(values);
+                                }}
+
                             >
                                 {({ errors }) => (
-                                    <Form className="formulario" onSubmit={enviarDatos}>
+                                    <Form className="formulario">
                                         <h1>Registro para profesionales</h1>
                                         <h2>Datos personales</h2>
                                         <div>
@@ -167,10 +162,10 @@ export const RegistroProfesionales = () => {
                                             <label htmlFor="foto del rut">Foto del Rut (solo formato .jpg o .pdf)</label>
                                             <Field
                                                 type="file"
-                                                name="fotorut"
-                                                id="fotoRut"
+                                                name="fotocarnet"
+                                                id="fotocarnet"
                                             />
-                                            <ErrorMessage name="fotorut" component={() => (<div className="error">{errors.fotorut}</div>)} />
+                                            <ErrorMessage name="fotocarnet" component={() => (<div className="error">{errors.fotocarnet}</div>)} />
                                         </div>
                                         <div>
                                             <label htmlFor="teléfono">Teléfono</label>
@@ -273,11 +268,9 @@ export const RegistroProfesionales = () => {
                                                 placeholder="Usuario de Github"
                                                 id="githubuser"
                                             />
-                                            <AiOutlineGithub color="black" size="4em" />
                                             <ErrorMessage name="githubuser" component={() => (<div className="error">{errors.githubuser}</div>)} />
                                         </div>
                                         <button type="submit">Enviar</button>
-                                        {/* {formularioEnviado && <p className="exito">Formulario enviado exitosamente!</p>} */}
                                     </Form>
                                 )}
                             </Formik>

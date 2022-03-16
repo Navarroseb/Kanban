@@ -1,43 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
-//import { Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-//import PropTypes from "prop-types";
-//import { Context } from "../store/appContext";
 import img3 from "../../img/formcliente.png";
 import Navbarclient from "../component/navbarclient.js"
 
 
 export const RegistroClientes = () => {
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
-    /* //const [inputNombre, cambiarInputNombre] = useState('');
-    const [inputRut, cambiarInputRut] = useState('');
-    const [inputFotodelRut, cambiarInputFotodelRut] = useState('');
-    const [inputCorreo, cambiarInputCorreo] = useState('');
-    const [inputContraseña, cambiarInputContraseña] = useState('');
-    const [inputDirección, cambiarInputDirección] = useState('');
-    const [inputCiudad, cambiarInputCiudad] = useState('');
-    const [inputnombre_institución, cambiarInputnombre_institución] = useState('');
-    const [inputcertificado, cambiarInputcertificado] = useState('');
-    const [inputgithubuser, cambiarInputgithubuser] = useState('');
-    const [inputHerramientas, cambiarInputHerramientas] = useState(''); */
-
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Formulario Enviado!');
     }
-
-    // Funcion que se encarga de cambiar el estado del inputNombre
-    //const handleInputNombre = (e) => { cambiarInputNombre(e.target.value); }
-    /* const handleInputRut = (e) => { cambiarInputRut(e.target.value); }
-    const handleInputFotodelRut = (e) => { cambiarInputFotodelRut(e.target.value); }
-    const handleInputCorreo = (e) => { cambiarInputCorreo(e.target.value); }
-    const handleInputContraseña = (e) => { cambiarInputContraseña(e.target.value); }
-    const handleInputDirección = (e) => { cambiarInputDirección(e.target.value); }
-    const handleInputCiudad = (e) => { cambiarInputCiudad(e.target.value); }
-    const handleInputnombre_institución = (e) => { cambiarInputnombre_institución(e.target.value); }
-    const handleInputcertificado = (e) => { cambiarInputcertificado(e.target.value); }
-    const handleInputgithubuser = (e) => { cambiarInputgithubuser(e.target.value); }
-    const handleInputHerramientas = (e) => { cambiarInputHerramientas(e.target.value); } */
 
     return (
         <>
@@ -51,7 +23,7 @@ export const RegistroClientes = () => {
                                 initialValues={{
                                     nombre: '',
                                     rut: '',
-                                    fotorut: '',
+                                    fotocarnet: '',
                                     correo: '',
                                     contraseña: '',
                                     dirección: '',
@@ -73,10 +45,10 @@ export const RegistroClientes = () => {
                                         errores.rut = 'Ingresa un formato valido'
                                     }
 
-                                    if (!valores.fotorut) {
-                                        errores.fotorut = 'Debes seleccionar un archivo'
-                                    } else if (!/^.*\.(jpg|JPG|pdf|PDF)$/.test(valores.fotorut)) {
-                                        errores.fotorut = 'Por favor verifica que tu archivo sea .jpg o .pdf'
+                                    if (!valores.fotocarnet) {
+                                        errores.fotocarnet = 'Debes seleccionar un archivo'
+                                    } else if (!/^.*\.(jpg|JPG|pdf|PDF)$/.test(valores.fotocarnet)) {
+                                        errores.fotocarnet = 'Por favor verifica que tu archivo sea .jpg o .pdf'
                                     }
 
                                     if (!valores.correo) {
@@ -102,9 +74,7 @@ export const RegistroClientes = () => {
                                     }
 
                                     return errores;
-
                                 }}
-
                             >
                                 {({ errors }) => (
                                     <Form className="formulario" >
@@ -135,10 +105,10 @@ export const RegistroClientes = () => {
                                             <label htmlFor="foto del rut">Foto del Rut (solo formato .jpg o .pdf)</label>
                                             <Field
                                                 type="file"
-                                                name="fotorut"
-                                                id="fotoRut"
+                                                name="fotocarnet"
+                                                id="fotocarnet"
                                             />
-                                            <ErrorMessage name="fotorut" component={() => (<div className="error">{errors.fotorut}</div>)} />
+                                            <ErrorMessage name="fotocarnet" component={() => (<div className="error">{errors.fotocarnet}</div>)} />
                                         </div>
                                         <div>
                                             <label htmlFor="correo">Correo</label>
@@ -206,7 +176,11 @@ export const RegistroClientes = () => {
                                 )}
                             </Formik>
                             <img className="image3" src={img3} />
-                        </div></div></div></div></>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
     );
 };
 
