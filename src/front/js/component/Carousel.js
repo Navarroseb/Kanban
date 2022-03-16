@@ -15,20 +15,24 @@ const Carousel = (props) => {
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src={props.imgbanner1} class="d-block w-100" alt="..." />
-                        <div className="carousel-caption cc1 d-none d-md-block text-white d-flex flex-column justify-content-center align-items-start px-5">
-                            <h2 className="titulo mx-5 w-50">{props.title1}</h2>
-                            <a class="btn btn-outline-light bc1" href={"/vistadesarrolladores"} role="button">{props.buttonLabel1}</a>
+                        <div className="carousel-caption cc1 d-none d-md-block text-white d-flex flex-column justify-content-center align-items-start">
+                            <h1 className="titulo w-50">{props.title1}</h1>
+                            <a class="btn btn-outline-light bc1" href="#que-es-w4u" role="button">{props.buttonLabel1}</a>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src={props.imgbanner2} class="d-block w-100" alt="..." />
                         <div className="carousel-caption cc2 d-none d-md-block text-white d-flex flex-column justify-content-center align-items-end px-5">
                             <h2 className="titulo mx-5">{props.title2}</h2>
-                            <a class="btn btn-outline-light bc2" href="#desarrollador-junior" role="button">{props.buttonLabel2}</a>
+                            <a class="btn btn-outline-light bc2" href={"/vistadesarrolladores"} role="button">{props.buttonLabel2}</a>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src={props.imgbanner3} class="d-block w-100" alt="..." />
+                        <div className="carousel-caption cc2 d-none d-md-block text-white d-flex flex-column justify-content-center align-items-end px-5">
+                            <h2 className="titulo mx-5">{props.title3}</h2>
+                            <a class="btn btn-outline-light bc2" href="#desarrollador-junior" role="button">{props.buttonLabel3}</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -44,6 +48,9 @@ Carousel.propTypes = {
     title2: PropTypes.string,
     buttonLabel2: PropTypes.string,
     imgbanner3: PropTypes.string,
+    title3: PropTypes.string,
+    buttonLabel3: PropTypes.string,
+
 };
 
 export default Carousel;

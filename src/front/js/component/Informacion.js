@@ -3,15 +3,15 @@ import PropTypes from "prop-types";
 
 const Informacion = (props) => {
     let styles = {
-        background: "url(/img/fondob1.png)",
+        background: "url(/img/p4.png)",
         backgroundSize: "cover",
         backgroundPosition: "center center",
-        height: "400px",
+        height: "590px",
         width: "100%",
     }
     return (
         <>
-            <div id="banner" className="container-fluid" style={styles}>
+            <div id="banner2" className="container-fluid" style={styles}>
                 <div className="row">
 
 

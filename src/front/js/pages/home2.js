@@ -16,7 +16,7 @@ import fotomiguel from "../../img/miguel.jpeg"
 import fotokao from "../../img/kao.png"
 import fotoseba from "../../img/seba.png"
 import Navbar from "../component/navbar"
-import { Footer } from "../component/footer.js"
+import Info2 from "../component/info2"
 
 
 
@@ -28,14 +28,16 @@ export const Home2 = () => {
 				<div className="row">
 					<div className="col-md-12">
 						<Carousel
-							title1="Encuentra aquí a los mejores desarrolladores junior"
+							title2="Encuentra aquí a los mejores desarrolladores junior freelance"
 							/* description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book" */
-							buttonLabel1="Ver  desarrolladores"
+							buttonLabel2="Ver  desarrolladores"
 							imgbanner1={Bannerhome}
 							imgbanner2={Banner2}
-							title2="¿Que es un  desarrollador freelance?"
-							buttonLabel2="Descubrelo!"
+							title3="¿Qué es un  desarrollador freelance?"
+							buttonLabel3="Descubrelo!"
 							imgbanner3={Banner3}
+							title1="Qué es Work4U?"
+							buttonLabel1="Conócenos"
 						/>
 					</div>
 				</div>
@@ -69,9 +71,15 @@ export const Home2 = () => {
 				</div>
 			</div>
 
+			<div id="que-es-w4u">
+				<Info2
+					titulo="¿Qué es Work4U?"
+					descrip="Work4U (Work for you) es una plataforma especializada para la contratación de desarrolladores junior.La mision de Work4u es conectar clientes con desarrolladores junior recién egresados y que tengan máximo 6 meses de experiencia, con la finalidad de ayudarlos a (aqui agregar algo)"
+				/></div>
+
 			<div id="desarrollador-junior">
 				<Informacion
-					title="QUE ES UN DESARROLLADOR FREELANCE?"
+					title="¿QUE ES UN DESARROLLADOR FREELANCE?"
 					description="Un programador freelance es aquella persona que se dedica en su totalidad de tiempo a desarrollar programas o software para autónomos, empresas o particulares.
 			Estos perfiles, suelen estar dados de alta como autónomos para así poder tener su propia facturación y correr a cargo de sus gastos e ingresos.
 			Por ello, un freelance programador es una persona totalmente independiente y trabaja para sí mismo.
@@ -79,9 +87,10 @@ export const Home2 = () => {
 				/></div>
 
 
+
 			<section className="Nosotros-section text-center" >
 				<div id="aboutus" className="container">
-					<h2 className="mb-5">Sobre nosotros...</h2>
+					<h2 className="mb-5">Colaboradores</h2>
 					<div className="row">
 						<div className="col-md-3">
 							<Administradores
