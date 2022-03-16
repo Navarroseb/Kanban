@@ -6,8 +6,8 @@ const Card = (props) => {
 
         <div id="card-desarrollador" className="card">
             <div className="card-body text-center">
-                <h4 className="card-tittle text-end"> <a href="#" className="btn btn-outline-danger mr-6">
-                    <i class="far fa-heart"></i>
+                <h4 className="card-tittle text-end"> <a href="#" className="btn button-fav mr-6">
+                    <i class="fas fa-heart"></i>
                 </a></h4>
                 <img src={props.cardImg} className="rounded-circle mb-2" width="100" height="100"></img>
                 <h3 className="nombre-desarrollador">{props.cardNombredesarrollador}</h3>

@@ -7,19 +7,12 @@ import "../../styles/home.css";
 import Navbar2 from "../component/navbar2"
 
 export const Home = () => {
-	let styles = {
-		background: "url(/img/prueba.png)",
-		backgroundSize: "cover",
-		backgroundPosition: "center center",
-		width: "100%",
-		height: "200px "
-	}
 	return (
 		<>
 			<Navbar2 />
 
 			{/* <div className="container "> */}
-			<div className="fondobusqueda" style={styles}>
+			<div className="fondobusqueda">
 				<Buscador
 					buscadorEspecialidad="Especialidad"
 					buscadorFront="Frontend"

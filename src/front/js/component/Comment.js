@@ -25,7 +25,7 @@ const Comment = (props) => {
                                 type="button"
                                 className="btn btn-primary"
                                 data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
+                                data-bs-target="#exampleModal2"
                             >
                                 {props.buttonlabel}
                             </button>
