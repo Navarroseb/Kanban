@@ -15,7 +15,7 @@ const Buscador = (props) => {
                         </select>
                         <input id="buscador_ciudad" type="text" className="fas fa-map-marker-alt form-control" placeholder="&#xf3c5; Ciudad" aria-label="Recipient's username" aria-describedby="button-addon2" />
 
-                        <button className="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                        <button className="btn text-white" type="button" id="button-buscador"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
                 <div className="col-md-2"></div>

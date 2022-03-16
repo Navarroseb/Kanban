@@ -41,7 +41,7 @@ const Card = (props) => {
                                     type="button"
                                     className="btn btn-secondary btn-sm"
                                     data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal"
+                                    data-bs-target="#exampleModal1"
                                 >
                                     {props.buttonLabel}
                                 </button>
@@ -53,7 +53,7 @@ const Card = (props) => {
         </div>
             <div
                 className="modal fade"
-                id="exampleModal"
+                id="exampleModal1"
                 tabIndex={-1}
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"

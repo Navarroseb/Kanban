@@ -12,16 +12,16 @@ import Navbar2 from "../component/navbar2"
 
 
 export const Home1 = () => {
-	let styles = {
-		background: "url(/img/hh.png)",
+	/* let styles = {
+		background: "url(/img/)",
 		backgroundSize: "cover",
 		backgroundPosition: "center center",
 		width: "100%",
-	}
+	} */
 	return (
 		<>
 			<Navbar2 />
-			<div className="fondo-vistaprofesionales" style={styles}>
+			<div className="fondo-vistaprofesionales" /* style={styles} */>
 				<section id="header">
 					<div id="cont-profesionales" className="container">
 						<div className="row">
