@@ -1,26 +1,173 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
+import Card from "../component/card.js";
+import Buscador from "../component/buscador.js";
+import Paginas from "../component/paginas.js"
 import "../../styles/home.css";
+import Navbar2 from "../component/navbar2"
 
 export const Home = () => {
-	const { store, actions } = useContext(Context);
-
+	let styles = {
+		background: "url(/img/prueba.png)",
+		backgroundSize: "cover",
+		backgroundPosition: "center center",
+		width: "100%",
+		height: "200px "
+	}
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-			<div className="alert alert-info">
-				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
+		<>
+			<Navbar2 />
+
+			{/* <div className="container "> */}
+			<div className="fondobusqueda" style={styles}>
+				<Buscador
+					buscadorEspecialidad="Especialidad"
+					buscadorFront="Frontend"
+					buscadorBack="Backend"
+					buscadorFull="Fullstack"
+				/></div>
+			<div className="container">
+				<div className="row">
+					<div className="col-md-1"></div>
+					<div className="col-md-10">
+						<div className="row">
+							<div className="col-md-3">
+								<Card
+									cardImg="https://images.pexels.com/photos/9977570/pexels-photo-9977570.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+									cardNombredesarrollador="John Doe"
+									cardEspecialidad="Fullstack"
+									cardCalificacion="4.8(28 Opiniones)"
+									cardCiudad="Santiago"
+									cardBoton="Ver perfil"
+								/>
+							</div>
+							<div className="col-md-3">
+								<Card
+									cardImg="https://images.pexels.com/photos/9977570/pexels-photo-9977570.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+									cardNombredesarrollador="John Doe"
+									cardEspecialidad="Fullstack"
+									cardCalificacion="4.8(28 Opiniones)"
+									cardCiudad="Santiago"
+									cardBoton="Ver perfil"
+								/>
+							</div>
+							<div className="col-md-3">
+								<Card
+									cardImg="https://images.pexels.com/photos/9977570/pexels-photo-9977570.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+									cardNombredesarrollador="John Doe"
+									cardEspecialidad="Fullstack"
+									cardCalificacion="4.8(28 Opiniones)"
+									cardCiudad="Santiago"
+									cardBoton="Ver perfil"
+								/>
+							</div>
+							<div className="col-md-3">
+								<Card
+									cardImg="https://images.pexels.com/photos/9977570/pexels-photo-9977570.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+									cardNombredesarrollador="John Doe"
+									cardEspecialidad="Fullstack"
+									cardCalificacion="4.8(28 Opiniones)"
+									cardCiudad="Santiago"
+									cardBoton="Ver perfil"
+								/>
+							</div>
+
+
+						</div>
+						<div className="row">
+							<div className="col-md-3">
+								<Card
+									cardImg="https://images.pexels.com/photos/9977570/pexels-photo-9977570.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+									cardNombredesarrollador="John Doe"
+									cardEspecialidad="Fullstack"
+									cardCalificacion="4.8(28 Opiniones)"
+									cardCiudad="Santiago"
+									cardBoton="Ver perfil"
+								/>
+							</div>
+							<div className="col-md-3">
+								<Card
+									cardImg="https://images.pexels.com/photos/9977570/pexels-photo-9977570.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+									cardNombredesarrollador="John Doe"
+									cardEspecialidad="Fullstack"
+									cardCalificacion="4.8(28 Opiniones)"
+									cardCiudad="Santiago"
+									cardBoton="Ver perfil"
+								/>
+							</div>
+							<div className="col-md-3">
+								<Card
+									cardImg="https://images.pexels.com/photos/9977570/pexels-photo-9977570.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+									cardNombredesarrollador="John Doe"
+									cardEspecialidad="Fullstack"
+									cardCalificacion="4.8(28 Opiniones)"
+									cardCiudad="Santiago"
+									cardBoton="Ver perfil"
+								/>
+							</div>
+							<div className="col-md-3">
+								<Card
+									cardImg="https://images.pexels.com/photos/9977570/pexels-photo-9977570.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+									cardNombredesarrollador="John Doe"
+									cardEspecialidad="Fullstack"
+									cardCalificacion="4.8(28 Opiniones)"
+									cardCiudad="Santiago"
+									cardBoton="Ver perfil"
+								/>
+							</div>
+
+
+						</div>
+						<div className="row">
+							<div className="col-md-3">
+								<Card
+									cardImg="https://images.pexels.com/photos/9977570/pexels-photo-9977570.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+									cardNombredesarrollador="John Doe"
+									cardEspecialidad="Fullstack"
+									cardCalificacion="4.8(28 Opiniones)"
+									cardCiudad="Santiago"
+									cardBoton="Ver perfil"
+								/>
+							</div>
+							<div className="col-md-3">
+								<Card
+									cardImg="https://images.pexels.com/photos/9977570/pexels-photo-9977570.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+									cardNombredesarrollador="John Doe"
+									cardEspecialidad="Fullstack"
+									cardCalificacion="4.8(28 Opiniones)"
+									cardCiudad="Santiago"
+									cardBoton="Ver perfil"
+								/>
+							</div>
+							<div className="col-md-3">
+								<Card
+									cardImg="https://images.pexels.com/photos/9977570/pexels-photo-9977570.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+									cardNombredesarrollador="John Doe"
+									cardEspecialidad="Fullstack"
+									cardCalificacion="4.8(28 Opiniones)"
+									cardCiudad="Santiago"
+									cardBoton="Ver perfil"
+								/>
+							</div>
+							<div className="col-md-3">
+								<Card
+									cardImg="https://images.pexels.com/photos/9977570/pexels-photo-9977570.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+									cardNombredesarrollador="John Doe"
+									cardEspecialidad="Fullstack"
+									cardCalificacion="4.8(28 Opiniones)"
+									cardCiudad="Santiago"
+									cardBoton="Ver perfil"
+								/>
+							</div>
+
+
+						</div>
+						<div className="col-md-1"></div>
+					</div>
+				</div>
 			</div>
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://github.com/4GeeksAcademy/react-flask-hello/tree/95e0540bd1422249c3004f149825285118594325/docs">
-					Read documentation
-				</a>
-			</p>
-		</div>
+			<Paginas />
+			{/* </div> */}
+		</>
 	);
 };
