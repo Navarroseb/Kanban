@@ -14,7 +14,7 @@ const Navbarprof = () => {
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-white iniciar-sesion" href="#">Login</a>
+                            <a class="nav-link text-white iniciar-sesion" href={"/login"}>Login</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,7 +32,7 @@ const Navbarprof = () => {
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href={"/vistadesarrolladores"}  >Ver desarrolladores</a></li>
-                                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+
                             </ul>
                         </li>
                     </ul>

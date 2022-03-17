@@ -1,21 +1,18 @@
 import React from "react";
 import logo from "../../img/w4u1.png"
-const Navbar2 = () => {
+const Navbar = () => {
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href={"/home"}>
                     <img src={logo} alt="" width="150" />
                 </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-white iniciar-sesion" href={"/login"} >Login</a>
-                        </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Registro
@@ -23,9 +20,9 @@ const Navbar2 = () => {
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">Soy desarrollador</a></li>
                                 <li><a class="dropdown-item" href={"/formularioclientes"}>Quiero contratar a un desarrollador</a></li>
-
                             </ul>
                         </li>
+
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -50,12 +47,13 @@ const Navbar2 = () => {
                             </div>
                         </div>
 
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-bars"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href={"/vistacliente"}  >Mi cuenta</a></li>
+                                <li><a class="dropdown-item" href={"/vistadesarrolladores"}>Ver desarrolladores</a></li>
 
                             </ul>
                         </li>
@@ -66,4 +64,4 @@ const Navbar2 = () => {
 
     );
 };
-export default Navbar2; 
+export default Navbar; 
