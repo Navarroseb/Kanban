@@ -1,48 +1,54 @@
-import React, { useState, useEffect, useContext } from "react";
-//import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-//import PropTypes from "prop-types";
-//import { Context } from "../store/appContext";
 import img1 from "../../img/formprof.png";
 import img2 from "../../img/formprof2.png";
-import { number } from "prop-types";
-import checkUserGithub from "./githubuser"
+import checkUserGithub from "./githubuser";
 import { AiOutlineGithub } from 'react-icons/ai';
-import Navbarprof from "../component/navbarprof"
+import Navbarprof from "../component/navbarprof";
+
 
 
 export const RegistroProfesionales = () => {
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Formulario Enviado!');
-    }
 
     return (
-        <><Navbarprof />
-            <div className="contanier fomulario-profesional">
+        <>
+            <Navbarprof />
+            <div id="formprofesional" className="contanier fomulario-profesional">
                 <div className="row">
                     <div className="col-md-12">
-
+                        <img className="image1" src={img1} />
                         <div className="RegistroProfesionales">
                             <Formik
+
                                 initialValues={{
                                     nombre: '',
+                                    apellido: '',
                                     rut: '',
-                                    fotorut: '',
+                                    fotocarnet: '',
+                                    teléfono: '',
                                     correo: '',
                                     contraseña: '',
                                     dirección: '',
                                     región: '',
                                     ciudad: '',
+                                    nombre_institución: '',
+                                    certificado: '',
+                                    githubuser: '',
                                 }}
-                                validate={(valores) => {
+                                validate={async (valores) => {
                                     let errores = {};
 
                                     if (!valores.nombre) {
-                                        errores.nombre = 'Ingresa un nombre'
+                                        errores.nombre = 'Campo no puede estar vacio'
                                     } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)) {
-                                        errores.nombre = 'Ingresa un nombre'
+                                        errores.nombre = 'Ingresa nombre'
+                                    }
+
+                                    if (!valores.apellido) {
+                                        errores.apellido = 'Campo no puede estar vacio'
+                                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.apellido)) {
+                                        errores.apellido = 'Ingresa apellido'
                                     }
 
                                     if (!valores.rut) {
@@ -51,10 +57,16 @@ export const RegistroProfesionales = () => {
                                         errores.rut = 'Ingresa un formato valido'
                                     }
 
-                                    if (!valores.fotorut) {
-                                        errores.fotorut = 'Debes seleccionar un archivo'
-                                    } else if (!/^.*\.(jpg|JPG|pdf|PDF)$/.test(valores.fotorut)) {
-                                        errores.fotorut = 'Por favor verifica que tu archivo sea .jpg o .pdf'
+                                    if (!valores.fotocarnet) {
+                                        errores.fotocarnet = 'Debes seleccionar un archivo'
+                                    } else if (!/^.*\.(jpg|JPG|pdf|PDF)$/.test(valores.fotocarnet)) {
+                                        errores.fotocarnet = 'Por favor verifica que tu archivo sea .jpg o .pdf'
+                                    }
+
+                                    if (!valores.teléfono) {
+                                        errores.teléfono = 'Ingresa tu teléfono'
+                                    } else if (!/^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$/.test(valores.teléfono)) {
+                                        errores.teléfono = 'Ingresa un teléfono valido'
                                     }
 
                                     if (!valores.correo) {
@@ -79,25 +91,61 @@ export const RegistroProfesionales = () => {
                                         errores.nombre = 'Ingresa una ciudad'
                                     }
 
+                                    if (!valores.nombre_institución) {
+                                        errores.nombre_institución = 'Campo no puede estar vacio'
+                                    } else if (!/^[a-zA-Z0-9_.+-]{1,40}$/.test(valores.nombre_institución)) {
+                                        errores.nombre_institución = 'Ingresa un nombre'
+                                    }
+
+                                    if (!valores.certificado) {
+                                        errores.certificado = 'Debes seleccionar un archivo'
+                                    } else if (!/^.*\.(jpg|JPG)$/.test(valores.certificado)) {
+                                        errores.certificado = 'Por favor verifica que tu archivo sea .jpg o .pdf'
+                                    }
+
+                                    if (!valores.githubuser) {
+                                        errores.githubuser = 'Campo no puede estar vacio'
+                                    } else if (!/^[a-zA-Z0-9_.+-]{1,40}$/.test(valores.githubuser)) {
+                                        errores.githubuser = 'Ingresa tu usuario'
+                                    }
+                                    else if (!await checkUserGithub(valores.githubuser)) {
+                                        errores.githubuser = 'Usuario no existe'
+                                    }
                                     return errores;
 
                                 }}
 
+                                onSubmit={(valores, { resetForm }) => {
+                                    resetForm();
+                                    console.log(valores)
+                                    cambiarFormularioEnviado(true);
+                                    setTimeout(() => cambiarFormularioEnviado(false), 4000);
+                                }}
+
                             >
                                 {({ errors }) => (
-                                    <Form className="formulario" >
+                                    <Form className="formulario">
                                         <h1>Registro para profesionales</h1>
                                         <h2>Datos personales</h2>
                                         <div>
-                                            <label htmlFor="nombre">Nombre y Apellido</label>
+                                            <label htmlFor="nombre">Nombre</label>
                                             <Field
                                                 type="text"
                                                 name="nombre"
-                                                placeholder="Nombre y Apellido"
+                                                placeholder="Nombre"
                                                 id="nombre"
                                             />
                                             <ErrorMessage name="nombre" component={() => (<div className="error">{errors.nombre}</div>)} />
-
+                                        </div>
+                                        <div>
+                                            <label htmlFor="apellido">Apellido</label>
+                                            <Field
+                                                type="text"
+                                                name="apellido"
+                                                placeholder="Apellido"
+                                                id="apellido"
+                                            />
+                                            <ErrorMessage name="apellido" component={() => (<div className="error">{errors.apellido}</div>)} />
                                         </div>
                                         <div>
                                             <label htmlFor="rut">Rut</label>
@@ -113,10 +161,20 @@ export const RegistroProfesionales = () => {
                                             <label htmlFor="foto del rut">Foto del Rut (solo formato .jpg o .pdf)</label>
                                             <Field
                                                 type="file"
-                                                name="fotorut"
-                                                id="fotoRut"
+                                                name="fotocarnet"
+                                                id="fotocarnet"
                                             />
-                                            <ErrorMessage name="fotorut" component={() => (<div className="error">{errors.fotorut}</div>)} />
+                                            <ErrorMessage name="fotocarnet" component={() => (<div className="error">{errors.fotocarnet}</div>)} />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="teléfono">Teléfono</label>
+                                            <Field
+                                                type="tel"
+                                                name="teléfono"
+                                                placeholder="Teléfono"
+                                                id="teléfono"
+                                            />
+                                            <ErrorMessage name="teléfono" component={() => (<div className="error">{errors.teléfono}</div>)} />
                                         </div>
                                         <div>
                                             <label htmlFor="correo">Correo</label>
@@ -180,61 +238,6 @@ export const RegistroProfesionales = () => {
                                             />
                                             <ErrorMessage name="ciudad" component={() => (<div className="error">{errors.ciudad}</div>)} />
                                         </div>
-                                    </Form>
-                                )}
-                            </Formik>
-                            <img className="image1" src={img1} />
-                            <img className="image2" src={img2} />
-
-
-                            <Formik
-                                initialValues={{
-                                    nombre_institución: '',
-                                    certificado: '',
-                                    githubuser: '',
-                                    herramientas: '',
-
-                                }}
-                                validate={async (valores) => {
-                                    let errores = {};
-
-                                    if (!valores.nombre_institución) {
-                                        errores.nombre_institución = 'Campo no puede estar vacio'
-                                    } else if (!/^[a-zA-Z0-9_.+-]{1,40}$/.test(valores.nombre_institución)) {
-                                        errores.nombre_institución = 'Ingresa un nombre'
-                                    }
-
-                                    if (!valores.certificado) {
-                                        errores.certificado = 'Debes seleccionar un archivo'
-                                    } else if (!/^.*\.(jpg|JPG|pdf|PDF)$/.test(valores.certificado)) {
-                                        errores.certificado = 'Por favor verifica que tu archivo sea .jpg o .pdf'
-                                    }
-
-                                    if (!valores.githubuser) {
-                                        errores.githubuser = 'Campo no puede estar vacio'
-                                    } else if (!/^[a-zA-Z0-9_.+-]{1,40}$/.test(valores.githubuser)) {
-                                        errores.githubuser = 'Ingresa tu usuario'
-                                    } else if (!await checkUserGithub(valores.githubuser)) {
-                                        errores.githubuser = 'Usuario incorrecto'
-                                        console.log(valores.githubuser)
-                                    } else if (await checkUserGithub(valores.githubuser)) {
-                                        errores.githubuser = <AiOutlineGithub color="black" size="4em" />
-                                        console.log(valores.githubuser)
-                                    }
-                                    if (!valores.herramientas) {
-                                        errores.herramientas = 'Campo no puede estar vacio'
-                                    }
-                                    return errores;
-                                }}
-                                onSubmit={(valores, { resetForm }) => {
-                                    resetForm();
-                                    console.log(valores)//Llamar a una API para enviar valores
-                                    cambiarFormularioEnviado(true);
-                                    setTimeout(() => cambiarFormularioEnviado(false), 5000);
-                                }}
-                            >
-                                {({ errors }) => (
-                                    <Form className="formulario2">
                                         <h2>Datos profesionales</h2>
                                         <div>
                                             <label htmlFor="nombre_institución">Nombre de Instituto, Universidad o Plataforma</label>
@@ -257,7 +260,7 @@ export const RegistroProfesionales = () => {
                                             <ErrorMessage name="certificado" component={() => (<div className="error">{errors.certificado}</div>)} />
                                         </div>
                                         <div>
-                                            <label htmlFor="githubuser">Username de Github</label>
+                                            <label htmlFor="githubuser"><AiOutlineGithub color="black" size="3em" /></label>
                                             <Field
                                                 type="text"
                                                 name="githubuser"
@@ -265,25 +268,19 @@ export const RegistroProfesionales = () => {
                                                 id="githubuser"
                                             />
                                             <ErrorMessage name="githubuser" component={() => (<div className="error">{errors.githubuser}</div>)} />
-                                            {/* {errors.githubuser === "icono" ? <AiOutlineGithub /> : ""} */}
-                                        </div>
-                                        <div>
-                                            <label htmlFor="herramientas">Herramientas que domina:</label>
-                                            <Field as="textarea"
-                                                rows="5"
-                                                type="text"
-                                                name="herramientas"
-                                                placeholder="Señale las herramientas que domina..."
-                                                id="herramientas"
-                                            />
-                                            <ErrorMessage name="herramientas" component={() => (<div className="error">{errors.herramientas}</div>)} />
                                         </div>
                                         <button type="submit">Enviar</button>
-                                        {formularioEnviado && <p className="exito">Formulario enviado exitosamente!</p>}
+                                        {formularioEnviado && <p className="exito"><strong>Formulario enviado exitosamente!</strong></p>}
                                     </Form>
                                 )}
                             </Formik>
-                        </div></div></div> </div> </>
+
+                            <img className="image2" src={img2} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
 
 
     );
