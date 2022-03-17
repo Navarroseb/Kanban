@@ -14,6 +14,7 @@ import { RegistroProfesionales } from "./pages/registroprofesionales";
 import { RegistroClientes } from "./pages/registroclientes";
 import { Home } from "./pages/home";
 import { Vistacliente } from "./pages/vistacliente";
+import { Login } from "./pages/login";
 
 
 
@@ -33,6 +34,9 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/home">
 							<Home2 /></Route>
+						<Route exact path="/login">
+							<Login />
+						</Route>
 						<Route exact path="/vistadesarrolladores">
 							<Home />
 						</Route>
