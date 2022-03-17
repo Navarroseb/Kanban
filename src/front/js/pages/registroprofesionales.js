@@ -5,11 +5,11 @@ import img2 from "../../img/formprof2.png";
 import checkUserGithub from "./githubuser";
 import { AiOutlineGithub } from 'react-icons/ai';
 import Navbarprof from "../component/navbarprof";
-import { useFormik } from "formik";
 
 
 
 export const RegistroProfesionales = () => {
+    const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
 
     return (
         <>
@@ -99,7 +99,7 @@ export const RegistroProfesionales = () => {
 
                                     if (!valores.certificado) {
                                         errores.certificado = 'Debes seleccionar un archivo'
-                                    } else if (!/^.*\.(jpg|JPG|pdf|PDF)$/.test(valores.certificado)) {
+                                    } else if (!/^.*\.(jpg|JPG)$/.test(valores.certificado)) {
                                         errores.certificado = 'Por favor verifica que tu archivo sea .jpg o .pdf'
                                     }
 
@@ -109,18 +109,17 @@ export const RegistroProfesionales = () => {
                                         errores.githubuser = 'Ingresa tu usuario'
                                     }
                                     else if (!await checkUserGithub(valores.githubuser)) {
-                                        errores.githubuser = 'Usuario incorrecto'
-                                    } else if (await checkUserGithub(valores.githubuser)) {
-                                        errores.githubuser = <AiOutlineGithub color="black" size="4em" />
-
+                                        errores.githubuser = 'Usuario no existe'
                                     }
-
                                     return errores;
 
                                 }}
 
-                                onSubmit={values => {
-                                    console.log(values);
+                                onSubmit={(valores, { resetForm }) => {
+                                    resetForm();
+                                    console.log(valores)
+                                    cambiarFormularioEnviado(true);
+                                    setTimeout(() => cambiarFormularioEnviado(false), 4000);
                                 }}
 
                             >
@@ -261,7 +260,7 @@ export const RegistroProfesionales = () => {
                                             <ErrorMessage name="certificado" component={() => (<div className="error">{errors.certificado}</div>)} />
                                         </div>
                                         <div>
-                                            <label htmlFor="githubuser">Username de Github</label>
+                                            <label htmlFor="githubuser"><AiOutlineGithub color="black" size="3em" /></label>
                                             <Field
                                                 type="text"
                                                 name="githubuser"
@@ -271,6 +270,7 @@ export const RegistroProfesionales = () => {
                                             <ErrorMessage name="githubuser" component={() => (<div className="error">{errors.githubuser}</div>)} />
                                         </div>
                                         <button type="submit">Enviar</button>
+                                        {formularioEnviado && <p className="exito"><strong>Formulario enviado exitosamente!</strong></p>}
                                     </Form>
                                 )}
                             </Formik>
