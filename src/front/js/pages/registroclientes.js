@@ -6,10 +6,6 @@ import Navbarclient from "../component/navbarclient.js"
 
 export const RegistroClientes = () => {
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Formulario Enviado!');
-    }
 
     return (
         <>
@@ -22,6 +18,7 @@ export const RegistroClientes = () => {
                             <Formik
                                 initialValues={{
                                     nombre: '',
+                                    apellido: '',
                                     rut: '',
                                     fotocarnet: '',
                                     correo: '',
@@ -39,6 +36,12 @@ export const RegistroClientes = () => {
                                         errores.nombre = 'Ingresa un nombre'
                                     }
 
+                                    if (!valores.apellido) {
+                                        errores.apellido = 'Campo no puede estar vacio'
+                                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.apellido)) {
+                                        errores.apellido = 'Ingresa apellido'
+                                    }
+
                                     if (!valores.rut) {
                                         errores.rut = 'Ingresa tu Rut'
                                     } else if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test(valores.rut)) {
@@ -47,8 +50,8 @@ export const RegistroClientes = () => {
 
                                     if (!valores.fotocarnet) {
                                         errores.fotocarnet = 'Debes seleccionar un archivo'
-                                    } else if (!/^.*\.(jpg|JPG|pdf|PDF)$/.test(valores.fotocarnet)) {
-                                        errores.fotocarnet = 'Por favor verifica que tu archivo sea .jpg o .pdf'
+                                    } else if (!/^.*\.(jpg|JPG)$/.test(valores.fotocarnet)) {
+                                        errores.fotocarnet = 'Por favor verifica que tu archivo sea .jpg'
                                     }
 
                                     if (!valores.correo) {
@@ -74,22 +77,40 @@ export const RegistroClientes = () => {
                                     }
 
                                     return errores;
+
                                 }}
+                                onSubmit={(valores, { resetForm }) => {
+                                    resetForm();
+                                    console.log("Formulario enviado")
+                                    cambiarFormularioEnviado(true);
+                                    setTimeout(() => cambiarFormularioEnviado(false), 4000);
+                                }}
+
                             >
                                 {({ errors }) => (
                                     <Form className="formulario" >
                                         <h1>Registro para clientes</h1>
+                                        <br />
                                         <h2>Datos personales</h2>
                                         <div>
-                                            <label htmlFor="nombre">Nombre y Apellido</label>
+                                            <label htmlFor="nombre">Nombre</label>
                                             <Field
                                                 type="text"
                                                 name="nombre"
-                                                placeholder="Nombre y Apellido"
+                                                placeholder="Nombre"
                                                 id="nombre"
                                             />
                                             <ErrorMessage name="nombre" component={() => (<div className="error">{errors.nombre}</div>)} />
-
+                                        </div>
+                                        <div>
+                                            <label htmlFor="apellido">Apellido</label>
+                                            <Field
+                                                type="text"
+                                                name="apellido"
+                                                placeholder="Apellido"
+                                                id="apellido"
+                                            />
+                                            <ErrorMessage name="apellido" component={() => (<div className="error">{errors.apellido}</div>)} />
                                         </div>
                                         <div>
                                             <label htmlFor="rut">Rut</label>
@@ -102,7 +123,7 @@ export const RegistroClientes = () => {
                                             <ErrorMessage name="rut" component={() => (<div className="error">{errors.rut}</div>)} />
                                         </div>
                                         <div>
-                                            <label htmlFor="foto del rut">Foto del Rut (solo formato .jpg o .pdf)</label>
+                                            <label htmlFor="foto del rut">Foto del Rut (solo formato .jpg)</label>
                                             <Field
                                                 type="file"
                                                 name="fotocarnet"
@@ -172,6 +193,8 @@ export const RegistroClientes = () => {
                                             />
                                             <ErrorMessage name="ciudad" component={() => (<div className="error">{errors.ciudad}</div>)} />
                                         </div>
+                                        <button type="submit">Enviar</button>
+                                        {formularioEnviado && <p className="exito"><strong>Formulario enviado exitosamente!</strong></p>}
                                     </Form>
                                 )}
                             </Formik>
