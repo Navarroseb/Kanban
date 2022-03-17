@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import contraseña from "../../img/contraseña.jpg";
 import mail from "../../img/mail-logo.png";
 import profile from "../../img/usuario.webp";
 import "./../../styles/login.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 export const Login = () => {
+  const { store, actions } = useContext(Context);
   return (
     <div className="app">
       <div className="sub-app ">
@@ -17,83 +20,38 @@ export const Login = () => {
           </div>
           <div className="form-login">
             <Formik
-              initialValues={{
-                correo: "",
-                contraseña: "",
-              }}
-              validate={(valores) => {
-                let errores = {};
-
-                if (!valores.correo) {
-                  errores.correo = "introduce tu correo";
-                } else if (
-                  !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
-                    valores.correo
-                  )
-                ) {
-                  errores.correo = "Ingresa un correo valido";
-                }
-
-                if (!valores.contraseña) {
-                  errores.contraseña = "Ingresa tu contraseña";
-                } else if (
-                  !/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]).{8,32}$/.test(
-                    valores.contraseña
-                  )
-                ) {
-                  errores.contraseña = "";
-                }
-                return errores;
+              initialValues={{ password: "", email: "" }}
+              validationSchema={Yup.object({
+                password: Yup.string()
+                  .max(15, "Must be 15 characters or less")
+                  .required("Required"),
+                email: Yup.string()
+                  .email("Invalid email address")
+                  .required("Required"),
+              })}
+              onSubmit={(values, { setSubmitting }) => {
+                setTimeout(() => {
+                  //alert(JSON.stringify(values, null, 2));
+                  setSubmitting(false);
+                }, 400);
+                actions.login(values.email, values.password);
               }}
             >
-              {({ errors }) => (
-                <Form>
-                  <h1>Inicio de sesion</h1>
-
-                  <div>
-                    <img src={mail} alt="email" className="email" />
-                    <Field
-                      type="text"
-                      name="correo"
-                      placeholder="Email"
-                      id="correo"
-                    />
-                    <ErrorMessage
-                      name="correo"
-                      component={() => (
-                        <div className="error">{errors.correo}</div>
-                      )}
-                    />
-                  </div>
-
-                  <div className="second-input">
-                    <img src={contraseña} alt="contraseña" className="email" />
-                    <Field
-                      type="password"
-                      placeholder="Contraseña"
-                      name="contraseña"
-                      id="contraseña"
-                    />
-                    <ErrorMessage
-                      name="contraseña"
-                      component={() => (
-                        <div className="error">{errors.contraseña}</div>
-                      )}
-                    />
-                    <div />
-                    <div className="login-button">
-                      <button>login</button>
-                    </div>
-
-                    <div>
-                      <p>
-                        <a href="#">Olvido su contraseña ?</a> Or{" "}
-                        <a href="#">Registrarse</a>
-                      </p>
-                    </div>
-                  </div>
-                </Form>
-              )}
+              <Form>
+                <div>
+                  <label htmlFor="email">Email Address</label>
+                </div>
+                <Field name="email" type="email" />
+                <ErrorMessage name="email" />
+                <div>
+                  <label htmlFor="password">password</label>
+                </div>
+                <Field name="password" type="password" />
+                <ErrorMessage name="password" />
+                <div>
+                  <button type="submit">Submit</button>
+                </div>
+              </Form>
             </Formik>
           </div>
         </div>
