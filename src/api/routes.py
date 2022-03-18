@@ -1,313 +1,249 @@
-"""
-This module takes care of starting the API Server, Loading the DB and Adding the endpoints
-"""
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Evaluacion, Rol, Categoria, Portafolio, Datos_profesional, Habilidad_tecnica 
-from api.utils import generate_sitemap, APIException
+from api.models import db, User, Region, Rol, Habilidad_tecnica, Habilidad, Evaluacion, Profesional, Cliente
 
 api = Blueprint('api', __name__)
 
-"""@api.route('/hello', methods=['POST', 'GET'])
- def handle_hello():
-   response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
-    }
-  """
- 
-@app.route('/users', methods=['GET', 'POST'])
-def users():
+#cloudinary.config(
+#    cloud_name = os.getenv("CLOUD_NAME")
+#    api_key = os.getenv("CLOUDINARY_API_KEY")
+#    api_secret = os.getenv("CLOUDINARY_API_SECRET") 
+#    secure = True
+#)
+
+@api.route('/Registro', methods=['POST', 'GET'])
+def registro():
     if request.method == 'GET':
-        users = User.query.all()
-        users = list(map(lambda users: user.serialize(), users))
-        return jsonify(users), 200
+        response_body = {
+        "message": "W4U"
+        }
+        return jsonify(response_body), 200
 
 
     if request.method == 'POST':
        
-        nombre = request.form['nombre']
-        apellido = request.form['apellido']
-        avatar = request.files['avatar']
-        correo = request.form['correo']
-        contraseña = request.form['contraseña']
-        telefono = request.form['telefono']
+        nombre = request.form['nombre'],
+        apellido = request.form['apellido'],
+        avatar = request.files['avatar'],
+        correo = request.form['correo',]
+        password = request.form['password'],
+        foto_carnet = request.files['foto_carnet'],
+        telefono = request.form['telefono'],
+        direccion = request.form['direccion'],
+        nombre_institucion = request.form['nombre_institucion'],
+        titulo = request.form['titulo']
 
+        if nombre: return jsonify({ "Error": "El nombre sera requerido!"}), 400
+        if apellido: return jsonify({ "Error": "El apellido sera requerido!"}), 400
+        if avatar: return jsonify({ "Error": "El avatar no esta disponible!"}), 400
+        if correo: return jsonify({ "Error": "El correo sera requerido!"}), 400
+        if contraseña: return jsonify({ "Error": "La contraseña sera requerida!"}), 400
+        if telefono: return jsonify({ "Error": "El telefono sera requerido!"}), 400
+        if direccion: return jsonify({ "Error": "La direccion sera requerida!"}), 400
+        
         user = User()
         user.nombre = nombre
         user.apellido = apellido
         user.avatar = avatar
         user.correo = correo
-        user.contraseña = contraseña
+        user.password = password
         user.telefono = telefono
+        user.direccion = direccion
+        user.nombre_institucion = nombre_institucion
+        user.titulo = titulo
         user.save()  
 
-        user = User.query.filter_by(nombre = nombre).all()
-
-        if not nombre: return jsonify({ "msg": "El nombre sera requerido!"}), 400
-        if not apellido: return jsonify({ "msg": "El apellido sera requerido!"}), 400
-        if not avatar: return jsonify({ "msg": "El avatar no esta disponible!"}), 400
-        if not correo: return jsonify({ "msg": "El correo sera requerido!"}), 400
-        if not contraseña: return jsonify({ "msg": "La contraseña sera requerida!"}), 400
-        if not telefono: return jsonify({ "msg": "El telefono sera requerido!"}), 400
-
-        upload_avatar = cloudinary.uploader.upload(avatar,
-            folder="avatars",
-            public_id=usuername+"_"+avatar.filename,
-            overwrite=True,
-            resource_type="image"
-        )
-
-
-        
 
     return jsonify(user.serialize(), response_body), 200
 
-    if request.method == 'PUT':
-     
-        nombre = request.json.get('nombre') 
-        apellido = request.json.get('apellido')
-        correo = request.json.get('correo')
-        contraseña = request.json.get('contraseña')
-        telefono = request.json.get('telefono')
-
-        if not nombre: return jsonify({ "msg": "El nombre sera requerido!"}), 400
-        if not apellido: return jsonify({ "msg": "El apellido sera requerido!"}), 400
-        if not correo: return jsonify({ "msg": "El correo sera requerido!"}), 400
-        if not contraseña: return jsonify({ "msg": "La contraseña sera requerida!"}), 400
-        if not telefono: return jsonify({ "msg": "El telefono sera requerido!"}), 400
-
-        user = User.query.get(id) 
-
-        if not user: return jsonify({ "msg": "Usuario no encontrado!"}), 404
-
-""" tabla de Evaluacion """
-
-@app.route('/evaluaciones', methods=['GET', 'POST'])
-def Evaluacion():
+@api.route('/Login', methods=['POST', 'GET'])
+def login():
     if request.method == 'GET':
-        evaluaciones = Evaluacion.query.all()
-        evaluaciones = list(map(lambda evaluaciones: evaluacion.serialize(), evaluaciones))
-        return jsonify(evaluaciones), 200
+        response_body = {
+        "message": "W4U"
+        }
+        return jsonify(response_body), 200
 
 
     if request.method == 'POST':
-       
-        fecha_evaluacion = request.json.get('fecha_evaluacion')
-        comentario = request.json.get('comentario')
-        user_id = request.json.get('user_id')
-        clientes_id = request.json.get('clientes_id')
-        profesionales_id = request.json.get('profesionales_id')
 
-        evaluacion = Evaluacion()
-        evaluacion.fecha_evaluacion = fecha_evaluacion
-        evaluacion.comentario = comentario
-        evaluacion.user_id = user_id
-        evaluacion.clientes_id = clientes_id
-        evaluacion.profesionales_id = profesionales_id
-        
-        if not fecha_evaluacion: return jsonify({ "msg": "La fecha_evaluacion sera requerida!"}), 400
-        if not cometario: return jsonify({ "msg": "El comentario sera requerido!"}), 400
-        if not user_id: return jsonify({ "msg": "El user_id sera requerido!"}), 400
-        if not clientes_id: return jsonify({ "msg": "Los clientes_id seran requerido!"}), 400
-        if not profesionales: return jsonify({ "msg": "Los profesionales_id seran requerido!"}), 400
+        correo = request.json.get('correo'),
+        password = request.json.get('password'),
 
-    return jsonify(evaluacion.serialize(), response_body), 200
+        if contraseña: return jsonify({ "Error": "La contraseña sera requerida!"}), 400
 
-    if request.method == 'PUT':
-     
-        evaluacion = Evaluacion()
-        evaluacion.fecha_evaluacion = fecha_evaluacion
-        evaluacion.comentario = comentario
-        evaluacion.user_id = user_id
-        evaluacion.clientes_id = clientes_id
-        evaluacion.profesionales_id = profesionales_id
+        login = Login()
+        login.correo = correo
+        login.password = password
 
-        if not fecha_evaluacion: return jsonify({ "msg": "La fecha_evaluacion sera requerida!"}), 400
-        if not cometario: return jsonify({ "msg": "El comentario sera requerido!"}), 400
-        if not user_id: return jsonify({ "msg": "El user_id sera requerido!"}), 400
-        if not clientes_id: return jsonify({ "msg": "Los clientes_id seran requerido!"}), 400
-        if not profesionales: return jsonify({ "msg": "Los profesionales_id seran requerido!"}), 400
+    return jsonify({"Mensaje": "hola"})
 
-        evaluacion = Evaluacion.query.get(id) 
-
-        if not evaluacion: return jsonify({ "msg": "La evaluacion no ha sido encontrada!"}), 404
-
-""" tabla de Roles """
-
-@app.route('/roles', methods=['GET', 'POST'])
-def Rol():
+@api.route('/Region', methods=['POST', 'GET'])
+def region():
     if request.method == 'GET':
-        roles = Rol.query.all()
-        roles = list(map(lambda roles: rol.serialize(), roles))
-        return jsonify(evaluaciones), 200
-
+        response_body = {
+        "message": "W4U"
+        }
+    return jsonify(response_body), 200
 
     if request.method == 'POST':
-       
-        nombre_roles = request.json.get('nombre_roles')
 
-        rol = Rol()
-        rol.nombre_roles = nombre_roles
-        
-    if not nombre_roles: return jsonify({ "msg": "El nombre_roles sera requerida!"}), 400
+        nombre = request.json.get('nombre'),
+        regiones_id = request.json.get('regiones_id'),
+
+        if nombre: return jsonify({ "Error": "El nombre de la region sera requerida!"}), 400
+
+        region = Region()
+        region.nombre = nombre
+        region.regiones_id = regiones_id
 
     return jsonify(response_body), 200
 
-    if request.method == 'PUT':
-     
+@api.route('/Rol', methods=['GET', 'POST'])
+def rol():
+    if request.method == 'GET':
+       response_body = {
+        "message": "W4U"
+        }
+    return jsonify(response_body), 200 
+
+    if request.method == 'POST':
+       
+        nombre_rol = request.json.get('nombre_rol')
+        rol_id = request.json.get('rol_id')
+
+        if nombre_rol: return jsonify({ "Error": "El nombre del rol sera requerido!"}), 400
+        if rol_id: return jsonify({ "Error": "El id del rol sera requerido!"}), 400
+
         rol = Rol()
-        rol.nombre_roles = nombre_roles
+        rol.nombre_rol = nombre_rol
+        rol.rol_id = rol_id
+        
+    return jsonify(response_body), 200
 
-    if not nombre_roles: return jsonify({ "msg": "El nombre_roles sera requerido!"}), 400
-
-        rol = Rol.query.get(id) 
-
-    if not rol: return jsonify({ "msg": "El rol no ha sido encontrado!"}), 404
-
-""" tabla de Categoria """
-
-@app.route('/categorias', methods=['GET', 'POST'])
-def Categoria():
+@api.route('/Habilidad_tecnica', methods=['GET', 'POST'])
+def habilidad_tecnica():
     if request.method == 'GET':
-        categorias = Categoria.query.all()
-        categorias = list(map(lambda categorias: categoria.serialize(), categorias))
-        return jsonify(categorias), 200
+        response_body = {
+        "message": "W4U"
+        }
+    return jsonify(response_body), 200 
 
     if request.method == 'POST':
        
-        nombre_roles = request.json.get('nombre_roles')
+        nivel = request.json.get('nivel')
+        profesionales_id = request.json.get('profesionales_id')
+        habilidades_id = request.json.get('habilidades_id')
 
-        categoria = Categoria()
-        categoria.nombre = nombre
-        categoria.tipo_rol_id = tipo_rol_id
-        
-    if not nombre: return jsonify({ "msg": "El nombre sera requerido!"}), 400
-    if not tipo_rol_id: return jsonify({ "msg": "El tipo_rol_id sera requerido!"}), 400
-
-    return jsonify(categoria.serialize(), response_body), 200
-
-    if request.method == 'PUT':
-     
-        categoria = Categoria()
-        categoria.nombre = nombre
-        categoria.tipo_rol_id = tipo_rol_id
-        categoria.save()
-        
-    if not nombre: return jsonify({ "msg": "El nombre sera requerido!"}), 400
-    if not tipo_rol_id: return jsonify({ "msg": "El tipo_rol_id sera requerido!"}), 400
-
-        categoria = Categoria.query.get(id) 
-
-    if not categoria: return jsonify({ "msg": "La categoria no ha sido encontrada!"}), 404
-
-    
-    """ tabla de Portafolio """
-
-@app.route('/portafolios', methods=['GET', 'POST'])
-def Portafolio():
-    if request.method == 'GET':
-        portafolios = Portafolio.query.all()
-        portafolios = list(map(lambda portafolios: portafolio.serialize(), portafolios))
-        return jsonify(portafolios), 200
-
-    if request.method == 'POST':
-       
-        enlace = request.json.get('enlace')
-        nombre_proyecto = request.json.get('nombre_proyecto')
-        fecha_proyecto = request.json.get('fecha_proyecto')
-
-        portafolio = Portafolio()
-        portafolio.enlace = enlace
-        portafolio.nombre_proyecto = nombre_proyecto
-        portafolio.fecha_proyecto = fecha_proyecto
-
-    if not enlace: return jsonify({ "msg": "El enlace sera requerido!"}), 400
-    if not nombre_proyecto: return jsonify({ "msg": "El nombre_proyecto sera requerido!"}), 400
-    if not fecha_proyecto: return jsonify({ "msg": "La fecha_proyecto sera requerido!"}), 400
-
-    return jsonify(portafolio.serialize(), response_body), 200
-
-    if request.method == 'PUT':
-     
-        portafolio = Portafolio()
-        portafolio.enlace = enlace
-        portafolio.nombre_proyecto = nombre_proyecto
-        portafolio.fecha_proyecto = fecha_proyecto
-        
-    if not enlace: return jsonify({ "msg": "El enlace sera requerido!"}), 400
-    if not nombre_proyecto: return jsonify({ "msg": "El nombre_proyecto sera requerido!"}), 400
-    if not fecha_proyecto: return jsonify({ "msg": "La fecha_proyecto sera requerido!"}), 400
-
-        portafolio = Portafolio.query.get(id) 
-
-    if not portafolio: return jsonify({ "msg": "El portafolio no ha sido encontrado!"}), 404
-
-    """ tabla de Datos_profesional """
-
-@app.route('/datos_profesionales', methods=['GET', 'POST'])
-def Datos_profesional(id = None):
-    if request.method == 'GET':
-        datos_profesionales = Datos_profesional.query.all()
-        datos_profesionales = list(map(lambda datos_profesionales: datos_profesional.serialize(), datos_profesional))
-        return jsonify(datos_profesionales), 200
-
-    if request.method == 'POST':
-       
-        githubuser = request.json.get('githubuser')
-
-        datos_profesional = Datos_profesional()
-        datos_profesional.githubuser = enlace
-      
-
-    if not githubuser: return jsonify({ "msg": "El githubuser sera requerido!"}), 400
-       
-    return jsonify(datos_profesional.serialize(), response_body), 200
-
-    if request.method == 'PUT':
-     
-        datos_profesional = Datos_profesional()
-        datos_profesional.githubuser = enlace
-        
-    if not githubuser: return jsonify({ "msg": "El githubuser sera requerido!"}), 400
-
-        datos_profesional = Datos_profesional.query.get(id) 
-
-    if not datos_profesional: return jsonify({ "msg": "Los datos_profesional no ha sido encontrado!"}), 404
-
-
-
-    """ tabla de Habilidades_tecnicas """
-
-@app.route('/habilidades_tecnicas', methods=['GET', 'POST'])
-def Habilidad_tecnica(id = None):
-    if request.method == 'GET':
-        habilidades_tecnicas = Habilidades_tecnicas.query.all()
-        habilidades_tecnicas = list(map(lambda habilidades_tecnicas: habilidad_tecnica.serialize(), habilidad_tecnica))
-        return jsonify(habilidades_tecnicas), 200
-
-
-    if request.method == 'POST':
-       
-        githubuser = request.json.get('githubuser')
+        if  nivel: return jsonify({ "Error": "El nivel sera requerido!"}), 400
+        if  profesionales_id: return jsonify({ "Error": "El id del profesional sera requerido!"}), 400
+        if  habilidades_id: return jsonify({ "Error": "El id de la habilidad sera requerida!"}), 400
 
         habilidad_tecnica = Habilidad_tecnica()
-        habilidad_tecnica.tecnologia = tecnologia
         habilidad_tecnica.nivel = nivel
+        habilidad_tecnica.profesionales_id = profesionales_id
+        habilidad_tecnica.habilidades_id = habilidades_id
       
+    return jsonify(response_body), 200
 
-    if not tecnologia: return jsonify({ "msg": "La tecnologia sera requerida!"}), 400
-    if not nivel: return jsonify({ "msg": "El nivel sera requerido!"}), 400
+@api.route('/Habilidad', methods=['GET', 'POST'])
+def habilidad():
+    if request.method == 'GET':
+        response_body = {
+        "message": "W4U"
+        }
+    return jsonify(response_body), 200 
+
+    if request.method == 'POST':
        
-    return jsonify(habilidad_tecnica.serialize(), response_body), 200
+        nombre = request.json.get('nombre')
+        habilidades_tecnica = request.json.get('habilidades_tecnica')
 
-    if request.method == 'PUT':
-     
-        habilidad_tecnica = Habilidad_tecnica()
-        habilidad_tecnica.tecnologia = tecnologia
-        habilidad_tecnica.nivel = nivel
-        
-    if not tecnologia: return jsonify({ "msg": "La tecnologia sera requerida!"}), 400
-    if not nivel: return jsonify({ "msg": "El nivel sera requerido!"}), 400
+        if  nombre: return jsonify({ "Error": "El nombre sera requerido!"}), 400
+        if  habilidades_id: return jsonify({ "Error": "La habilidad tecnica sera requerida!"}), 400
 
-        habilidad_tecnica = Habilidad_tecnica.query.get(id) 
+        habilidad = Habilidad()
+        habilidad.nombre = nombre
+        habilidad.habilidad_tecnica = habilidad_tecnica
+      
+    return jsonify(response_body), 200
 
-    if not habilidad_tecnica: return jsonify({ "msg": "La habilidad_tecnica no ha sido encontrada!"}), 404
+@api.route('/Evaluacion', methods=['GET', 'POST'])
+def evaluacion():
+    if request.method == 'GET':
+        response_body = {
+        "message": "W4U"
+        }
+    return jsonify(response_body), 200 
+
+    if request.method == 'POST':
+       
+        fecha = request.json.get('fecha')
+        comentario = request.json.get('comentario')
+        clientes_id = request.json.get('clientes_id')
+        profesionales_id = request.json.get('profesionales_id')
+
+        if  fecha: return jsonify({ "Error": "La fecha sera requerida!"}), 400
+        if  comentario: return jsonify({ "Error": "El comentario sera requerido!"}), 400
+        if clientes_id: return jsonify({ "Error": "El id de los clientes sera requerido!"}), 400
+        if profesionales_id: return jsonify({ "Error": "El id de los profesionales sera requerido!"}), 400
+
+        evaluacion = Evaluacion()
+        evaluacion.fecha = fecha
+        evaluacion.comentario = comentario
+        evaluacion.clientes_id = clientes_id
+        evaluacion.profesionales_id = profesionales_id
+      
+    return jsonify(response_body), 200
+
+@api.route('/Profesional', methods=['GET', 'POST'])
+def profesional():
+    if request.method == 'GET':
+        response_body = {
+        "message": "W4U"
+        }
+    return jsonify(response_body), 200 
+
+    if request.method == 'POST':
+
+        githubuser = request.json.get('githubuser')
+        user_id = request.json.get('user_id')
+        profesionales_id = request.json.get('profesionales_id')
+
+        if  githubuser: return jsonify({ "msg": "El usuario de github sera requerido!"}), 400
+        if  usuario_id: return jsonify({ "msg": "El id del usuario sera requerido!"}), 400
+        if  profesional_id: return jsonify({ "msg": "El id del profesional sera requerido!"}), 400
+
+        profesional = Profesional()
+        profesional.githubuser = githubuser
+        profesional.usuario_id = usuario_id
+        profesional.profesionales_id = profesionales_id
+
+    return jsonify(response_body), 200 
+
+@api.route('/Cliente', methods=['GET', 'POST'])
+def cliente():
+    if request.method == 'GET':
+        response_body = {
+        "message": "W4U"
+        }
+    return jsonify(response_body), 200 
+
+    if request.method == 'POST':
+
+        empresa = request.json.get('empresa')
+        user_id = request.json.get('user_id')
+        clientes_id = request.json.get('clientes_id')
+
+        if  empresa: return jsonify({ "msg": "El nombre de la empresa sera requerida!"}), 400
+        if  usuario_id: return jsonify({ "msg": "El id del usuario sera requerido!"}), 400
+        if  clientes_id: return jsonify({ "msg": "El id del cliente sera requerido!"}), 400
+
+        cliente = Cliente()
+        cliente.empresa = empresa
+        cliente.usuario_id = usuario_id
+        cliente.clientes_id = clientes_id
+
+    return jsonify(response_body), 200 
+
+
+

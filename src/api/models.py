@@ -9,26 +9,34 @@ class User(db.Model):
     apellido = db.Column(db.String(250), nullable=False)
     avatar = db.Column(db.String(250), nullable=False)
     correo = db.Column(db.String(250), unique=True, nullable=False)
-    contraseña = db.Column(db.Integer, nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+    foto_carnet = db.Column(db.String(200), nullable=False)
     telefono = db.Column(db.Integer, nullable=False )
-    categorias = db.Column(db.Integer, db.ForeignKey('categorias.id'), nullable=False)
+    direccion = db.Column(db.Integer, nullable=False)
+    nombre_institucion = db.Column(db.Integer, nullable=False)
+    titulo = db.Column(db.Integer, nullable=False)
+    regiones_id = db.Column(db.Integer, db.ForeignKey('regiones.id'), nullable=True)
     roles_id = db.Column(db.Integer, db.ForeignKey('roles.id'), nullable=False)
-    categoria_id = db.Column(db.Integer, db.ForeignKey('categorias.id'), nullable=False)
-    evaluacion = db.relationship('Evaluacion', backref='user', uselist=True)
-    portafolio = db.relationship('Portafolio', backref='user', uselist=True)
-    datos_profesional = db.relationship('Datos_profesional', backref='user', uselist=False)
+    roles = db.relationship('Rol', backref='user', uselist=True)
+    profesional = db.relationship('Profesional', backref='user', uselist=False)
+    cliente = db.relationship('Cliente', backref='user', uselist=False)
 
     def __repr__(self):
-        return '<User %r>' % self.correo
+        return '<User %r>' % self.nombre
     
     def serialize(self):
         return {
             "id": self.id,
-            "nombre": self.nombre,
-            "apellido": self.apellido,
+            "name": self.name,
+            "lastname": self.lastname,
             "avatar": self.avatar,
-            "correo": self.correo,
-            "telefono": self.teléfono, 
+            "email": self.email,
+            "phone": self.phone,  
+            "address": self.address,
+            "regiones_id": self.region_id,
+            "nombre_institucion": self.nombre_institucion,
+            "titulo": self.titulo,
+            "roles_id": self.roles_id,
         }
  
     def save(self):
@@ -42,51 +50,20 @@ class User(db.Model):
         db.session.delete(self)
         db.sesion.commit()
 
-class Evaluacion(db.Model):
-    __tablename__ = 'evaluaciones'
+class Region(db.Model):
+    __tablename__ = 'regiones'
     id = db.Column(db.Integer, primary_key=True)
-    fecha_evaluacion = db.Column(db.String(150), nullable=False)
-    comentario = db.Column(db.String(400), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    clientes_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    profesionales_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    nombre = db.Column(db.String(150), nullable=False)
+    regiones_id = db.relationship('User', backref='region', uselist=True)
 
     def __repr__(self):
-        return '<Evaluacion %r>' % self.comentrio
+        return '<User %r>' % self.nombre
 
     def serialize(self):
         return {
             "id": self.id,
-            "fecha_evaluacion": self.fecha_evaluacion,
-            "comentario": self.comentario,
-        }
-
-    def save(self):
-        db.session.add(self)
-        db.session.commit()  
-
-    def update(self):
-        db.sesion.commit()
-
-    def delete(self):    
-        db.session.delete(self)
-        db.sesion.commit()
-
-
-class Rol(db.Model):
-    __tablename__ = 'roles'
-    id = db.Column(db.Integer, primary_key=True)
-    nombre_roles = db.Column(db.String(150), nullable=False)
-    categoria = db.relationship('Categoria', backref='rol', uselist=True)
-
-    def __repr__(self):
-        return '<Rol %r>' % self.nombre_roles
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "nombre_roles": self.nombre_roles,
-                        
+            "nombre": self.nombre,
+            "regiones_id": self.regiones_id                 
         }
 
     def save(self):
@@ -100,21 +77,75 @@ class Rol(db.Model):
         db.session.delete(self)
         db.sesion.commit()
 
-class Categoria(db.Model):
-    __tablename__ = 'categorias'
+class Rol(db.Model):
+    __tablename__ = 'roles'
     id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(150), nullable=False)
-    tipo_rol_id = db.Column(db.Integer, db.ForeignKey('roles.id'), nullable=False)
-    categoria_id = db.relationship('user', backref='categoria', uselist=True)
-
+    nombre_rol = db.Column(db.String(150), nullable=False)
+    roles_id = db.relationship('User', backref='rol', uselist=True)
+        
     def __repr__(self):
-        return '<Categoria %r>' % self.nombre
+        return '<Rol %r>' % self.nombre_rol
 
     def serialize(self):
         return {
             "id": self.id,
-            "nombre_roles": self.nombre_roles,
-                        
+            "nombre_rol": self.nombre_rol,                 
+        }
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.sesion.commit()
+
+    def delete(self):    
+        db.session.delete(self)
+        db.sesion.commit()
+
+
+class Habilidad_tecnica(db.Model):
+    __tablename__ = 'habilidades_tecnicas'
+    id = db.Column(db.Integer, primary_key=True)
+    nivel = db.Column(db.String(150), nullable=False)
+    profesionales_id = db.Column(db.Integer, db.ForeignKey('profesionales.id'), nullable=True)
+    habilidades_id = db.Column(db.Integer, db.ForeignKey('habilidades.id'), nullable=True)
+
+    def __repr__(self):
+        return '<Habilidad_tecnica %r>' % self.nivel
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "nivel": self.nivel,
+            "habilidad_id": self.habilidad_id,
+            "habilidad": self.habilidad,                    
+        }
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit() 
+
+    def update(self):
+        db.sesion.commit()
+
+    def delete(self):    
+        db.session.delete(self)
+        db.sesion.commit()   
+
+class Habilidad(db.Model):
+    __tablename__ = 'habilidades'
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(150), nullable=False)
+    habilidad_tecnica = db.relationship('Habilidad_tecnica', backref='habilidad', uselist=True)
+
+    def __repr__(self):
+        return '<Habilidad %r>' % self.nombre
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "nombre": self.nombre,              
         }
 
     def save(self):
@@ -128,31 +159,30 @@ class Categoria(db.Model):
         db.session.delete(self)
         db.sesion.commit()
 
-
-
-class Portafolio(db.Model):
-    __tablename__ = 'portafolios'
+class Evaluacion(db.Model):
+    __tablename__ = 'evaluaciones'
     id = db.Column(db.Integer, primary_key=True)
-    enlace = db.Column(db.String(200), nullable=False)
-    nombre_proyecto = db.Column(db.String(150), nullable=False)
-    fecha_proyecto = db.Column(db.String(150), nullable=False)
-    usuario_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    fecha = db.Column(db.String(150), nullable=False)
+    comentario = db.Column(db.String(400), nullable=False)
+    clientes_id = db.Column(db.Integer, db.ForeignKey('clientes.id'), nullable=False)
+    profesionales_id = db.Column(db.Integer, db.ForeignKey('profesionales.id'), nullable=False)
 
     def __repr__(self):
-        return '<Portafolio %r>' % self.nombre_proyecto
+        return '<Evaluacion %r>' % self.fecha
 
     def serialize(self):
         return {
-            "id": self.id,
-            "enlace": self.enlace,
-            "nombre_proyecto": self.nombre_proyecto,
-            "fecha_proyecto": self.fecha_proyecto,
 
+            "id": self.id,
+            "fecha": self.fecha,
+            "comentario": self.comentario,
+            "clientes_id": self.clientes_id,
+            "profesionales_id": self.profesionales_id,
         }
 
     def save(self):
         db.session.add(self)
-        db.session.commit()
+        db.session.commit()  
 
     def update(self):
         db.sesion.commit()
@@ -161,21 +191,22 @@ class Portafolio(db.Model):
         db.session.delete(self)
         db.sesion.commit()
 
-class Datos_profesional(db.Model):
-    __tablename__ = 'datos_profesionales'
+class Profesional(db.Model):
+    __tablename__ = 'profesionales'
     id = db.Column(db.Integer, primary_key=True)
     githubuser = db.Column(db.String(150), nullable=False)
-    profesional_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    profesional_id = db.relationship('habilidades_tecnicas', backref='datos_profesional', uselist=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    profesionales_id = db.relationship('Habilidad_tecnica', backref='profesionales', uselist=True)
+    profesionales_id = db.relationship('Evaluacion', backref='profesionales', uselist=True)
 
     def __repr__(self):
-        return '<Datos_profesional %r>' % self.githubuser
+        return '<Profesional %r>' % self.githubuser
 
     def serialize(self):
         return {
             "id": self.id,
             "githubuser": self.githubuser,
-                        
+            "user_id": self.user_id,          
         }
 
     def save(self):
@@ -189,33 +220,29 @@ class Datos_profesional(db.Model):
         db.session.delete(self)
         db.sesion.commit()      
 
-class Habilidad_tecnica(db.Model):
-    __tablename__ = 'habilidades_tecnicas'
+class Cliente(db.Model):
+    __tablename__ = 'clientes'
     id = db.Column(db.Integer, primary_key=True)
-    tecnologia = db.Column(db.String(150), nullable=False)
-    nivel = db.Column(db.String(150), nullable=False)
-    profesional_id = db.Column(db.Integer, db.ForeignKey('datos_profesional.id'), nullable=False)
+    empresa = db.Column(db.String(200), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    clientes_id = db.relationship('Evaluacion', backref='clientes', uselist=True)
 
     def __repr__(self):
-        return '<Habilidad_tecnica %r>' % self.nivel
+        return '<Cliente %r>' % self.empresa
 
     def serialize(self):
         return {
             "id": self.id,
-            "tecnologia": self.tecnologia,
-            "nivel": self.nivel,
-                        
+            "empresa": self.empresa,
         }
 
     def save(self):
         db.session.add(self)
-        db.session.commit() 
+        db.session.commit()
 
     def update(self):
         db.sesion.commit()
 
     def delete(self):    
         db.session.delete(self)
-        db.sesion.commit()       
-
-
+        db.sesion.commit()
