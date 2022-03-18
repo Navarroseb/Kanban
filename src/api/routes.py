@@ -1,13 +1,17 @@
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Region, Rol, Habilidad_tecnica, Habilidad, Evaluacion, Profesional, Cliente
 import cloudinary.uploader
-from Flask_jwt_extended import JWTManager, get_jwtidentity, jwt_required, create_access_token
-from werkzeug.security import generate_password_hash, check_password_hash 
+import datetime
+
 
 api = Blueprint('api', __name__)
 
 @api.route('/Registro', methods=['POST'])
 def registro():
+    if id is not none:
+        user = User.query.get(id)
+        if not user: return jsonify({"Error": "usuario no encontrado"}), 404
+        return jsonify(registro.serialize()), 200
 
     if request.method == 'POST':
        
@@ -23,6 +27,8 @@ def registro():
         titulo = request.form['titulo'],
         githubuser = request.form['githubuser'],
         empresa = request.form['empresa']
+
+        print(registro)
 
         
         user = User.query.filter_by(nombre = nombre).all()
@@ -90,6 +96,15 @@ def login():
 
     if not correo: return jsonify({ "Error": "El correo sera requerido!"}), 400
     if not contraseña: return jsonify({ "Error": "La contraseña sera requerida!"}), 400
+
+    expires = datetime.timedelta(hours=5) 
+    access_token = create_access_token(identity=user.id, expire=)
+
+    data = {
+        "access_token": access_token,
+        "user": user.serialize()
+    }
+    return jsonify(data), 200
 
 @api.route('/Region', methods=['POST', 'GET'])
 def region():
