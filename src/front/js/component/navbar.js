@@ -57,7 +57,6 @@ const Navbar = () => {
 							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href={"/vistadesarrolladores"}>Ver desarrolladores</a></li>
 								<li><a class="dropdown-item" href="#aboutus">About us</a></li>
-								<li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
 							</ul>
 						</li>
 					</ul>
