@@ -89,7 +89,8 @@ class Rol(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "nombre_rol": self.nombre_rol,                 
+            "nombre_rol": self.nombre_rol,
+            "roles_id": self.roles_id,                 
         }
 
     def save(self):
@@ -118,8 +119,8 @@ class Habilidad_tecnica(db.Model):
         return {
             "id": self.id,
             "nivel": self.nivel,
-            "habilidad_id": self.habilidad_id,
-            "habilidad": self.habilidad,                    
+            "profesionales_id": self.profesionales_id,
+            "habilidades_id": self.habilidades_id,                    
         }
 
     def save(self):
@@ -145,7 +146,8 @@ class Habilidad(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "nombre": self.nombre,              
+            "nombre": self.nombre,
+#            "habilidad_tecnica": self.habilidad_tecnica,              
         }
 
     def save(self):
