@@ -11,12 +11,12 @@ class User(db.Model):
     correo = db.Column(db.String(250), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
     foto_carnet = db.Column(db.String(200), nullable=False)
-    telefono = db.Column(db.Integer, nullable=False )
-    direccion = db.Column(db.Integer, nullable=False)
-    nombre_institucion = db.Column(db.Integer, nullable=False)
-    titulo = db.Column(db.Integer, nullable=False)
+    telefono = db.Column(db.String(50), nullable=False )
+    direccion = db.Column(db.String(250), nullable=False)
+    nombre_institucion = db.Column(db.String(250), nullable=False)
+    titulo = db.Column(db.String(250), nullable=False)
     regiones_id = db.Column(db.Integer, db.ForeignKey('regiones.id'), nullable=True)
-    roles_id = db.Column(db.Integer, db.ForeignKey('roles.id'), nullable=False)
+    roles_id = db.Column(db.Integer, db.ForeignKey('roles.id'), nullable=True) # cambiar mas adelante a false
     roles = db.relationship('Rol', backref='user', uselist=True)
     profesional = db.relationship('Profesional', backref='user', uselist=False)
     cliente = db.relationship('Cliente', backref='user', uselist=False)
@@ -27,13 +27,14 @@ class User(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "name": self.name,
-            "lastname": self.lastname,
+            "nombre": self.nombre,
+            "apellido": self.apellido,
             "avatar": self.avatar,
-            "email": self.email,
-            "phone": self.phone,  
-            "address": self.address,
-            "regiones_id": self.region_id,
+            "correo": self.correo,
+            "password": self.password,
+            "telefono": self.telefono,  
+            "direccion": self.direccion,
+            "regiones_id": self.regiones_id,
             "nombre_institucion": self.nombre_institucion,
             "titulo": self.titulo,
             "roles_id": self.roles_id,

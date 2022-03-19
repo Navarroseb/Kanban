@@ -10,17 +10,23 @@ from api.utils import APIException, generate_sitemap
 from api.models import db
 from api.routes import api
 from api.admin import setup_admin
+from dotenv import load_dotenv
 import cloudinary
-from Flask_jwt_extended import JWTManager, get_jwt_identity, jwt_required, create_access_token
-from werkzeug.security import generate_password_hash, check_password_hash 
+#import cloudinary.uploader
+#import cloudinary.api
+#from Flask_jwt_extended import JWTManager, get_jwt_identity, jwt_required, create_access_token
+#from werkzeug.security import generate_password_hash, check_password_hash 
 #from models import Person
+
+
+load_dotenv()
 
 cloudinary.config(
     cloud_name = os.getenv("CLOUD_NAME"),
     api_key = os.getenv("CLOUDINARY_API_KEY"),
     api_secret = os.getenv("CLOUDINARY_API_SECRET"),
     secure = True
-)
+) 
 
 
 ENV = os.getenv("FLASK_ENV")
@@ -36,13 +42,13 @@ if db_url is not None:
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////tmp/test.db"
 
-app.config['JWT_SECRET_KEY'] = '33b9b3de94a42d19f47df7021954eaa8'
+#app.config['JWT_SECRET_KEY'] = '33b9b3de94a42d19f47df7021954eaa8'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db, compare_type = True)
 db.init_app(app)
 
-jwt = JWTManager(app)
+#jwt = JWTManager(app)
 
 # Allow CORS requests to this API
 CORS(app)
