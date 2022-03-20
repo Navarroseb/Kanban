@@ -74,22 +74,25 @@ def registro():
 @api.route('/Login', methods=['POST'])
 def login():
 
-    correo = request.json.get('correo'),
+     correo = request.json.get('correo'),
     password = request.json.get('password'),
 
     if not correo: return jsonify({ "Error": "El correo sera requerido!"}), 400
     if not contraseña: return jsonify({ "Error": "La contraseña sera requerida!"}), 400
 
-    return ""
+    user = User.query.filter_by(correo=correo).first()
 
-#    expires = datetime.timedelta(hours=5) 
-#    access_token = create_access_token(identity=user.id, expire=)
+    if not user: return jsonify({"Error": "correo/password es incorrecto!"}), 401
+    if not check_password_hash(user.password, password): return jsonify({"Error": "correo/password es incorrecto!"}), 401
 
-#    data = {
-#        "access_token": access_token,
-#        "user": user.serialize()
-#    }
-#    return jsonify(data), 200
+    expires = datetime.timedelta(hours=3)
+    access_token = create_access_token(identity=user.id, expire=expires)
+
+    data = {
+        "access_token": access_token,
+        "user": user.serialize()
+    }
+    return jsonify(data), 200
 
 @api.route('/Region', methods=['POST', 'GET'])
 def region():
