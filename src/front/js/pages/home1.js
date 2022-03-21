@@ -83,11 +83,11 @@ export const Home1 = () => {
 				</section>
 				<section id="comentarios">
 					<div className="container-comment">
-						<Comment
+						{/* <Comment
 							title="Dejame tu comentario"
 							description="Gracias por dejarnos tu comentario."
 							buttonlabel="Enviar comentario"
-						/>
+						/> */}
 					</div>
 				</section></div>
 		</>

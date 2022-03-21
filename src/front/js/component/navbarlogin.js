@@ -32,9 +32,8 @@ const Navbar = () => {
                                     </div>
                                     <div class="modal-body">
                                         <ul>
-                                            <li>Tener máximo 6 meses de experiencia como desarrollador</li>
-                                            <li>Requisito 2</li>
-                                            <li>Requisito 3</li>
+                                            <li>Tener máximo 2 años de experiencia como desarrollador</li>
+                                            <li>Tener título o documento que confirme su dominio en el área</li>
 
 
                                         </ul>

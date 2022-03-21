@@ -35,7 +35,7 @@ const Card = (props) => {
                                     </li>
                                 </ul>
                             </p>
-                            <div className="container-fluid">
+                            {/* <div className="container-fluid">
                                 <h5 className="card-title">{props.title3}</h5>
                                 <button
                                     type="button"
@@ -45,13 +45,13 @@ const Card = (props) => {
                                 >
                                     {props.buttonLabel}
                                 </button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-            <div
+            {/*   <div
                 className="modal fade"
                 id="exampleModal1"
                 tabIndex={-1}
@@ -66,7 +66,7 @@ const Card = (props) => {
                         <div className="modal-body px-5 bg-secondary text-white">{props.description2}</div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 };
@@ -78,7 +78,6 @@ Card.propTypes = {
     title4: PropTypes.string,
     title5: PropTypes.string,
     description: PropTypes.string,
-    description2: PropTypes.string,
     buttonLabel: PropTypes.string,
     buttonLabel2: PropTypes.string,
 };

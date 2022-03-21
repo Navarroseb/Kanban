@@ -74,7 +74,7 @@ export const Home2 = () => {
 			<div id="que-es-w4u">
 				<Info2
 					titulo="¿Qué es Work4U?"
-					descrip="Work4U (Work for you) es una plataforma especializada para la contratación de desarrolladores junior.La mision de Work4u es conectar clientes con desarrolladores junior recién egresados y que tengan máximo 6 meses de experiencia, con la finalidad de ayudarlos a (aqui agregar algo)"
+					descrip="Work4U (Work for you) es una plataforma especializada para la contratación de desarrolladores junior.La mision de Work4u es conectar clientes con desarrolladores junior recién egresados y que tengan máximo 2 años de experiencia, con la finalidad de ayudarlos con la búsqueda del primer empleo"
 				/></div>
 
 			<div id="desarrollador-junior">
