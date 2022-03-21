@@ -12,13 +12,13 @@ export const Home = () => {
 			<Navbar2 />
 
 			{/* <div className="container "> */}
-			<div className="fondobusqueda">
+			{/* <div className="fondobusqueda">
 				<Buscador
 					buscadorEspecialidad="Especialidad"
 					buscadorFront="Frontend"
 					buscadorBack="Backend"
 					buscadorFull="Fullstack"
-				/></div>
+				/></div> */}
 			<div className="container">
 				<div className="row">
 					<div className="col-md-1"></div>

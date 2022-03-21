@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import PropTypes from "prop-types";
 
 
@@ -59,4 +59,4 @@ Comment.propTypes = {
     buttonlabel2: PropTypes.string
 
 }
-export default Comment;
+export default Comment; */
