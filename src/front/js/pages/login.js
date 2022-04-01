@@ -7,10 +7,16 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import Navbarlogin from "../component/navbarlogin";
 
 export const Login = () => {
+  let styles = {
+    background: "url(/img/fondologin.jpg)",
+    backgroundSize: "cover",
+    backgroundPosition: "center center",
+    width: "100%",
+  }
   return (
     <>
       <Navbarlogin />
-      <div className="app">
+      <div className="app" style={styles}>
         <div className="sub-app ">
           <div>
             <div className="imgs">
