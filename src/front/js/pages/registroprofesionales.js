@@ -29,6 +29,8 @@ export const RegistroProfesionales = () => {
                   teléfono: '',
                   correo: '',
                   contraseña: '',
+                  pregunta1: '',
+                  pregunta2: '',
                   dirección: '',
                   región: '',
                   ciudad: '',
@@ -79,6 +81,18 @@ export const RegistroProfesionales = () => {
                     errores.contraseña = 'Ingresa contraseña'
                   } else if (!/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]).{8,32}$/.test(valores.contraseña)) {
                     errores.contraseña = 'Al menos un número entre [0-9], al menos una letra minuscula, al menos una letra mayuscula, al menos un simbolo [*.!@#$%^&(){}[], que tenga entre 8 y 32 caracteres'
+                  }
+
+                  if (!valores.pregunta1) {
+                    errores.pregunta1 = 'Campo no puede estar vacio'
+                  } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.pregunta1)) {
+                    errores.pregunta1 = 'Ingresa un texto'
+                  }
+
+                  if (!valores.pregunta2) {
+                    errores.pregunta2 = 'Campo no puede estar vacio'
+                  } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.pregunta2)) {
+                    errores.pregunta2 = 'Ingresa pregunta2'
                   }
 
                   if (!valores.región) {
@@ -195,6 +209,26 @@ export const RegistroProfesionales = () => {
                         id="contraseña"
                       />
                       <ErrorMessage name="contraseña" component={() => (<div className="error">{errors.contraseña}</div>)} />
+                    </div>
+                    <div>
+                      <label htmlFor="pregunta1">Pregunta de seguridad: Nombre de tu primera mascota.</label>
+                      <Field
+                        type="text"
+                        name="pregunta1"
+                        placeholder="ejemplo: Laika"
+                        id="pregunta1"
+                      />
+                      <ErrorMessage name="pregunta1" component={() => (<div className="error">{errors.pregunta1}</div>)} />
+                    </div>
+                    <div>
+                      <label htmlFor="pregunta2">Pregunta de seguridad 2: Nombre de la ciudad donde naciste.</label>
+                      <Field
+                        type="text"
+                        name="pregunta2"
+                        placeholder="ejemplo: Osorno"
+                        id="pregunta2"
+                      />
+                      <ErrorMessage name="pregunta2" component={() => (<div className="error">{errors.pregunta2}</div>)} />
                     </div>
                     <div>
                       <label htmlFor="dirección">Dirección (Opcional)</label>
