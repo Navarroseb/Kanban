@@ -77,7 +77,7 @@ export const RegistroClientes = () => {
                                     if (!valores.pregunta2) {
                                         errores.pregunta2 = 'Campo no puede estar vacio'
                                     } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.pregunta2)) {
-                                        errores.pregunta2 = 'Ingresa pregunta2'
+                                        errores.pregunta2 = 'Ingresa texto'
                                     }
 
                                     if (!valores.región) {

@@ -26,30 +26,29 @@ export const Recupclave = () => {
                         <div className="form-login">
                             <Formik
                                 initialValues={{
-                                    correo: "",
-                                    pregunta1: "",
+                                    correo: '',
+                                    pregunta1: '',
+                                    pregunta2: '',
                                 }}
                                 validate={(valores) => {
                                     let errores = {};
 
                                     if (!valores.correo) {
-                                        errores.correo = "introduce tu correo";
-                                    } else if (
-                                        !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
-                                            valores.correo
-                                        )
-                                    ) {
-                                        errores.correo = "Ingresa un correo valido";
+                                        errores.correo = 'Ingresa tu Correo'
+                                    } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.correo)) {
+                                        errores.correo = 'Ingresa un correo valido'
                                     }
 
                                     if (!valores.pregunta1) {
-                                        errores.pregunta1 = "Ingresa tu respuesta";
-                                    } else if (
-                                        !/^(?=.*[a-z])(?=.*[A-Z])+$/.test(
-                                            valores.pregunta1
-                                        )
-                                    ) {
-                                        errores.pregunta1 = "";
+                                        errores.pregunta1 = 'Campo no puede estar vacio'
+                                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.pregunta1)) {
+                                        errores.pregunta1 = 'Ingresa un texto'
+                                    }
+
+                                    if (!valores.pregunta2) {
+                                        errores.pregunta2 = 'Campo no puede estar vacio'
+                                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.pregunta2)) {
+                                        errores.pregunta2 = 'Ingresa texto'
                                     }
                                     return errores;
                                 }}
@@ -59,46 +58,40 @@ export const Recupclave = () => {
                                         <h2>Recuperar contraseña</h2>
 
                                         <div>
-                                            <img src={mail} alt="email" className="email" />
+                                            <label htmlFor="correo">Correo</label>
                                             <Field
                                                 type="text"
                                                 name="correo"
-                                                placeholder="Email"
+                                                placeholder="Correo@correo.com"
                                                 id="correo"
                                             />
-                                            <ErrorMessage
-                                                name="correo"
-                                                component={() => (
-                                                    <div className="error">{errors.correo}</div>
-                                                )}
-                                            />
+                                            <ErrorMessage name="correo" component={() => (<div className="error">{errors.correo}</div>)} />
                                         </div>
 
                                         <div className="second-input">
                                             <h5>Preguntas de seguridad</h5>
                                             <img src={contraseña} alt="pregunta1" className="email" />
                                             <Field
-                                                type="Escribe tu respuesta"
+                                                type="text"
                                                 placeholder="Nombre de tu primera mascota"
-                                                name="contraseña"
-                                                id="contraseña"
+                                                name="pregunta1"
+                                                id="pregunta1"
                                             />
+                                            <ErrorMessage name="pregunta1" component={() => (
+                                                <div className="error">{errors.pregunta1}</div>)} />
                                             <div className="second-input">
                                                 <Field
-                                                    type="Escribe tu respuesta"
+                                                    type="text"
                                                     placeholder="Nombre de la ciudad donde naciste"
-                                                    name="contraseña"
-                                                    id="contraseña"
-                                                /></div>
-                                            <ErrorMessage
-                                                name="pregunta1"
-                                                component={() => (
-                                                    <div className="error">{errors.pregunta1}</div>
-                                                )}
-                                            />
+                                                    name="pregunta2"
+                                                    id="pregunta2"
+                                                />
+                                                <ErrorMessage name="pregunta2" component={() => (
+                                                    <div className="error">{errors.pregunta2}</div>)} />
+                                            </div>
                                             <div />
                                             <div className="login-button">
-                                                <button>enviar</button>
+                                                <button type="submit">enviar</button>
                                             </div>
 
                                         </div>
