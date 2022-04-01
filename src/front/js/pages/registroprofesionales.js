@@ -17,7 +17,7 @@ export const RegistroProfesionales = () => {
       <div id="formprofesional" className="contanier fomulario-profesional">
         <div className="row">
           <div className="col-md-12">
-            <img className="image1" src={img1} />
+
             <div className="RegistroProfesionales">
               <Formik
 

@@ -15,7 +15,7 @@ import { RegistroClientes } from "./pages/registroclientes";
 import { Home } from "./pages/home";
 import { Vistacliente } from "./pages/vistacliente";
 import { Login } from "./pages/login";
-
+import { Recupclave } from "./pages/recupclave";
 
 
 
@@ -36,6 +36,9 @@ const Layout = () => {
               <Home2 /></Route>
             <Route exact path="/login">
               <Login />
+            </Route>
+            <Route exact path="/recuperarcontraseña">
+              <Recupclave />
             </Route>
             <Route exact path="/vistadesarrolladores">
               <Home />
