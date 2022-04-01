@@ -90,8 +90,7 @@ export const Login = () => {
 
                       <div>
                         <p>
-                          <a href="#">Olvido su contraseña ?</a> Or{" "}
-                          <a href="#">Registrarse</a>
+                          <a href={"/recuperarcontraseña"}>Olvido su contraseña?</a>{" "}
                         </p>
                       </div>
                     </div>

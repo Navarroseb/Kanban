@@ -94,25 +94,25 @@ export const Home2 = () => {
 					<div className="row">
 						<div className="col-md-3">
 							<Administradores
-								nombre="Katherine Kraushaar"
-								descripcion="Desarrolladora Junior Fullstack"
-								img={fotokt} />
+								nombre="Ricardo Hurtado"
+								descripcion="Desarrollador Junior Fullstack"
+								img={fotokao} />
 
 						</div>
-						<div className="col-md-3"> <Administradores
-							nombre="Miguel Rojas"
-							descripcion="Desarrollador Junior Fullstack"
-							img={fotomiguel} />
-						</div>
 						<div className="col-md-3"><Administradores
-							nombre="Ricardo Hurtado"
-							descripcion="Desarrollador Junior Fullstack"
-							img={fotokao} />
+							nombre="Katherine Kraushaar"
+							descripcion="Desarrolladora Junior Fullstack"
+							img={fotokt} />
 						</div>
 						<div className="col-md-3"><Administradores
 							nombre="Sebastian Navarro"
 							descripcion="Desarrollador Junior Fullstack"
 							img={fotoseba} />
+						</div>
+						<div className="col-md-3"> <Administradores
+							nombre="Miguel Rojas"
+							descripcion="Desarrollador Junior Fullstack"
+							img={fotomiguel} />
 						</div>
 
 					</div></div>
