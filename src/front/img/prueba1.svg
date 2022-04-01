@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1800px" height="800px" viewBox="0 0 1800 800" enable-background="new 0 0 1800 800" xml:space="preserve">
+<g>
+	
+		<text transform="matrix(1 0 0 1 35.2212 699.5459)" fill="#FFFFFF" stroke="#FFFFFF" stroke-miterlimit="10" font-family="'MyriadPro-Bold'" font-size="883.2443">W</text>
+	
+		<text transform="matrix(1 0 0 1 1183.5039 699.5459)" fill="#FFFFFF" stroke="#FFFFFF" stroke-miterlimit="10" font-family="'MyriadPro-Bold'" font-size="873.1517">U</text>
+	<g>
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="738.082" y1="400.3452" x2="1207.5947" y2="400.3452">
+			<stop  offset="0.2174" style="stop-color:#2F3987"/>
+			<stop  offset="0.2871" style="stop-color:#3B3985"/>
+			<stop  offset="0.4078" style="stop-color:#55387D"/>
+			<stop  offset="0.5648" style="stop-color:#7A3570"/>
+			<stop  offset="0.7524" style="stop-color:#A72B5B"/>
+			<stop  offset="0.9469" style="stop-color:#D20F41"/>
+		</linearGradient>
+		<path fill="url(#SVGID_1_)" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" d="M1003.216,699.544V556.847H738.082
+			v-91.14l226.471-364.561h171.231v350.752h71.811v104.948h-71.811v142.697H1003.216z M1003.216,451.898V319.333
+			c0-35.907,1.837-72.731,4.601-111.397h-3.678c-19.337,38.666-34.983,73.654-55.24,111.397l-80.092,130.728v1.838H1003.216z"/>
+	</g>
+</g>
+</svg>

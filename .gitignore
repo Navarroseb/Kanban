@@ -57,7 +57,10 @@ Thumbs.db
 node_modules/
 
 # webpack output
-dist/*
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5e7fcdf5fef046341d67ea98112effe9990c93fd
 public/
 
 # ignore the dist directory were our bundle files are going to be

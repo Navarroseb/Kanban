@@ -6,14 +6,17 @@ const Card = (props) => {
 
         <div id="card-desarrollador" className="card">
             <div className="card-body text-center">
-                <h4 className="card-tittle text-end"><i class="far fa-heart"></i></h4>
+                <h4 className="card-tittle text-end"> <a href="#" className="btn button-fav mr-6">
+                    <i class="fas fa-heart"></i>
+                </a></h4>
                 <img src={props.cardImg} className="rounded-circle mb-2" width="100" height="100"></img>
                 <h3 className="nombre-desarrollador">{props.cardNombredesarrollador}</h3>
                 <p className="especialidad">{props.cardEspecialidad}</p>
                 <p className="calificacion"><i class="fas fa-star"></i>{props.cardCalificacion} </p>
                 <p className="ciudad desarrollador">{props.cardCiudad}</p>
                 <div className="footer-card">
-                    <button class="btn btn-primary" type="button">{props.cardBoton}</button>
+                    <a class="btn btn-outline-primary" href={"/perfildesarrolladores"} role="button">{props.cardBoton}</a>
+
                 </div>
             </div>
         </div>
