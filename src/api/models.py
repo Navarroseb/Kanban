@@ -10,6 +10,8 @@ class User(db.Model):
     avatar = db.Column(db.String(250), nullable=False)
     correo = db.Column(db.String(250), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
+    pregunta1 = db.Column(db.String(250), nullable=False)
+    pregunta2 = db.Column(db.String(250), nullable=False)
     foto_carnet = db.Column(db.String(200), nullable=False)
     telefono = db.Column(db.String(50), nullable=False )
     direccion = db.Column(db.String(250), nullable=False)
@@ -17,9 +19,8 @@ class User(db.Model):
     titulo = db.Column(db.String(250), nullable=False)
     regiones_id = db.Column(db.Integer, db.ForeignKey('regiones.id'), nullable=True)
     roles_id = db.Column(db.Integer, db.ForeignKey('roles.id'), nullable=True) # cambiar mas adelante a false
-    roles = db.relationship('Rol', backref='user', uselist=True)
     profesional = db.relationship('Profesional', backref='user', uselist=False)
-    cliente = db.relationship('Cliente', backref='user', uselist=False)
+    cliente = db.relationship('Cliente', backref='users', uselist=False)
 
     def __repr__(self):
         return '<User %r>' % self.nombre
@@ -32,6 +33,8 @@ class User(db.Model):
             "avatar": self.avatar,
             "correo": self.correo,
             "password": self.password,
+            "pregunta1": self.pregunta1,
+            "pregunta2": self.pregunta2,
             "telefono": self.telefono,  
             "direccion": self.direccion,
             "regiones_id": self.regiones_id,
@@ -148,7 +151,7 @@ class Habilidad(db.Model):
         return {
             "id": self.id,
             "nombre": self.nombre,
-#            "habilidad_tecnica": self.habilidad_tecnica,              
+           "habilidad_tecnica": self.habilidad_tecnica,              
         }
 
     def save(self):
@@ -199,8 +202,8 @@ class Profesional(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     githubuser = db.Column(db.String(150), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    profesionales_id = db.relationship('Habilidad_tecnica', backref='profesionales', uselist=True)
-    profesionales_id = db.relationship('Evaluacion', backref='profesionales', uselist=True)
+    profesionales_id = db.relationship('Habilidad_tecnica', backref='profesional', uselist=True)
+    #profesionales_id = db.relationship('Evaluacion', backref='profesionales', uselist=True)
 
     def __repr__(self):
         return '<Profesional %r>' % self.githubuser

@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 import cloudinary
 #import cloudinary.uploader
 #import cloudinary.api
-from Flask_jwt_extended import JWTManager, get_jwt_identity, jwt_required, create_access_token
+from flask_jwt_extended import JWTManager, get_jwt_identity, jwt_required, create_access_token
 from werkzeug.security import generate_password_hash, check_password_hash 
 #from models import Person
 

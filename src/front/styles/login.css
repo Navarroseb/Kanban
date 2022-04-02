@@ -87,3 +87,11 @@ button {
 a {
   color: black;
 }
+
+.exito {
+  color: purple;
+}
+
+.error {
+  color: red;
+}

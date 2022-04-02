@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: f11c7dfdc3a0
+Revision ID: d34abb899151
 Revises: 
-Create Date: 2022-03-17 18:31:49.447693
+Create Date: 2022-04-02 17:55:29.585979
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'f11c7dfdc3a0'
+revision = 'd34abb899151'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -40,13 +40,15 @@ def upgrade():
     sa.Column('avatar', sa.String(length=250), nullable=False),
     sa.Column('correo', sa.String(length=250), nullable=False),
     sa.Column('password', sa.String(length=200), nullable=False),
+    sa.Column('pregunta1', sa.String(length=250), nullable=False),
+    sa.Column('pregunta2', sa.String(length=250), nullable=False),
     sa.Column('foto_carnet', sa.String(length=200), nullable=False),
-    sa.Column('telefono', sa.Integer(), nullable=False),
-    sa.Column('direccion', sa.Integer(), nullable=False),
-    sa.Column('nombre_institucion', sa.Integer(), nullable=False),
-    sa.Column('titulo', sa.Integer(), nullable=False),
+    sa.Column('telefono', sa.String(length=50), nullable=False),
+    sa.Column('direccion', sa.String(length=250), nullable=False),
+    sa.Column('nombre_institucion', sa.String(length=250), nullable=False),
+    sa.Column('titulo', sa.String(length=250), nullable=False),
     sa.Column('regiones_id', sa.Integer(), nullable=True),
-    sa.Column('roles_id', sa.Integer(), nullable=False),
+    sa.Column('roles_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['regiones_id'], ['regiones.id'], ),
     sa.ForeignKeyConstraint(['roles_id'], ['roles.id'], ),
     sa.PrimaryKeyConstraint('id'),
