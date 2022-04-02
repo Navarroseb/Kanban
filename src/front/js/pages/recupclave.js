@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import contraseña from "../../img/contraseña.jpg";
-import mail from "../../img/mail-logo.png";
 import profile from "../../img/2w.png";
 import "./../../styles/login.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import Navbarlogin from "../component/navbarlogin";
 
 export const Recupclave = () => {
+    const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
+
     let styles = {
         background: "url(/img/fondorecupclave.jpg)",
         backgroundSize: "cover",
@@ -52,13 +53,19 @@ export const Recupclave = () => {
                                     }
                                     return errores;
                                 }}
+                                onSubmit={(valores, { resetForm }) => {
+                                    resetForm();
+                                    console.log("Formulario enviado")
+                                    cambiarFormularioEnviado(true);
+                                    setTimeout(() => cambiarFormularioEnviado(false), 4000);
+                                }}
                             >
                                 {({ errors }) => (
                                     <Form>
                                         <h2>Recuperar contraseña</h2>
 
                                         <div>
-                                            <label htmlFor="correo">Correo</label>
+                                            <label htmlFor="correo"></label>
                                             <Field
                                                 type="text"
                                                 name="correo"
@@ -92,6 +99,7 @@ export const Recupclave = () => {
                                             <div />
                                             <div className="login-button">
                                                 <button type="submit">enviar</button>
+                                                {formularioEnviado && <p className="exito"><strong>Formulario enviado exitosamente!</strong></p>}
                                             </div>
 
                                         </div>
