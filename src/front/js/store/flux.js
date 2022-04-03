@@ -1,4 +1,19 @@
-const getState = ({ getStore, getActions, setStore }) => {
+function Enviarformulariop(formularioprofesional) {
+	let formulariop =
+		JSON.parse(localStorage.getItem("formularioData")) || [];
+	//formulariop.push(formulariopObj);
+	let formulariopJSON = JSON.stringify(formulariop)
+
+	fetch("https://3001-navarroseb-proyectofinal-yg0bemjgkep.ws-us38.gitpod.io/admin/user/", {
+		method: "POST",
+	})
+}
+
+
+
+
+
+/* const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
@@ -47,3 +62,4 @@ const getState = ({ getStore, getActions, setStore }) => {
 };
 
 export default getState;
+ */
