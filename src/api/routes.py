@@ -17,11 +17,16 @@ def registro():
             avatar = request.files['avatar']
             correo = request.form['correo']
             password = request.form['password']
+            pregunta1 = request.form['pregunta1']
+            pregunta2 = request.form['pregunta2']
             foto_carnet = request.files['foto_carnet']
             telefono = request.form['telefono']
             direccion = request.form['direccion']
             nombre_institucion = request.form['nombre_institucion']
             titulo = request.form['titulo']
+            region = request.form['region']
+            rol = request.form['rol']
+
 
             user = User.query.filter_by(nombre = nombre).all()
 
@@ -52,9 +57,14 @@ def registro():
             user.direccion = direccion
             user.nombre_institucion = nombre_institucion
             user.titulo = titulo
+            user.pregunta1 = pregunta1
+            user.pregunta2 = pregunta2
+            user.regiones_id = region
+            user.roles_id = rol
             user.save()  
 
             return jsonify(user.serialize()), 201
+
 
 
             if not nombre: return jsonify({ "Error": "El nombre sera requerido!"}), 400
@@ -68,13 +78,13 @@ def registro():
         
 
 
-        return jsonify(request_form)
+        return jsonify("exito") #request_form
     
 
 @api.route('/Login', methods=['POST'])
 def login():
 
-     correo = request.json.get('correo'),
+    correo = request.json.get('correo'),
     password = request.json.get('password'),
 
     if not correo: return jsonify({ "Error": "El correo sera requerido!"}), 400
