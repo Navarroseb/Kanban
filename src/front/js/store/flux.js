@@ -13,7 +13,7 @@ function Enviarformulariop(formularioprofesional) {
 
 
 
-/* const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
@@ -62,4 +62,3 @@ function Enviarformulariop(formularioprofesional) {
 };
 
 export default getState;
- */
