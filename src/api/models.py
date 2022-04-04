@@ -19,8 +19,8 @@ class User(db.Model):
     titulo = db.Column(db.String(250), nullable=False)
     regiones_id = db.Column(db.Integer, db.ForeignKey('regiones.id'), nullable=True)
     roles_id = db.Column(db.Integer, db.ForeignKey('roles.id'), nullable=True) # cambiar mas adelante a false
-    profesional = db.relationship('Profesional', backref='users', uselist=False)
-    cliente = db.relationship('Cliente', backref='users', uselist=False)
+    profesional = db.relationship('Profesional', backref='user', uselist=False)
+    cliente = db.relationship('Cliente', backref='user', uselist=False)
 
     def __repr__(self):
         return '<User %r>' % self.nombre
