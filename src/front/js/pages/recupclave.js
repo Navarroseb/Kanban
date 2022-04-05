@@ -97,7 +97,7 @@ export const Recupclave = () => {
                                                     <div className="error">{errors.pregunta2}</div>)} />
                                             </div>
                                             <div />
-                                            <div className="login-button">
+                                            <div className="log-button">
                                                 <button type="submit">enviar</button>
                                                 {formularioEnviado && <p className="exito"><strong>Formulario enviado exitosamente!</strong></p>}
                                             </div>

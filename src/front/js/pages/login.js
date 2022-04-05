@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import contraseña from "../../img/contraseña.jpg";
 import mail from "../../img/mail-logo.png";
 import profile from "../../img/2w.png";
@@ -7,6 +7,8 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import Navbarlogin from "../component/navbarlogin";
 
 export const Login = () => {
+  const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
+
   let styles = {
     background: "url(/img/fondologin.jpg)",
     backgroundSize: "cover",
@@ -34,25 +36,24 @@ export const Login = () => {
                   let errores = {};
 
                   if (!valores.correo) {
-                    errores.correo = "introduce tu correo";
-                  } else if (
-                    !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
-                      valores.correo
-                    )
-                  ) {
-                    errores.correo = "Ingresa un correo valido";
+                    errores.correo = 'Ingresa tu Correo'
+                  } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.correo)) {
+                    errores.correo = 'Ingresa un correo valido'
                   }
 
                   if (!valores.contraseña) {
                     errores.contraseña = "Ingresa tu contraseña";
-                  } else if (
-                    !/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]).{8,32}$/.test(
-                      valores.contraseña
-                    )
-                  ) {
+                  } else if (!/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]).{8,32}$/.test(valores.contraseña)) {
                     errores.contraseña = "";
                   }
                   return errores;
+                }}
+
+                onSubmit={(valores, { resetForm }) => {
+                  resetForm();
+                  console.log("Formulario enviado")
+                  cambiarFormularioEnviado(true);
+                  setTimeout(() => cambiarFormularioEnviado(false), 4000);
                 }}
               >
                 {({ errors }) => (
@@ -91,7 +92,8 @@ export const Login = () => {
                       />
                       <div />
                       <div className="login-button">
-                        <button>login</button>
+                        <button type="submit">enviar</button>
+                        {formularioEnviado && <p className="exito"><strong>Bienvenido!</strong></p>}
                       </div>
 
                       <div>
