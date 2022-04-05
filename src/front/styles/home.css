@@ -13,12 +13,28 @@
   padding: inherit;
   border: 3px solid gray;
 }
-
+#logo-nav {
+  position: relative;
+  bottom: 4px;
+}
+#login-nav {
+  position: relative;
+  bottom: 4px;
+}
 #tipos-card:hover {
   box-shadow: 10px 10px 30px black;
   transform: translateY(-3%);
 }
-
+#list-group1 {
+  position: relative;
+  top: 35px;
+}
+#list-group2 {
+  color: #000000;
+  width: 100%;
+  position: relative;
+  top: 35px;
+}
 #container-card {
   padding: 15px;
   text-align: center;
@@ -31,8 +47,14 @@
   width: 55%;
 }
 #card-desarrollador {
+  width: 100%;
+  height: 450px;
   margin-top: 20px;
-  box-shadow: 0px 5px 5px 0px #adb5bd;
+  box-shadow: 0px 5px 5px 0px #000000;
+}
+#footer-counter {
+  position: relative;
+  bottom: 45px;
 }
 #numeros-pagina {
   margin-top: 30px;
@@ -41,12 +63,25 @@
   padding-top: 20px;
 }
 #vista_cliente {
+  position: relative;
+  top: 160px;
   margin-top: 100px;
-  border: 4px solid transparent;
-  border-image: linear-gradient(to bottom, #4d3880 0%, #992e64 100%) 1;
+  border: 10px solid black;
+  border-radius: 18px;
+  /* border-image: linear-gradient(to bottom, #4d3880 0%, #992e64 100%) 1; */
   margin-bottom: 100px;
 }
-
+#card-body5 {
+  background: linear-gradient(180deg, #4d3880 0%, #992e64 100%);
+}
+.card-link5 {
+  position: relative;
+  left: 110px;
+}
+.text-center1 {
+  background: linear-gradient(180deg, #ffffff, #b295e6);
+  text-align: center !important;
+}
 .img-card {
   width: 100%;
   height: 215px;
@@ -87,8 +122,32 @@
   max-width: 12rem;
   box-shadow: 0px 5px 5px 0px #adb5bd;
 }
+#card-body6 {
+  flex: 1 1 auto;
+  padding: 3rem 1rem;
+}
 #footerpag {
   color: white;
+  position: relative;
+  top: 0px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+}
+#footerpag-login {
+  color: white;
+  position: relative;
+  top: 1px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+}
+#footerpag-cliente {
+  color: white;
+  position: relative;
+  top: 391px;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -110,8 +169,8 @@
 }
 #cont-profesionales {
   width: 100%;
-  display: flex;
-  max-width: 1100px;
+  /*  display: flex;
+  max-width: 1100px; */
 }
 #card-profesional {
   width: 100%;

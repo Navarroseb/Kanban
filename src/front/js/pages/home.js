@@ -5,6 +5,7 @@ import Buscador from "../component/buscador.js";
 import Paginas from "../component/paginas.js"
 import "../../styles/home.css";
 import Navbar2 from "../component/navbar2"
+import { Footer } from "../component/footer";
 
 export const Home = () => {
 	return (
@@ -161,6 +162,7 @@ export const Home = () => {
 				</div>
 			</div>
 			<Paginas />
+			<Footer />
 			{/* </div> */}
 		</>
 	);

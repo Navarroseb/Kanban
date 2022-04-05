@@ -13,12 +13,12 @@ const Work = (props) => {
                         <div className="col-md-6">
                             <img src={imgworks} className="img-fluid imgprof" alt="..." />
                         </div>
-                        <div className="col-md-6 cbw">
+                        <div className="col-md-6 ">
                             <div className="card-body ">
                                 <h1 className="card-title text-white text-center">{props.title}</h1>
-                                <p className="card-text">
+                                <p id="list-group2" className="card-text ">
                                     <ul className="list-group">
-                                        <li className="list-group-item list-group-item-action animate__animated animate__pulse animate__delay-1s">
+                                        <li className="list-group-item list-group-item-action animate__animated animate__pulse animate__delay-1s ">
                                             <FaBriefcase /> <a href="https://github.com/kao-hurtado22/Music-Player-React" target="_blank" ><b>Proyecto Music Player</b></a>
                                         </li>
                                         <li className="list-group-item list-group-item-action animate__animated animate__pulse animate__delay-2s">

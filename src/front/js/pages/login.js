@@ -5,6 +5,7 @@ import profile from "../../../../dist/img/3w.png";
 import "./../../styles/login.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import Navbarlogin from "../component/navbarlogin";
+import { FooterLogin } from "../component/footerlogin";
 
 export const Login = () => {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
@@ -92,13 +93,13 @@ export const Login = () => {
                       />
                       <div />
                       <div className="login-button">
-                        <button type="submit">enviar</button>
+                        <button type="submit">Enviar</button>
                         {formularioEnviado && <p className="exito"><strong>Bienvenido!</strong></p>}
                       </div>
 
                       <div>
                         <p>
-                          <a href={"/recuperarcontraseña"}>Olvido su contraseña?</a>{" "}
+                          <a id="a-1" href={"/recuperarcontraseña"}>Olvido su contraseña?</a>{" "}
                         </p>
                       </div>
                     </div>
@@ -108,6 +109,8 @@ export const Login = () => {
             </div>
           </div>
         </div>
-      </div></>
+      </div>
+      <FooterLogin />
+    </>
   );
 };

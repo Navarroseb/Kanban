@@ -5,7 +5,7 @@ const Card = (props) => {
     return (
 
         <div id="card-desarrollador" className="card">
-            <div className="card-body text-center">
+            <div id="card-body6" className="card-body text-center1">
                 <h4 className="card-tittle text-end">
                     {/* <a href="#" className="btn button-fav mr-6">
                         <i class="fas fa-heart"></i>
@@ -16,7 +16,7 @@ const Card = (props) => {
                 <p className="calificacion"><i class="fas fa-star"></i>{props.cardCalificacion} </p>
                 <p className="ciudad desarrollador">{props.cardCiudad}</p>
                 <div className="footer-card">
-                    <a class="btn btn-outline-primary" href={"/perfildesarrolladores"} role="button">{props.cardBoton}</a>
+                    <a class="btn btn-outline-primary" href={"/perfildesarrollador-ricardo-hurtado"} role="button">{props.cardBoton}</a>
 
                 </div>
             </div>

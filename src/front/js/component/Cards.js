@@ -20,7 +20,7 @@ const Card = (props) => {
                                 {props.description}
                             </p>
                             <p className="card-text">
-                                <ul className="list-group">
+                                <ul id="list-group1" className="list-group">
                                     <li className="list-group-item list-group-item-action animate__animated animate__backInRight animate__delay-1s">
                                         <FaEnvelope /> Kao.hurtado22@gmail.com
                                     </li>

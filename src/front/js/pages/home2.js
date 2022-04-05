@@ -17,6 +17,7 @@ import fotokao from "../../img/kao.png"
 import fotoseba from "../../img/seba.png"
 import Navbar from "../component/navbar"
 import Info2 from "../component/info2"
+import { Footer } from "../component/footer";
 
 
 
@@ -147,7 +148,7 @@ export const Home2 = () => {
 			{/* </div>
 				</div>
 			</section> */}
-
+			<Footer />
 		</>
 	);
 };

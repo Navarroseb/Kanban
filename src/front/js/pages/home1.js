@@ -8,6 +8,7 @@ import Service from "../component/Service";
 import Work from "../component/Works";
 import Comment from "../component/Comment";
 import Navbar2 from "../component/navbar2"
+import { Footer } from "../component/footer";
 
 
 
@@ -90,6 +91,7 @@ export const Home1 = () => {
 						/> */}
 					</div>
 				</section></div>
+			<Footer />
 		</>
 	);
 };
