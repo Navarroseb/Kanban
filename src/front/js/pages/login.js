@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import contraseña from "../../img/contraseña.jpg";
 import mail from "../../img/mail-logo.png";
-import profile from "../../img/2w.png";
+import profile from "../../../../dist/img/3w.png";
 import "./../../styles/login.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import Navbarlogin from "../component/navbarlogin";
@@ -58,7 +58,7 @@ export const Login = () => {
               >
                 {({ errors }) => (
                   <Form>
-                    <h1>Inicio de sesion</h1>
+                    <h1 className="titulo-login">Inicio de Sesión</h1>
 
                     <div>
                       <img src={mail} alt="email" className="email" />

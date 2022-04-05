@@ -31,7 +31,7 @@ export const Home1 = () => {
 									title2="Biografia"
 									title3="Deja tu clasificación"
 									buttonLabel="Calificar"
-									description="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+									description="Soy un joven apasionado y entusiasta, en un nuevo mundo, en el cual estoy experimentando, ademas creer en las mejores prácticas y tendencias modernas en desarrollo web.    El diseño de su sitio, es lo primero que ven sus clientes. Es por eso que diseño sitios que reflejan tu estilo de negocio. "
 									description2="Muchas gracias por calificar a nuestro Profesional"
 								/>
 							</div>
@@ -44,17 +44,17 @@ export const Home1 = () => {
 							<div className="col-md-6" id="service-1">
 								<Service
 									title="Servicios"
-									description="Personalización del diseño"
-									description2="Carga de contenido"
-									description3="Diseño de respuesta"
-									description4="Incluir código fuente"
+									description=" - Personalización del diseño"
+									description2="- Carga de contenido"
+									description3="- Diseño de respuesta"
+									description4="- Incluir código fuente"
 									description5=""
 								/>
 							</div>
 							<div className="col-md-6" id="service-2">
 								<Service
 									title="Experiencia"
-									description="“Ser Full Stack Developer no implica dominar por completo cada aspecto del front-end o el back-end, pero sí poder trabajar en ambos lados, comunicarlos y entender lo que sucede cuando se crea una aplicación”"
+									description="Al ser FREELANCE he Asistido y contribuido con conocimientos de programación, a reuniones de desarrollo de empresa (PYMES). Esto es muy importante para la empresa (PYMES), ya qué como Programador Junior sere quién pueda dar opiniones sobre por ejemplo cuanto factible es implementar ciertos cambios o mejoras en los aspectos de la empresa que impliquen programación"
 
 
 								/>
@@ -62,13 +62,13 @@ export const Home1 = () => {
 							<div className="col-md-6" id="service-3">
 								<Service
 									title="Mis Habilidades"
-									description="“Ser Full Stack Developer no implica dominar por completo cada aspecto del front-end o el back-end, pero sí poder trabajar en ambos lados, comunicarlos y entender lo que sucede cuando se crea una aplicación”"
+									description="Al ser un joven que se puede adaptar al cambio de manera facil y a su ves ser creativo, tendras una productividad que vale por dos, y la razón es muy sencilla, los reclutadores siempre buscan aquellos trabajadores que quieran innovar y sean sagaces en lo que hacen, permitiendo que la empresa siempre se destaque y marque la diferencia ante la competencia."
 								/>
 							</div>
 							<div className="col-md-6" id="service-4">
 								<Service
-									title="Mis Portafolios"
-									description="“Ser Full Stack Developer no implica dominar por completo cada aspecto del front-end o el back-end, pero sí poder trabajar en ambos lados, comunicarlos y entender lo que sucede cuando se crea una aplicación”"
+									title="Principales razones para contratarme"
+									description="Si eres emprendedor y tienes un pyme, te daras cuenta que no puedes cubrir todas las areas, tanto de produccion y tecnologia de tu negocio, lo cual podrian estar funcionando las 24 horas del dia, este sería también un factor importante para pensar como pyme de como puedo mejorar mas mi negocio, por eso yo te puedo ayudar con aplicaciones necesarias para tu negocio. Quizás la falta de tiempo, la familia, los estudios y otras actividades puedan influir en no desarrollar bien el éxito de tu empresa. "
 								/>
 							</div>
 						</div>
