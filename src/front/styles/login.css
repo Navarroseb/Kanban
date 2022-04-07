@@ -2,18 +2,20 @@
   text-align: center;
   justify-content: center;
   display: flex;
-  padding: 90px 0 90px 0;
+  padding: 210px 0 90px 0;
   background-color: rgba(224, 219, 219, 0.438);
 }
 
 .sub-app {
-  display: flex;
-  justify-content: center;
+  /*   display: flex;
+  justify-content: center; */
+  position: relative;
+  bottom: 80px;
   height: 550px;
-  width: 35%;
+  width: 390px;
   padding-top: 30px;
   border-radius: 50px;
-  background-color: rgb(223, 209, 226);
+  /* background-color: rgb(223, 209, 226); */
   border-style: groove;
 }
 
@@ -23,19 +25,21 @@
   display: flex;
 }
 
-.container-image {
+/* .container-image {
   background-color: rgb(223, 221, 221);
   border-radius: 150px;
   align-items: center;
   display: flex;
   height: 115px;
   width: 115px;
-}
+} */
 
 .profile {
-  height: 100px;
+  /*  height: 100px; */
   width: 130px;
-  border-radius: 130px;
+  position: relative;
+  bottom: 20px;
+  /* border-radius: 130px; */
 }
 
 input {
@@ -48,7 +52,11 @@ input {
   background-color: whitesmoke;
   border-style: groove;
 }
-
+input::placeholder {
+  position: relative;
+  left: 10px;
+  color: grey;
+}
 .email {
   height: 25px;
   width: 25px;
@@ -66,7 +74,7 @@ input {
 }
 
 button {
-  width: 300px;
+  width: 160px;
   height: 50px;
   border-radius: 60px;
   background-color: rgb(54, 61, 161);
@@ -84,8 +92,10 @@ button {
   font-weight: 400;
 }
 
-a {
-  color: black;
+#a-1 {
+  color: rgb(255, 255, 255);
+  position: relative;
+  top: 40px;
 }
 
 .exito {

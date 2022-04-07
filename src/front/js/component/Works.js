@@ -13,22 +13,22 @@ const Work = (props) => {
                         <div className="col-md-6">
                             <img src={imgworks} className="img-fluid imgprof" alt="..." />
                         </div>
-                        <div className="col-md-6 cbw">
+                        <div className="col-md-6 ">
                             <div className="card-body ">
                                 <h1 className="card-title text-white text-center">{props.title}</h1>
-                                <p className="card-text">
+                                <p id="list-group2" className="card-text ">
                                     <ul className="list-group">
-                                        <li className="list-group-item list-group-item-action animate__animated animate__pulse animate__delay-1s">
-                                            <FaBriefcase /> <a href="https://github.com/kao-hurtado22" target="_blank" >Proyecto kathy</a>
+                                        <li className="list-group-item list-group-item-action animate__animated animate__pulse animate__delay-1s ">
+                                            <FaBriefcase /> <a href="https://github.com/kao-hurtado22/Music-Player-React" target="_blank" ><b>Proyecto Music Player</b></a>
                                         </li>
                                         <li className="list-group-item list-group-item-action animate__animated animate__pulse animate__delay-2s">
-                                            <FaBriefcase /> <a href="https://github.com/kao-hurtado22" target="_blank" >Proyecto Migue</a>
+                                            <FaBriefcase /> <a href="https://github.com/kao-hurtado22/TicTacToe-With-React" target="_blank" ><b>Proyecto Tic Tac Toe</b></a>
                                         </li>
                                         <li className="list-group-item list-group-item-action animate__animated animate__pulse animate__delay-3s">
-                                            <FaBriefcase /> <a href="https://github.com/kao-hurtado22" target="_blank" >Proyecto Seba</a>
+                                            <FaBriefcase /> <a href="https://github.com/kao-hurtado22/todo-list-react" target="_blank" ><b>Proyecto ToDo List</b></a>
                                         </li>
                                         <li className="list-group-item list-group-item-action animate__animated animate__pulse animate__delay-4s">
-                                            <FaBriefcase /> <a href="https://github.com/kao-hurtado22" target="_blank" >Proyecto kao</a>
+                                            <FaBriefcase /> <a href="https://github.com/kao-hurtado22/Sorting-Cards" target="_blank" ><b>Proyecto Sorting Cards</b></a>
                                         </li>
                                     </ul>
                                 </p>

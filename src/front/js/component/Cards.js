@@ -7,7 +7,7 @@ import Imagen1 from "../../img/1w.png"
 const Card = (props) => {
     return (
         <> <div id="cont-profesionales" className="container">
-            <div id="cprof" className="card mb-3">
+            <div id="cprof1" className="card mb-3">
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img src="https://i.pinimg.com/564x/49/df/07/49df07ffea248dfca6a579e9096fa04f.jpg" className="img-fluid rounded-start px-3 py-5" alt="..." />
@@ -20,7 +20,7 @@ const Card = (props) => {
                                 {props.description}
                             </p>
                             <p className="card-text">
-                                <ul className="list-group">
+                                <ul id="list-group1" className="list-group">
                                     <li className="list-group-item list-group-item-action animate__animated animate__backInRight animate__delay-1s">
                                         <FaEnvelope /> Kao.hurtado22@gmail.com
                                     </li>

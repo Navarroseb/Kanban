@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import Cardcliente from "../component/cardcliente.js";
 import "../../styles/home.css";
 import Navbarvc from "../component/navbarvc"
+import { FooterCliente } from "../component/footercliente";
 
 export const Vistacliente = () => {
 
@@ -16,6 +17,7 @@ export const Vistacliente = () => {
                 cardEmpresacliente="Nombre empresa E.I.R.L"
                 cardPaginawebcliente="pagina opcional"
             />
+            <FooterCliente />
         </>
     );
 };

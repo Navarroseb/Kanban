@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import contraseña from "../../img/contraseña.jpg";
 import mail from "../../img/mail-logo.png";
-import profile from "../../img/2w.png";
+import profile from "../../../../dist/img/3w.png";
 import "./../../styles/login.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import Navbarlogin from "../component/navbarlogin";
+import { FooterLogin } from "../component/footerlogin";
 
 export const Login = () => {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
@@ -58,7 +59,7 @@ export const Login = () => {
               >
                 {({ errors }) => (
                   <Form>
-                    <h1>Inicio de sesion</h1>
+                    <h1 className="titulo-login">Inicio de Sesión</h1>
 
                     <div>
                       <img src={mail} alt="email" className="email" />
@@ -92,13 +93,13 @@ export const Login = () => {
                       />
                       <div />
                       <div className="login-button">
-                        <button type="submit">enviar</button>
+                        <button type="submit">Enviar</button>
                         {formularioEnviado && <p className="exito"><strong>Bienvenido!</strong></p>}
                       </div>
 
                       <div>
                         <p>
-                          <a href={"/recuperarcontraseña"}>Olvido su contraseña?</a>{" "}
+                          <a id="a-1" href={"/recuperarcontraseña"}>Olvido su contraseña?</a>{" "}
                         </p>
                       </div>
                     </div>
@@ -108,6 +109,8 @@ export const Login = () => {
             </div>
           </div>
         </div>
-      </div></>
+      </div>
+      <FooterLogin />
+    </>
   );
 };
